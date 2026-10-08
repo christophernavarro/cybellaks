@@ -86,8 +86,22 @@
 .qintro__tag { padding: .4rem 1rem; border-radius: var(--r-pill); background: var(--rose-blush); color: var(--rose-deep); font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .qintro__title { font-size: clamp(2.2rem, 5vw, 3.8rem); text-wrap: balance; }
 .qintro__lead { max-width: 32rem; color: var(--ink-soft); font-size: 1.1rem; }
-.qintro__meta { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; padding: 0; }
-.qintro__meta li { padding: .4rem 1rem; border-radius: var(--r-pill); border: 1.5px solid var(--rose-powder); font-size: .85rem; font-weight: 600; color: var(--ink-soft); }
+/* Texto rotatorio con subrayado */
+.qintro__rotor { margin: 0; }
+.rotor { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .5rem; }
+.rotor__word {
+  position: relative; display: inline-block; padding-bottom: .3rem;
+  font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: clamp(1.3rem, 2.6vw, 1.7rem); color: var(--rose-deep);
+}
+.rotor__word::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; border-radius: 2px; background: var(--rose-pale); transform: scaleX(0); transform-origin: 0 50%; }
+.rotor__word.is-in { animation: wordIn .7s var(--ease-out) both; }
+.rotor__word.is-in::after { animation: underline .9s var(--ease-out) .15s forwards; }
+.rotor__word.is-out { animation: wordOut .4s var(--ease-inout) both; }
+.rotor__word.is-out::after { transform: scaleX(1); transform-origin: 100% 50%; animation: underlineOut .4s var(--ease-inout) forwards; }
+@keyframes wordIn { from { opacity: 0; transform: translateY(70%); } }
+@keyframes wordOut { to { opacity: 0; transform: translateY(-70%); } }
+@keyframes underline { to { transform: scaleX(1); } }
+@keyframes underlineOut { to { transform: scaleX(0); } }
 .btn--xl { padding: 1.25rem 2.2rem; font-size: 1.1rem; margin-top: .4rem; }
 .qintro__cta::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 0 0 rgba(162, 79, 93, .5); animation: ring 2.4s ease-out infinite; z-index: -2; }
 @keyframes ring { to { box-shadow: 0 0 0 22px rgba(162, 79, 93, 0); } }

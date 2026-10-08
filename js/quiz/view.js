@@ -4,6 +4,7 @@ import { media } from '../ui/art.js';
 import { petals } from '../ui/motion.js';
 
 const LETTERS = 'ABCDEFGH';
+const RISE = ['~2 minutos', 'Sin registro', 'Recomendación a tu medida'];   // textos que rotan en la intro
 
 export function mountQuiz({ questions, results, copy }) {
   const stage = document.getElementById('quiz-stage');
@@ -65,7 +66,9 @@ export function mountQuiz({ questions, results, copy }) {
         <span class="qintro__tag">✦ Quiz de ${questions.length} preguntas</span>
         <h3 class="display qintro__title">${em(copy.introTitle ?? copy.title)}</h3>
         <p class="qintro__lead">${copy.lead}</p>
-        <ul class="qintro__meta"><li>~2 minutos</li><li>Sin registro</li><li>Recomendación a tu medida</li></ul>
+        <p class="qintro__rotor" aria-label="${RISE.join('. ')}">
+          <span class="rotor" aria-hidden="true"><span class="rotor__word is-in" data-i="0">${RISE[0]}</span></span>
+        </p>
         <button class="btn btn--xl qintro__cta" type="button" data-act="start" data-focus>${copy.start}<span class="arrow">→</span></button>
       </div>`);
   }
@@ -167,6 +170,20 @@ export function mountQuiz({ questions, results, copy }) {
     if (!e.target.closest('[data-quiz-start]')) return;
     if (!state.started && !state.done) setTimeout(() => stage.querySelector('[data-act="start"]')?.focus({ preventScroll: true }), 700);
   });
+
+  // Intro: un solo texto con subrayado que va cambiando
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) setInterval(() => {
+    const w = stage.querySelector('.rotor__word');
+    if (!w || document.hidden) return;
+    w.classList.remove('is-in'); w.classList.add('is-out');
+    setTimeout(() => {
+      if (!w.isConnected) return;
+      const i = (+w.dataset.i + 1) % RISE.length;
+      w.dataset.i = i; w.textContent = RISE[i];
+      w.classList.remove('is-out'); void w.offsetWidth; w.classList.add('is-in');
+    }, 420);
+  }, 2800);
 
   render();
 }
