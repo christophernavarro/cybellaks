@@ -11,7 +11,30 @@ export function mountQuiz({ questions, results, copy }) {
   const bar = progress.querySelector('.quiz__bar');
   const count = progress.querySelector('.quiz__count');
   const petalsBox = document.querySelector('.quiz__petals');
+  const layout = document.querySelector('.quiz__layout');
+  const arts = [...layout.querySelectorAll('.qaside__art')];
+  const numBox = layout.querySelector('.qaside__num');
+  const chips = layout.querySelector('.qaside__chips');
+  const em = (t) => t.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  const pad = (n) => String(n).padStart(2, '0');
   let state = loadState();
+
+  // Lateral: ilustración que cambia con cada pregunta, numeral grande y chips con lo ya respondido
+  function updateAside() {
+    const mode = state.done ? 'result' : state.started ? 'q' : 'intro';
+    layout.dataset.mode = mode;
+    const idx = mode === 'q' ? state.step % arts.length : 0;
+    arts.forEach((a, i) => a.classList.toggle('on', i === idx));
+    numBox.innerHTML = mode === 'q'
+      ? `<span class="qnum" key="${state.step}">${pad(state.step + 1)}</span><small>/ ${pad(questions.length)}</small>` : '';
+    const labels = mode === 'q'
+      ? questions.slice(0, state.step).map((q) => {
+          const a = state.answers[q.id];
+          return q.options.filter((o) => (Array.isArray(a) ? a.includes(o.id) : a === o.id)).map((o) => o.label).join(', ');
+        }).filter(Boolean)
+      : [];
+    chips.innerHTML = labels.map((l, i) => `<li style="--i:${i}">${l}</li>`).join('');
+  }
 
   // Cambia de pantalla con salida/entrada animadas
   function swap(html, dir = 1) {
@@ -36,11 +59,14 @@ export function mountQuiz({ questions, results, copy }) {
 
   function renderIntro() {
     progress.hidden = true;
+    updateAside();
     swap(`
       <div class="qintro">
+        <span class="qintro__tag">✦ Quiz de ${questions.length} preguntas</span>
+        <h3 class="display qintro__title">${em(copy.introTitle ?? copy.title)}</h3>
         <p class="qintro__lead">${copy.lead}</p>
-        <ul class="qintro__meta"><li>${questions.length} preguntas</li><li>~2 minutos</li><li>Sin registro</li></ul>
-        <button class="btn" type="button" data-act="start" data-focus>${copy.start}<span class="arrow">→</span></button>
+        <ul class="qintro__meta"><li>~2 minutos</li><li>Sin registro</li><li>Recomendación a tu medida</li></ul>
+        <button class="btn btn--xl qintro__cta" type="button" data-act="start" data-focus>${copy.start}<span class="arrow">→</span></button>
       </div>`);
   }
 
@@ -49,6 +75,7 @@ export function mountQuiz({ questions, results, copy }) {
     const picked = state.answers[q.id];
     const sel = (id) => (Array.isArray(picked) ? picked.includes(id) : picked === id);
     setProgress(state.step, questions.length);
+    updateAside();
     swap(`
       <div class="qstep">
         <h3 class="display qstep__title">${q.title}</h3>
@@ -72,9 +99,10 @@ export function mountQuiz({ questions, results, copy }) {
   function renderResult() {
     const r = resolveResult(state.answers, results);
     setProgress(questions.length, questions.length);
+    updateAside();
     swap(`
       <div class="result">
-        <div class="result__media" data-mask-lite>${media({ ...r, alt: r.title })}</div>
+        <div class="result__media" data-mask-lite>${media({ ...r, alt: r.title })}<span class="result__sticker">✦ Tu estilo</span></div>
         <div class="result__body">
           <span class="eyebrow">${r.eyebrow}</span>
           <h3 class="display result__title">${r.title}</h3>

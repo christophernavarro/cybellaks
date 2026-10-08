@@ -49,6 +49,7 @@ export const site = {
     eyebrow: 'Quiz interactivo',
     title: 'Encuentra la solución *perfecta* para ti',
     lead: 'Unas pocas preguntas, una recomendación hecha a tu medida. Sin registro y en menos de dos minutos.',
+    introTitle: 'Tu hogar tiene un *estilo*. Descúbrelo en unos minutos',
     start: 'Comenzar el quiz',
   },
   footer: {
