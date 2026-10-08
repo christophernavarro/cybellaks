@@ -60,6 +60,23 @@
 .quiz__panel::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: linear-gradient(90deg, var(--rose-peach), var(--rose-pale), var(--rose-deep)); }
 
 /* Barra de progreso */
+.quiz__progress, .quiz__stage { position: relative; z-index: 1; }
+
+/* Imagen de fondo a la derecha, difuminada hacia el blanco; cambia con la opción en foco o seleccionada */
+.qbg {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0; transition: opacity .6s var(--ease-out);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 15%, #000 85%); mask-image: linear-gradient(to bottom, transparent 15%, #000 85%);
+}
+.qbg.has { opacity: .55; }
+.qbg__img { position: absolute; inset: 0; opacity: 0; transform: scale(1.1); transition: opacity .8s var(--ease-out), transform 1.6s var(--ease-out); }
+.qbg__img.on { opacity: 1; transform: none; }
+.qbg__img img, .qbg__img .art, .qbg__img svg { width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 900px) {
+  .qbg { inset: 0 0 0 auto; width: 62%; -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 60%); mask-image: linear-gradient(to right, transparent 0%, #000 60%); }
+  .qbg.has { opacity: 1; }
+}
+.quiz__layout[data-mode="intro"] .qbg, .quiz__layout[data-mode="result"] .qbg { display: none; }
+
 .quiz__progress[hidden] { display: none; }
 .quiz__progress { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
 .quiz__bar { flex: 1; height: 12px; border-radius: var(--r-pill); background: var(--rose-blush); position: relative; }
@@ -113,11 +130,11 @@
 .option {
   --lift: 0px;
   position: relative; overflow: hidden; display: flex; align-items: center; gap: 1.1rem; text-align: left;
-  padding: 1.15rem 1.3rem; border-radius: var(--r-md); border: 1.5px solid var(--rose-powder); background: var(--offwhite);
+  padding: 1.15rem 1.3rem; border-radius: var(--r-md); border: 1.5px solid var(--rose-powder); background: rgba(255, 250, 246, .74); backdrop-filter: blur(6px);
   transform: translateY(var(--lift)); animation: rise .7s var(--ease-out) both; animation-delay: calc(var(--i) * 80ms + 150ms);
   transition: border-color .35s, background .45s, color .35s, box-shadow .45s var(--ease-out), transform .45s var(--ease-out);
 }
-.option:hover { --lift: -4px; border-color: var(--rose-pale); box-shadow: var(--shadow-soft); background: #fff; }
+.option:hover { --lift: -4px; border-color: var(--rose-pale); box-shadow: var(--shadow-soft); background: rgba(255, 255, 255, .92); }
 .option:active { transform: scale(.97); }
 .option__key {
   flex: none; width: 2.8rem; height: 2.8rem; display: grid; place-items: center; font-weight: 700; font-size: .9rem; color: var(--rose-deep);

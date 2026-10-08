@@ -24,6 +24,7 @@ export function quizSection({ quiz: q }) {
         </aside>
 
         <div class="quiz__panel">
+          <div class="qbg" aria-hidden="true"></div>
           <div class="quiz__progress" hidden><span class="quiz__bar"></span><span class="quiz__count"></span></div>
           <div id="quiz-stage" class="quiz__stage" aria-live="polite"></div>
         </div>

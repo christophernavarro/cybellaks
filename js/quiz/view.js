@@ -16,6 +16,8 @@ export function mountQuiz({ questions, results, copy }) {
   const arts = [...layout.querySelectorAll('.qaside__art')];
   const numBox = layout.querySelector('.qaside__num');
   const chips = layout.querySelector('.qaside__chips');
+  const bg = layout.querySelector('.qbg');
+  const KINDS = ['room', 'lamp', 'garden'];
   const em = (t) => t.replace(/\*([^*]+)\*/g, '<em>$1</em>');
   const pad = (n) => String(n).padStart(2, '0');
   let state = loadState();
@@ -58,7 +60,22 @@ export function mountQuiz({ questions, results, copy }) {
     count.textContent = step >= total ? 'Listo' : `Pregunta ${step + 1} de ${total}`;
   }
 
+  // Fondo de la derecha: imagen de la opción en foco o seleccionada, con borde difuminado
+  function showBg(id) {
+    bg.querySelectorAll('.qbg__img').forEach((el) => el.classList.toggle('on', el.dataset.opt === id));
+    bg.classList.toggle('has', !!id);
+  }
+  function buildBg(q) {
+    bg.innerHTML = q.options.map((o, i) =>
+      `<div class="qbg__img" data-opt="${o.id}">${media({ image: o.image, art: o.art ?? KINDS[i % KINDS.length], alt: '' })}</div>`).join('');
+  }
+  function currentSel() {
+    const a = state.answers[questions[state.step]?.id];
+    return Array.isArray(a) ? a[a.length - 1] : a;
+  }
+
   function renderIntro() {
+    showBg(null);
     progress.hidden = true;
     updateAside();
     swap(`
@@ -79,6 +96,7 @@ export function mountQuiz({ questions, results, copy }) {
     const sel = (id) => (Array.isArray(picked) ? picked.includes(id) : picked === id);
     setProgress(state.step, questions.length);
     updateAside();
+    buildBg(q); showBg(currentSel());
     swap(`
       <div class="qstep">
         <h3 class="display qstep__title">${q.title}</h3>
@@ -103,6 +121,7 @@ export function mountQuiz({ questions, results, copy }) {
     const r = resolveResult(state.answers, results);
     setProgress(questions.length, questions.length);
     updateAside();
+    showBg(null);
     swap(`
       <div class="result">
         <div class="result__media" data-mask-lite>${media({ ...r, alt: r.title })}<span class="result__sticker">✦ Tu estilo</span></div>
@@ -129,6 +148,7 @@ export function mountQuiz({ questions, results, copy }) {
 
   function choose(optId) {
     const q = questions[state.step];
+    showBg(optId);
     if (q.type === 'multi') {
       const cur = new Set(state.answers[q.id] ?? []);
       cur.has(optId) ? cur.delete(optId) : cur.add(optId);
@@ -147,13 +167,19 @@ export function mountQuiz({ questions, results, copy }) {
       const on = b.dataset.opt === optId;
       b.classList.toggle('is-selected', on); b.setAttribute('aria-checked', on);
     });
-    setTimeout(next, 420); // deja ver la micro-interacción de selección
+    setTimeout(next, 700); // deja ver la micro-interacción de selección
   }
 
   function next() {
     if (state.step < questions.length - 1) { state.step++; saveState(state); renderQuestion(1); }
     else { state.done = true; saveState(state); renderResult(); }
   }
+
+  const optId = (e) => e.target.closest('[data-opt]')?.dataset.opt;
+  stage.addEventListener('pointerover', (e) => { if (e.pointerType === 'mouse' && optId(e)) showBg(optId(e)); });
+  stage.addEventListener('pointerout', (e) => { if (e.pointerType === 'mouse' && optId(e) && !e.relatedTarget?.closest?.('[data-opt]')) showBg(currentSel()); });
+  stage.addEventListener('focusin', (e) => { if (optId(e)) showBg(optId(e)); });
+  stage.addEventListener('focusout', (e) => { if (optId(e) && !e.relatedTarget?.closest?.('[data-opt]')) showBg(currentSel()); });
 
   stage.addEventListener('click', (e) => {
     const opt = e.target.closest('[data-opt]');
