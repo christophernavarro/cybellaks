@@ -130,3 +130,7 @@
 .footer__title { font-size: clamp(2.4rem, 7vw, 6rem); max-width: 16ch; }
 .footer__title em { color: var(--rose-peach); }
 .footer__note { margin-top: 4rem; font-size: .85rem; opacity: .7; }
+
+/* Campo de puntos interactivo del hero */
+.hero__dots { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero__grid { z-index: 1; }

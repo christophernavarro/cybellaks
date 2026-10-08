@@ -9,6 +9,7 @@ import { info, servicesSection } from './components/info.js';
 import { quizSection } from './components/quiz.js';
 import { footer } from './components/footer.js';
 import { initModal } from './components/modal.js';
+import { initDots } from './ui/dots.js';
 import { initReveal, initLit, initScroll, initCounters, initMagnetic } from './ui/motion.js';
 
 document.getElementById('app').innerHTML = [
@@ -33,6 +34,7 @@ initReveal();
 initScroll();
 initCounters();
 initMagnetic();
+initDots(document.querySelector('.hero'));
 
 // El header cambia de estilo al bajar
 const hd = document.querySelector('.header');

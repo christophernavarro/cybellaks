@@ -17,6 +17,7 @@ export function hero({ hero: h, brand }) {
   return `
   <section class="hero" id="top">
     <div class="hero__bg" aria-hidden="true"><i></i><i></i></div>
+    <canvas class="hero__dots" aria-hidden="true"></canvas>
     <div class="wrap hero__grid">
       <div class="hero__copy">
         <span class="eyebrow" data-reveal>${h.eyebrow}</span>
