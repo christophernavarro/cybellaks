@@ -1,0 +1,40 @@
+/* ============ TOKENS ============
+   Paleta provisional. Cuando llegue la tarjeta de colores, solo se editan estos valores. */
+:root {
+  /* Rosas (protagonistas) */
+  --rose-blush: #fbe4e2;      /* blush */
+  --rose-powder: #f1c3c4;     /* rosa empolvado */
+  --rose-peach: #f7c9b6;      /* rosa durazno */
+  --rose-pale: #dca4a9;       /* rosa palo */
+  --rose-deep: #a24f5d;       /* acento con contraste para texto/botones */
+
+  /* Neutros cálidos */
+  --cream: #fbf4ec;
+  --offwhite: #fffaf6;
+  --beige: #ecdfd0;
+
+  /* Texto */
+  --ink: #3a2a2d;
+  --ink-soft: #6e585c;
+
+  /* Tipografía */
+  --font-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Forma */
+  --r-sm: 14px;
+  --r-md: 24px;
+  --r-lg: 36px;
+  --r-pill: 999px;
+  --shadow-soft: 0 10px 30px -12px rgba(162, 79, 93, 0.25);
+  --shadow-lift: 0 30px 60px -20px rgba(162, 79, 93, 0.38);
+
+  /* Movimiento */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Layout */
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --maxw: 1320px;
+  --section-y: clamp(5rem, 12vw, 10rem);
+}

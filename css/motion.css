@@ -1,0 +1,51 @@
+/* ============ ESTADOS DE ANIMACIÓN ============ */
+
+/* Fade + subida */
+[data-reveal] {
+  opacity: 0; transform: translate3d(0, 38px, 0);
+  transition: opacity 1s var(--ease-out), transform 1.1s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 120ms);
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+
+/* Imagen que se descubre con máscara + zoom out */
+[data-mask] {
+  clip-path: inset(100% 0 0 0 round var(--mask-r, 28px));
+  transition: clip-path 1.4s var(--ease-inout);
+  transition-delay: calc(var(--i, 0) * 140ms);
+}
+[data-mask] > * { transform: scale(1.25); transition: transform 1.8s var(--ease-out); transition-delay: calc(var(--i, 0) * 140ms); }
+[data-mask].is-in { clip-path: inset(0 0 0 0 round var(--mask-r, 28px)); }
+[data-mask].is-in > * { transform: scale(1); }
+
+/* Titulares dividos por palabra con máscara */
+.split .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+.split .w > span {
+  display: inline-block; transform: translate3d(0, 110%, 0) rotate(4deg); transform-origin: 0 100%;
+  transition: transform 1.1s var(--ease-out); transition-delay: calc(var(--wi, 0) * 70ms + var(--base, 0ms));
+}
+.split.is-in .w > span { transform: none; }
+
+/* Frase que se ilumina palabra a palabra con el scroll */
+.lit .lw { opacity: .18; transition: opacity .5s var(--ease-out), color .5s; }
+.lit .lw.on { opacity: 1; }
+
+/* Marquee */
+.marquee { overflow: hidden; }
+.marquee__track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Flotación suave */
+@keyframes float { 0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg)); } 50% { transform: translate3d(0, -14px, 0) rotate(calc(var(--rot, 0deg) + 1.2deg)); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulseGlow { 0%, 100% { opacity: .55; transform: scale(1); } 50% { opacity: .95; transform: scale(1.12); } }
+@keyframes sway { 0%, 100% { transform: rotate(-2.5deg); } 50% { transform: rotate(2.5deg); } }
+@keyframes rise { from { opacity: 0; transform: translate3d(0, 24px, 0); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0ms !important; }
+  [data-reveal], [data-mask], .split .w > span { opacity: 1; transform: none; clip-path: none; }
+  .lit .lw { opacity: 1; }
+}
