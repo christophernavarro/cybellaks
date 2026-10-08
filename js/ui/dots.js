@@ -59,14 +59,13 @@ export function initDots(hero) {
   const wake = () => { if (!raf && visible && !reduce) raf = requestAnimationFrame(loop); };
 
   const move = (e) => {
+    if (e.pointerType !== 'mouse') return;   // solo con mouse: en táctil los puntos quedan fijos
     const r = hero.getBoundingClientRect();
     mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; wake();
   };
   const leave = () => { mouse.x = mouse.y = -9999; wake(); };
   hero.addEventListener('pointermove', move);
-  hero.addEventListener('pointerdown', move);
   hero.addEventListener('pointerleave', leave);
-  hero.addEventListener('pointerup', (e) => { if (e.pointerType !== 'mouse') leave(); });
   new ResizeObserver(build).observe(hero);
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) wake(); }).observe(hero);
   build();
