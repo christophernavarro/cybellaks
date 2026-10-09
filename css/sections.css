@@ -108,7 +108,7 @@
 .wave { position: absolute; inset: auto 0 -1px 0; width: 100%; height: clamp(50px, 8vw, 120px); fill: var(--rose-blush); }
 
 /* ============ MODAL ============ */
-.modal { border: 0; padding: 0; border-radius: var(--r-lg); width: min(920px, 92vw); max-height: 90svh; background: var(--offwhite); box-shadow: 0 40px 100px -20px rgba(58,42,45,.5); overflow: hidden; }
+.modal { border: 0; padding: 0; border-radius: var(--r-lg); width: min(920px, 92vw); max-height: 90svh; background: var(--offwhite); color: var(--ink); box-shadow: 0 40px 100px -20px rgba(58,42,45,.5); overflow: hidden; }
 .modal::backdrop { background: rgba(58,42,45,.45); backdrop-filter: blur(6px); animation: fadeIn .4s; }
 .modal[open] { animation: modalIn .6s var(--ease-out); }
 @keyframes fadeIn { from { opacity: 0; } }
@@ -118,9 +118,10 @@
 .modal__media img, .modal__media svg, .modal__media .art { width: 100%; height: 100%; object-fit: cover; }
 .modal__body { padding: 2rem; display: grid; gap: 1rem; justify-items: start; }
 .modal__body h3 { font-size: 2.6rem; }
+.modal__body p { color: var(--ink-soft); }
 .modal__body ul { margin: 0; padding-left: 1.2rem; color: var(--ink-soft); }
 .modal__body li::marker { color: var(--rose-deep); }
-.modal__close { position: absolute; top: 1rem; right: 1rem; z-index: 2; width: 42px; height: 42px; border-radius: 50%; border: 0; background: var(--offwhite); box-shadow: var(--shadow-soft); transition: transform .4s var(--ease-out); }
+.modal__close { position: absolute; top: 1rem; right: 1rem; z-index: 2; width: 42px; height: 42px; border-radius: 50%; border: 0; background: var(--offwhite); color: var(--ink); font-size: 1rem; box-shadow: var(--shadow-soft); transition: transform .4s var(--ease-out); }
 .modal__close:hover { transform: rotate(90deg); }
 @media (min-width: 760px) { .modal__inner { grid-template-columns: 1fr 1fr; } .modal__media { aspect-ratio: auto; } .modal__body { padding: 3rem 2.6rem; align-content: center; } }
 

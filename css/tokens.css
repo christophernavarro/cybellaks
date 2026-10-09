@@ -1,6 +1,8 @@
 /* ============ TOKENS ============
    Paleta provisional. Cuando llegue la tarjeta de colores, solo se editan estos valores. */
 :root {
+  color-scheme: light;        /* el sitio es siempre claro: evita que el modo oscuro del navegador cambie colores por defecto */
+
   /* Rosas (protagonistas) */
   --rose-blush: #fbe4e2;      /* blush */
   --rose-powder: #f1c3c4;     /* rosa empolvado */
