@@ -1,7 +1,14 @@
 # Arquitectura y esquema de datos
 
-Sitio estático (HTML + CSS + JavaScript con módulos ES). **Sin build ni dependencias**: se abre con cualquier servidor estático
-(`python3 -m http.server`) y se puede subir tal cual a Netlify, Vercel, GitHub Pages, etc.
+Sitio estático (HTML + CSS + JavaScript con módulos ES). **Sin build**: el único paquete es un servidor local de desarrollo.
+
+```bash
+npm install     # una sola vez
+npm start       # abre http://localhost:8123 en el navegador (sin caché)
+npm run dev     # igual, sin abrir el navegador
+```
+
+El sitio se puede subir tal cual a Netlify, Vercel, GitHub Pages, etc.
 
 ## Principio clave
 

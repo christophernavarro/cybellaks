@@ -1,0 +1,13 @@
+{
+  "name": "cybellaks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page y quiz interactivo de decoración de interiores",
+  "scripts": {
+    "start": "http-server . -p 8123 -c-1 -o",
+    "dev": "http-server . -p 8123 -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
