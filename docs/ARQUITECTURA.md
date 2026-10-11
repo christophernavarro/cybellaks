@@ -23,18 +23,19 @@ index.html                  Shell mínimo (fuentes, <main id="app">)
 css/
   tokens.css                Paleta, tipografías, espaciados, easing  ← aquí se cambian los colores de la tarjeta
   base.css                  Reset, tipografía, botones, utilidades
-  sections.css             Hero, información, servicios, footer
+  sections.css             Hero, servicios, footer
+  contact.css              Formulario de contacto
   quiz.css                  Quiz, barra de progreso, resultado
   motion.css                Estados de animación (reveal, máscaras, marquee)
 js/
   main.js                   Arranque: monta secciones, inicia animaciones
   data/
-    site.js                 Marca, hero, bloque de información, footer
+    site.js                 Marca, hero, contacto, footer
     services.js             Las 3 cards (Iluminación, Espacios pequeños, Paisajismo)
     quiz.questions.js       Preguntas y opciones
     quiz.results.js         Resultados + reglas respuesta → resultado
   components/
-    header.js  hero.js  marquee.js  info.js  services.js  quiz.js  footer.js
+    header.js  hero.js  marquee.js  services.js  quiz.js  contact.js  footer.js
     modal.js                Detalle de cada card (<dialog>)
   quiz/
     state.js                Estado de la sesión (sessionStorage)
@@ -54,10 +55,10 @@ assets/                     Aquí van las fotos reales (ver "Imágenes")
 | `header` | Logo + navegación + barra de progreso de scroll | `site.nav` |
 | `hero` | Titular grande, collage de imágenes con parallax, CTA al quiz | `site.hero` |
 | `marquee` | Cinta con texto en movimiento | `site.marquee` |
-| `info` | Frase de marca que se "ilumina" al hacer scroll, pilares, cifras | `site.info` |
 | `services` | 3 cards con aparición escalonada y hover | `services` |
 | `modal` | Detalle ampliado de una card | `services[i].detail` |
 | `quiz` | Contenedor + pantallas: intro → preguntas → resultado | `questions`, `results` |
+| `contact` | Formulario de contacto debajo del quiz (muestra el resultado del quiz si ya lo hizo) | `site.contact` |
 | `footer` | Cierre y CTA final | `site.footer` |
 
 ## Esquema: preguntas (`quiz.questions.js`)
@@ -126,5 +127,6 @@ Cada `image` apunta a un archivo de `assets/`. Mientras sea `null`, se muestra u
 | Preguntas y opciones | `js/data/quiz.questions.js` |
 | Tabla respuesta → resultado + textos | `js/data/quiz.results.js` |
 | Tarjeta de colores | `css/tokens.css` |
-| Textos/imágenes de marca | `js/data/site.js` |
+| Textos de marca, correo/WhatsApp del contacto | `js/data/site.js` |
+| Envío del formulario (servicio de formularios) | `site.contact.endpoint` en `js/data/site.js` |
 | Textos/imágenes de las 3 cards | `js/data/services.js` |

@@ -54,28 +54,6 @@
 .marquee__track > div { display: flex; align-items: center; gap: 2rem; padding-right: 2rem; font-size: clamp(1.4rem, 3vw, 2.2rem); font-style: italic; white-space: nowrap; }
 .marquee i { font-style: normal; font-size: 1rem; color: var(--rose-peach); }
 
-/* ============ INFO ============ */
-.info { background: var(--offwhite); }
-.info__statement { font-size: clamp(1.9rem, 4.6vw, 4rem); line-height: 1.12; margin: 1.6rem 0 clamp(3rem, 7vw, 6rem); max-width: 22ch; max-width: 24em; }
-.info__gallery { display: grid; gap: 1.5rem; }
-.info__gallery > .frame { aspect-ratio: 4/5; }
-.info__side { display: grid; gap: 1.5rem; align-content: space-between; }
-.frame--wide { aspect-ratio: 16/10; }
-.stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.stats strong { display: block; font-size: clamp(2.4rem, 5vw, 4.2rem); color: var(--rose-deep); line-height: 1; }
-.stats span:not([data-count]) { font-size: .85rem; color: var(--ink-soft); }
-.pillars { display: grid; gap: 1rem; margin-top: clamp(3rem, 7vw, 6rem); }
-.pillar { padding: 2rem 1.8rem; border-radius: var(--r-md); background: var(--cream); transition: transform .6s var(--ease-out), background .5s; }
-.pillar:hover { transform: translateY(-6px); background: var(--rose-blush); }
-.pillar__n { color: var(--rose-pale); font-size: 1.1rem; font-style: italic; }
-.pillar h3 { font-size: 1.7rem; margin: .5rem 0 .6rem; }
-.pillar p { color: var(--ink-soft); }
-@media (min-width: 900px) {
-  .info__gallery { grid-template-columns: 1fr 1.1fr; gap: 3rem; }
-  .pillars { grid-template-columns: repeat(3, 1fr); }
-  .info__statement { max-width: 20em; }
-}
-
 /* ============ SERVICIOS ============ */
 .services { background: var(--cream); padding-bottom: calc(var(--section-y) + 4rem); }
 .section__head { max-width: 46rem; margin-bottom: clamp(2.5rem, 6vw, 5rem); }

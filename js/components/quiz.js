@@ -30,5 +30,6 @@ export function quizSection({ quiz: q }) {
         </div>
       </div>
     </div>
+    <svg class="wave wave--cream" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0,70 C240,10 480,110 720,60 C960,10 1200,100 1440,50 L1440,120 L0,120 Z"/></svg>
   </section>`;
 }

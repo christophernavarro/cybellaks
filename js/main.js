@@ -5,21 +5,22 @@ import { results } from './data/quiz.results.js';
 import { validate } from './quiz/engine.js';
 import { mountQuiz } from './quiz/view.js';
 import { header, hero, marquee } from './components/hero.js';
-import { info, servicesSection } from './components/info.js';
+import { servicesSection } from './components/services.js';
 import { quizSection } from './components/quiz.js';
+import { contactSection, initContact } from './components/contact.js';
 import { footer } from './components/footer.js';
 import { initModal } from './components/modal.js';
 import { initDots } from './ui/dots.js';
-import { initReveal, initLit, initScroll, initCounters, initMagnetic } from './ui/motion.js';
+import { initReveal, initScroll, initMagnetic } from './ui/motion.js';
 
 document.getElementById('app').innerHTML = [
   header(site),
   '<main>',
   hero(site),
   marquee(site),
-  info(site),
   servicesSection(site, services),
   quizSection(site),
+  contactSection(site, services),
   '</main>',
   footer(site),
 ].join('');
@@ -29,10 +30,9 @@ if (issues.length) console.warn('[quiz] Revisa la tabla de resultados:\n' + issu
 
 mountQuiz({ questions, results, copy: site.quiz });
 initModal(services);
-initLit();
+initContact(site.contact, services);
 initReveal();
 initScroll();
-initCounters();
 initMagnetic();
 initDots(document.querySelector('.hero'));
 

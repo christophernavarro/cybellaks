@@ -1,4 +1,4 @@
-// Utilidades de animación: reveal, split de texto, parallax, texto que se ilumina, contadores, botones magnéticos.
+// Utilidades de animación: reveal, split de texto, parallax, botones magnéticos y pétalos.
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // "Hola *mundo*" → palabras con máscara; lo marcado con * va en cursiva (<em>)
@@ -36,23 +36,6 @@ export function initReveal(root = document) {
   });
 }
 
-// Frase que se ilumina palabra por palabra mientras se hace scroll
-export function initLit() {
-  document.querySelectorAll('.lit').forEach((el) => {
-    const words = el.textContent.trim().split(/\s+/);
-    el.innerHTML = words.map((w) => `<span class="lw">${w}</span>`).join(' ');
-    const spans = [...el.querySelectorAll('.lw')];
-    const update = () => {
-      const r = el.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.45)));
-      const upTo = Math.round(p * spans.length);
-      spans.forEach((s, i) => s.classList.toggle('on', i < upTo));
-    };
-    addEventListener('scroll', update, { passive: true });
-    update();
-  });
-}
-
 // Parallax + barra de progreso, un único rAF
 export function initScroll() {
   const items = [...document.querySelectorAll('[data-parallax]')];
@@ -73,24 +56,6 @@ export function initScroll() {
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(run); } }, { passive: true });
   addEventListener('resize', run);
   run();
-}
-
-export function initCounters() {
-  const els = document.querySelectorAll('[data-count]');
-  const fmt = (el, v) => { el.textContent = Math.round(v) + (el.dataset.suffix || ''); };
-  if (reduce) { els.forEach((el) => fmt(el, +el.dataset.count)); return; }
-  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-    if (!e.isIntersecting) return;
-    io.unobserve(e.target);
-    const el = e.target, to = +el.dataset.count, t0 = performance.now(), dur = 1800;
-    const tick = (t) => {
-      const k = Math.min(1, (t - t0) / dur);
-      fmt(el, to * (1 - Math.pow(1 - k, 4)));
-      if (k < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }), { threshold: 0.6 });
-  els.forEach((el) => io.observe(el));
 }
 
 // Botones que "siguen" levemente al cursor

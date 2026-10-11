@@ -2,16 +2,16 @@
 export const site = {
   brand: 'Atelier Blush',
   nav: [
-    { label: 'Nosotros', href: '#nosotros' },
     { label: 'Categorías', href: '#categorias' },
     { label: 'Quiz', href: '#quiz' },
+    { label: 'Contacto', href: '#contacto' },
   ],
   hero: {
     eyebrow: 'Decoración de interiores',
     title: 'Espacios que se sienten *como tú*',
     lead: 'Diseñamos interiores cálidos, luminosos y llenos de carácter. Responde un breve quiz y te recomendamos la solución ideal para tu hogar.',
     cta: { label: 'Descubre tu estilo', href: '#quiz' },
-    secondary: { label: 'Conócenos', href: '#nosotros' },
+    secondary: { label: 'Ver categorías', href: '#categorias' },
     badge: 'Descubre tu estilo · Quiz de 2 minutos · ',
     // image: ruta a foto real (assets/...) o null para usar ilustración
     collage: [
@@ -21,25 +21,6 @@ export const site = {
     ],
   },
   marquee: ['Iluminación', 'Espacios pequeños', 'Paisajismo', 'Diseño a medida', 'Color y textura', 'Hogares con alma'],
-  info: {
-    eyebrow: 'Quiénes somos',
-    statement:
-      'Creemos que un hogar bien pensado cambia cómo te sientes. Mezclamos luz, color y proporción para crear espacios sencillos, bellos y profundamente tuyos.',
-    pillars: [
-      { title: 'Diseño con intención', text: 'Cada elemento tiene un porqué: función primero, belleza después, siempre juntas.' },
-      { title: 'Color que abraza', text: 'Paletas suaves y cálidas que aportan calma y personalidad sin saturar.' },
-      { title: 'A tu medida', text: 'Soluciones pensadas para tu espacio, tu rutina y tu presupuesto.' },
-    ],
-    stats: [
-      { value: 250, suffix: '+', label: 'Espacios transformados' },
-      { value: 12, suffix: '', label: 'Años de experiencia' },
-      { value: 98, suffix: '%', label: 'Clientes felices' },
-    ],
-    images: [
-      { art: 'room', image: null, alt: 'Interior diseñado por la marca' },
-      { art: 'garden', image: null, alt: 'Detalle de plantas' },
-    ],
-  },
   services: {
     eyebrow: 'Categorías',
     title: 'Tres formas de *transformar* tu espacio',
@@ -52,9 +33,21 @@ export const site = {
     introTitle: 'Tu hogar tiene un *estilo*. Descúbrelo en unos minutos',
     start: 'Comenzar el quiz',
   },
+  // Formulario de contacto. PLACEHOLDER: reemplazar correo, WhatsApp y horario.
+  // endpoint: URL de un servicio de formularios (Formspree, Web3Forms, etc.). Si está vacío, el formulario abre el correo del visitante con el mensaje listo.
+  contact: {
+    eyebrow: 'Contacto',
+    title: 'Cuéntanos tu *proyecto*',
+    lead: 'Escríbenos qué espacio quieres transformar y te respondemos con ideas y los siguientes pasos.',
+    email: 'hola@ejemplo.com',
+    whatsapp: { label: '+56 9 0000 0000', href: 'https://wa.me/56900000000' },
+    hours: 'Lunes a viernes · 9:00 a 18:00',
+    endpoint: '',
+    submit: 'Enviar mensaje',
+  },
   footer: {
     title: 'Hagamos de tu casa *tu lugar favorito*',
-    cta: { label: 'Escríbenos', href: 'mailto:hola@ejemplo.com' },
+    cta: { label: 'Escríbenos', href: '#contacto' },
     note: '© ' + new Date().getFullYear() + ' Atelier Blush. Todos los derechos reservados.',
   },
 };

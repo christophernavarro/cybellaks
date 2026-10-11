@@ -42,7 +42,7 @@ export function hero({ hero: h, brand }) {
         </div>
       </div>
     </div>
-    <a class="hero__scroll" href="#nosotros" aria-label="Bajar"><span></span></a>
+    <a class="hero__scroll" href="#categorias" aria-label="Bajar"><span></span></a>
   </section>`;
 }
 

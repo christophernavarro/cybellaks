@@ -26,10 +26,6 @@
 }
 .split.is-in .w > span { transform: none; }
 
-/* Frase que se ilumina palabra a palabra con el scroll */
-.lit .lw { opacity: .18; transition: opacity .5s var(--ease-out), color .5s; }
-.lit .lw.on { opacity: 1; }
-
 /* Marquee */
 .marquee { overflow: hidden; }
 .marquee__track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
@@ -47,5 +43,4 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0ms !important; }
   [data-reveal], [data-mask], .split .w > span { opacity: 1; transform: none; clip-path: none; }
-  .lit .lw { opacity: 1; }
 }
