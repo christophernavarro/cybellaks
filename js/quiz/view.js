@@ -7,6 +7,7 @@ const LETTERS = 'ABCDEFGH';
 const RISE = ['~2 minutos', 'Sin registro', 'Recomendación a tu medida'];   // textos que rotan en la intro
 
 export function mountQuiz({ questions, results, copy }) {
+  const actions = copy.actions;
   const stage = document.getElementById('quiz-stage');
   const progress = document.querySelector('.quiz__progress');
   const bar = progress.querySelector('.quiz__bar');
@@ -132,9 +133,12 @@ export function mountQuiz({ questions, results, copy }) {
           <p>${r.description}</p>
           <ul class="result__tips">${r.tips.map((t, i) => `<li style="--i:${i}">${t}</li>`).join('')}</ul>
           <div class="result__cta">
-            <a class="btn" href="${r.cta.href}">${r.cta.label}<span class="arrow">→</span></a>
-            <button class="btn btn--ghost" type="button" data-act="restart">Repetir el quiz</button>
+            ${actions.visit.href
+              ? `<a class="btn" href="${actions.visit.href}" target="_blank" rel="noopener">${actions.visit.label}<span class="arrow">→</span></a>`
+              : `<button class="btn" type="button" data-act="visit">${actions.visit.label}<span class="arrow">→</span></button>`}
+            <button class="btn btn--ghost" type="button" data-act="full">${actions.fullQuiz.label}<span class="tag">${actions.fullQuiz.price}</span></button>
           </div>
+          <button class="link-arrow link-arrow--back" type="button" data-act="restart">↺ Repetir el quiz</button>
         </div>
       </div>`);
     setTimeout(() => petals(petalsBox), 350);
@@ -189,6 +193,8 @@ export function mountQuiz({ questions, results, copy }) {
     if (act === 'next') next();
     if (act === 'back' && state.step > 0) { state.step--; saveState(state); renderQuestion(-1); }
     if (act === 'restart') { state = resetState(); render(); }
+    if (act === 'visit') document.dispatchEvent(new CustomEvent('cybella:contact', { detail: { topic: 'Visita a terreno', message: 'Quiero agendar una visita a terreno.' } }));
+    if (act === 'full') document.dispatchEvent(new CustomEvent('cybella:checkout'));
   });
 
   // CTA externos (hero, modal): llevan al quiz y lo inician si aún no empezó

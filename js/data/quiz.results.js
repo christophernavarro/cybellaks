@@ -16,7 +16,6 @@ export const results = [
     art: 'lamp',
     image: null,
     service: 'iluminacion',
-    cta: { label: 'Agendar asesoría', href: '#' },
     rules: [
       { espacio: ['sala', 'dormitorio'], sensacion: 'calma' },
       { estilo: 'calido', sensacion: 'calma' },
@@ -33,7 +32,6 @@ export const results = [
     art: 'room',
     image: null,
     service: 'espacios-pequenos',
-    cta: { label: 'Agendar asesoría', href: '#' },
     rules: [
       { espacio: 'pequeno' },
       { sensacion: 'amplitud', estilo: 'minimal' },
@@ -50,7 +48,6 @@ export const results = [
     art: 'garden',
     image: null,
     service: 'paisajismo',
-    cta: { label: 'Agendar asesoría', href: '#' },
     rules: [
       { espacio: 'exterior' },
       { sensacion: 'naturaleza', estilo: 'organico' },
@@ -66,7 +63,6 @@ export const results = [
     art: 'room',
     image: null,
     service: null,
-    cta: { label: 'Agendar asesoría', href: '#' },
     fallback: true,
     rules: [],
   },

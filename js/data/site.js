@@ -32,6 +32,25 @@ export const site = {
     lead: 'Unas pocas preguntas, una recomendación hecha a tu medida. Sin registro y en menos de dos minutos.',
     introTitle: 'Tu hogar tiene un *estilo*. Descúbrelo en unos minutos',
     start: 'Comenzar el quiz',
+    // Botones de la pantalla de resultado. PLACEHOLDER: precios y textos de ejemplo.
+    actions: {
+      // Visita a terreno. href: enlace de agenda (AgendaPro, etc.). Si está vacío, lleva al formulario de contacto con el tema ya elegido.
+      visit: { label: 'Agendar visita a terreno', href: '' },
+      // Quiz completo de pago. paymentUrl: enlace de la pasarela (Flow, Mercado Pago, Webpay...). Si está vacío, el botón del panel lleva al formulario de contacto.
+      fullQuiz: {
+        label: 'Quiz completo',
+        price: '$9.990',
+        eyebrow: 'Quiz completo',
+        title: 'Un diagnóstico *mucho más detallado*',
+        description: 'Un quiz más largo y profundo que analiza tu espacio, tus hábitos y tu estilo para entregarte una propuesta mucho más precisa.',
+        includes: ['Preguntas detalladas sobre tu espacio y tu rutina', 'Recomendaciones específicas por ambiente', 'Paleta de colores y materiales sugeridos'],
+        pay: 'Ir a pagar',
+        payNote: 'Serás redirigido a la pasarela de pago segura.',
+        paymentUrl: '',
+        fallback: 'Solicitar acceso',
+        fallbackNote: 'El pago en línea estará disponible muy pronto. Déjanos tus datos y te damos acceso.',
+      },
+    },
   },
   // Formulario de contacto. PLACEHOLDER: reemplazar correo, WhatsApp y horario.
   // endpoint: URL de un servicio de formularios (Formspree, Web3Forms, etc.). Si está vacío, el formulario abre el correo del visitante con el mensaje listo.

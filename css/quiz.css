@@ -187,3 +187,8 @@
 .quiz__petals { position: absolute; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
 .petal { position: absolute; top: -30px; border-radius: 80% 0 80% 0; opacity: .9; animation: fall linear forwards; }
 @keyframes fall { to { transform: translate3d(var(--dx), 110vh, 0) rotate(var(--rot)); opacity: 0; } }
+
+/* Etiqueta de precio dentro del botón del quiz completo */
+.btn .tag { padding: .15rem .6rem; border-radius: var(--r-pill); background: var(--rose-blush); color: var(--rose-deep); font-size: .82rem; font-weight: 700; transition: background .4s, color .4s; }
+.btn:hover .tag { background: rgba(255, 255, 255, .22); color: #fff; }
+.result__body > .link-arrow--back { margin-top: .2rem; }

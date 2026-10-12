@@ -35,7 +35,7 @@ js/
     quiz.questions.js       Preguntas y opciones
     quiz.results.js         Resultados + reglas respuesta → resultado
   components/
-    header.js  hero.js  marquee.js  services.js  quiz.js  contact.js  footer.js
+    header.js  hero.js  marquee.js  services.js  quiz.js  contact.js  checkout.js  footer.js
     modal.js                Detalle de cada card (<dialog>)
   quiz/
     state.js                Estado de la sesión (sessionStorage)
@@ -58,6 +58,7 @@ assets/                     Aquí van las fotos reales (ver "Imágenes")
 | `services` | 3 cards con aparición escalonada y hover | `services` |
 | `modal` | Detalle ampliado de una card | `services[i].detail` |
 | `quiz` | Contenedor + pantallas: intro → preguntas → resultado | `questions`, `results` |
+| `checkout` | Panel del quiz completo de pago (precio, qué incluye, botón a la pasarela) | `site.quiz.actions.fullQuiz` |
 | `contact` | Formulario de contacto debajo del quiz (muestra el resultado del quiz si ya lo hizo) | `site.contact` |
 | `footer` | Cierre y CTA final | `site.footer` |
 
@@ -92,7 +93,6 @@ Cada resultado declara **las combinaciones de respuestas** que lo producen:
   art: 'lamp',                   // ilustración de reserva
   image: null,                   // ruta a foto real, ej. 'assets/resultado-luz.jpg'
   service: 'iluminacion',        // card relacionada (opcional)
-  cta: { label: 'Agendar asesoría', href: '#contacto' },
 
   // rules = lista de combinaciones alternativas (OR).
   // Dentro de cada combinación, TODAS las preguntas deben cumplirse (AND).
@@ -109,6 +109,18 @@ Un resultado con `fallback: true` se usa cuando ninguna regla coincide.
 **Regla de decisión** (`engine.js`): gana el resultado cuya combinación satisfecha tenga **más condiciones** (la más
 específica). Si hay empate, gana el que aparece primero en la lista. Si tu tabla es "combinación exacta → resultado",
 basta con escribir una regla completa por resultado; si es más flexible, usa reglas parciales.
+
+## Botones del resultado (visita y quiz completo)
+
+Se configuran en `site.quiz.actions` (`js/data/site.js`), iguales para todos los resultados:
+
+| Botón | Qué hace | Cómo conectarlo |
+|---|---|---|
+| Agendar visita a terreno | Abre el enlace de agenda | `visit.href` = enlace de AgendaPro u otra agenda. Vacío → lleva al formulario de contacto con "Visita a terreno" ya elegido |
+| Quiz completo | Abre un panel con precio y contenido; "Ir a pagar" envía a la pasarela | `fullQuiz.paymentUrl` = enlace de pago (Flow, Mercado Pago, Webpay…). Vacío → "Solicitar acceso" lleva al formulario de contacto |
+
+**Pendiente:** el quiz detallado en sí, y la verificación del pago. Un enlace de pago por sí solo no impide que alguien abra la página del quiz
+sin pagar; para protegerlo hace falta confirmar el pago en un servidor (webhook de la pasarela) y entregar un acceso firmado.
 
 ## Estado de la sesión
 

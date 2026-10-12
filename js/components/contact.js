@@ -44,6 +44,8 @@ export function contactSection({ contact: c }, services) {
             <label for="cf-topic">¿Qué te interesa?</label>
             <select id="cf-topic" name="topic">
               ${services.map((s) => `<option value="${esc(s.title)}">${esc(s.title)}</option>`).join('')}
+              <option value="Visita a terreno">Visita a terreno</option>
+              <option value="Quiz completo">Quiz completo</option>
               <option value="Otro">Otro / aún no lo sé</option>
             </select>
           </div>
@@ -96,6 +98,16 @@ export function initContact(c, services) {
     if (svc && !topic.dataset.touched) topic.value = svc.title;
   };
   topic.addEventListener('change', () => { topic.dataset.touched = '1'; });
+
+  // Otros componentes (resultado del quiz, pago) pueden llevar a la persona al formulario con el tema ya elegido
+  document.addEventListener('cybella:contact', (e) => {
+    const { topic: t, message } = e.detail ?? {};
+    if (t) { topic.value = t; topic.dataset.touched = '1'; }
+    if (message && !form.elements.message.value.trim()) form.elements.message.value = message;
+    if (form.hidden) done.querySelector('[data-again]').click();
+    document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => form.elements.name.focus({ preventScroll: true }), 700);
+  });
   syncQuiz();
   document.getElementById('quiz').addEventListener('click', () => setTimeout(syncQuiz, 900));  // el resultado aparece al terminar el quiz
 

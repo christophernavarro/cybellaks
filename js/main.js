@@ -10,6 +10,7 @@ import { quizSection } from './components/quiz.js';
 import { contactSection, initContact } from './components/contact.js';
 import { footer } from './components/footer.js';
 import { initModal } from './components/modal.js';
+import { initCheckout } from './components/checkout.js';
 import { initDots } from './ui/dots.js';
 import { initReveal, initScroll, initMagnetic } from './ui/motion.js';
 
@@ -30,6 +31,7 @@ if (issues.length) console.warn('[quiz] Revisa la tabla de resultados:\n' + issu
 
 mountQuiz({ questions, results, copy: site.quiz });
 initModal(services);
+initCheckout(site.quiz.actions.fullQuiz);
 initContact(site.contact, services);
 initReveal();
 initScroll();
