@@ -11,7 +11,6 @@ import { contactSection, initContact } from './components/contact.js';
 import { footer } from './components/footer.js';
 import { initModal } from './components/modal.js';
 import { initCheckout } from './components/checkout.js';
-import { initDots } from './ui/dots.js';
 import { initReveal, initScroll, initMagnetic } from './ui/motion.js';
 
 document.getElementById('app').innerHTML = [
@@ -36,7 +35,6 @@ initContact(site.contact, services);
 initReveal();
 initScroll();
 initMagnetic();
-initDots(document.querySelector('.hero'));
 
 // El header cambia de estilo al bajar
 const hd = document.querySelector('.header');

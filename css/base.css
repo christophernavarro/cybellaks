@@ -15,7 +15,7 @@ h1, h2, h3, p { margin: 0; }
 a { color: inherit; }
 button { font: inherit; color: inherit; cursor: pointer; }
 :focus-visible { outline: 2px solid var(--rose-deep); outline-offset: 3px; }
-::selection { background: var(--rose-powder); }
+::selection { background: rgba(162, 79, 93, .18); }
 
 .wrap { width: min(100% - 2 * var(--gutter), var(--maxw)); margin-inline: auto; }
 .section { padding-block: var(--section-y); position: relative; }
@@ -70,6 +70,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
 /* Barra de progreso de scroll */
 .scroll-progress {
   position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 100;
-  background: linear-gradient(90deg, var(--rose-peach), var(--rose-pale), var(--rose-deep));
+  background: linear-gradient(90deg, var(--rose-pale), var(--rose-deep));
   transform-origin: 0 50%; transform: scaleX(var(--p, 0));
 }

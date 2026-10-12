@@ -1,18 +1,18 @@
 /* ============ CONTACTO ============ */
-.wave--cream { fill: var(--cream); z-index: 2; }
-.contact { background: var(--cream); padding-top: calc(var(--section-y) * .75); }
+.wave--cream { fill: var(--white); z-index: 2; }
+.contact { background: var(--white); padding-top: calc(var(--section-y) * .75); }
 .contact__grid { display: grid; gap: clamp(2rem, 6vw, 4.5rem); align-items: start; }
 @media (min-width: 900px) { .contact__grid { grid-template-columns: .9fr 1.1fr; } .contact__intro { position: sticky; top: 6rem; } }
 
 .contact__info { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: .9rem; }
-.contact__info li { display: grid; gap: .1rem; padding-left: 1.1rem; border-left: 2px solid var(--rose-powder); }
+.contact__info li { display: grid; gap: .1rem; padding-left: 1.1rem; border-left: 2px solid var(--smoke); }
 .contact__info span { font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--rose-deep); }
 .contact__info a, .contact__info b { font-weight: 600; font-size: 1.05rem; text-decoration: none; overflow-wrap: anywhere; }
 .contact__info a { background: linear-gradient(var(--rose-deep), var(--rose-deep)) 0 100% / 0 1.5px no-repeat; width: fit-content; transition: background-size .45s var(--ease-out), color .3s; }
 .contact__info a:hover { background-size: 100% 1.5px; color: var(--rose-deep); }
 
 /* Tarjeta del formulario */
-.cform-wrap { background: var(--offwhite); border-radius: var(--r-lg); box-shadow: var(--shadow-lift); padding: clamp(1.5rem, 4.5vw, 3rem); }
+.cform-wrap { background: var(--paper); border-radius: var(--r-lg); box-shadow: var(--shadow-lift); padding: clamp(1.5rem, 4.5vw, 3rem); }
 .cform { display: grid; gap: 1.2rem; }
 .cform[hidden], .cform-done[hidden], .cform__quiz[hidden] { display: none; }
 .field-row { display: grid; gap: 1.2rem; align-items: start; }
@@ -22,12 +22,12 @@
 .field label small { font-weight: 500; color: var(--ink-soft); }
 
 .field input, .field select, .field textarea {
-  width: 100%; font: inherit; color: var(--ink); background: #fff; border: 1.5px solid var(--rose-powder); border-radius: 16px;
+  width: 100%; font: inherit; color: var(--ink); background: #fff; border: 1.5px solid var(--line); border-radius: 16px;
   padding: .9rem 1.1rem; transition: border-color .3s, box-shadow .35s var(--ease-out), background .3s;
 }
 .field textarea { resize: vertical; min-height: 8rem; }
 .field input::placeholder, .field textarea::placeholder { color: color-mix(in srgb, var(--ink-soft) 70%, transparent); }
-.field input:hover, .field select:hover, .field textarea:hover { border-color: var(--rose-pale); }
+.field input:hover, .field select:hover, .field textarea:hover { border-color: var(--smoke); }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--rose-deep); box-shadow: 0 0 0 4px rgba(162, 79, 93, .14); }
 .field select {
   appearance: none; padding-right: 2.8rem; cursor: pointer;
@@ -39,14 +39,14 @@
 .field__err:empty { display: none; }
 
 /* Resultado del quiz (si ya lo hizo) */
-.cform__quiz { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .8rem; padding: .8rem 1.1rem; border-radius: var(--r-md); background: var(--rose-blush); }
+.cform__quiz { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .8rem; padding: .8rem 1.1rem; border-radius: var(--r-md); background: #fff; border: 1px solid var(--line); }
 .cform__quiz span { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--rose-deep); }
 .cform__quiz b { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
 
 /* Casilla */
 .check { position: relative; display: flex; align-items: flex-start; gap: .8rem; cursor: pointer; font-size: .92rem; color: var(--ink-soft); }
 .check input { position: absolute; opacity: 0; width: 1.4rem; height: 1.4rem; margin: 0; cursor: pointer; }
-.check__box { flex: none; width: 1.4rem; height: 1.4rem; border-radius: 8px; border: 1.5px solid var(--rose-pale); background: #fff; display: grid; place-items: center; font-size: .8rem; color: transparent; transition: background .3s, color .3s, border-color .3s, transform .4s cubic-bezier(.34, 1.8, .64, 1); }
+.check__box { flex: none; width: 1.4rem; height: 1.4rem; border-radius: 8px; border: 1.5px solid var(--smoke); background: #fff; display: grid; place-items: center; font-size: .8rem; color: transparent; transition: background .3s, color .3s, border-color .3s, transform .4s cubic-bezier(.34, 1.8, .64, 1); }
 .check:hover .check__box { border-color: var(--rose-deep); }
 .check input:checked + .check__box { background: var(--rose-deep); border-color: var(--rose-deep); color: #fff; transform: scale(1.08); }
 .check input:focus-visible + .check__box { outline: 2px solid var(--rose-deep); outline-offset: 3px; }

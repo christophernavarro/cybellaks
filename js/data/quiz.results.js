@@ -11,7 +11,7 @@ export const results = [
     title: 'Refugio de luz cálida',
     summary: 'Tu espacio pide capas de luz suave y materiales acogedores.',
     description:
-      'Texto de ejemplo. Tu casa se beneficia de una iluminación pensada en capas: lámparas de ambiente, luz de acento y detalles decorativos que hacen que cada tarde se sienta especial.',
+      'Texto de ejemplo. Tu espacio se beneficia de una iluminación pensada en capas: lámparas de ambiente, luz de acento y detalles decorativos que hacen que cada tarde se sienta especial.',
     tips: ['Usa luz cálida (2700 K) en zonas de descanso', 'Combina 3 puntos de luz a distintas alturas', 'Añade una pieza escultórica como protagonista'],
     art: 'lamp',
     image: null,
@@ -41,7 +41,7 @@ export const results = [
     id: 'oasis-verde',
     eyebrow: 'Tu recomendación',
     title: 'Tu oasis verde',
-    summary: 'La naturaleza es la protagonista de tu hogar ideal.',
+    summary: 'La naturaleza es la protagonista de tu espacio ideal.',
     description:
       'Texto de ejemplo. Plantas, texturas naturales y rincones al aire libre crearán un ambiente fresco que invita a quedarse.',
     tips: ['Agrupa plantas en alturas distintas', 'Mezcla macetas de cerámica y fibras naturales', 'Aprovecha balcones y ventanas'],
@@ -56,7 +56,7 @@ export const results = [
   {
     id: 'general',
     eyebrow: 'Tu recomendación',
-    title: 'Un hogar a tu medida',
+    title: 'Un espacio a tu medida',
     summary: 'Tu perfil mezcla varias ideas: lo mejor es una asesoría personalizada.',
     description: 'Texto de ejemplo. Combinaremos luz, color y proporción para crear un plan que se adapte a ti.',
     tips: ['Cuéntanos tu rutina y tus gustos', 'Definimos prioridades y presupuesto', 'Recibe una propuesta visual'],

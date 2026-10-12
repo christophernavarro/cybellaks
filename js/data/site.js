@@ -7,30 +7,30 @@ export const site = {
     { label: 'Contacto', href: '#contacto' },
   ],
   hero: {
-    eyebrow: 'Decoración de interiores',
+    eyebrow: 'Diseño de interiores',
     title: 'Espacios que se sienten *como tú*',
-    lead: 'Diseñamos interiores cálidos, luminosos y llenos de carácter. Responde un breve quiz y te recomendamos la solución ideal para tu hogar.',
+    lead: 'Diseñamos interiores cálidos, luminosos y llenos de carácter para cualquier espacio: hogares, oficinas, locales y terrazas. Responde un breve quiz y te recomendamos la solución ideal.',
     cta: { label: 'Descubre tu estilo', href: '#quiz' },
     secondary: { label: 'Ver categorías', href: '#categorias' },
     badge: 'Descubre tu estilo · Quiz de 2 minutos · ',
     // image: ruta a foto real (assets/...) o null para usar ilustración
     collage: [
-      { art: 'room', image: null, alt: 'Sala luminosa en tonos rosados' },
+      { art: 'room', image: null, alt: 'Sala luminosa y ordenada' },
       { art: 'lamp', image: null, alt: 'Lámpara de luz cálida' },
       { art: 'garden', image: null, alt: 'Plantas y paisajismo interior' },
     ],
   },
-  marquee: ['Iluminación', 'Espacios pequeños', 'Paisajismo', 'Diseño a medida', 'Color y textura', 'Hogares con alma'],
+  marquee: ['Iluminación', 'Espacios pequeños', 'Paisajismo', 'Diseño a medida', 'Color y textura', 'Para cualquier espacio'],
   services: {
     eyebrow: 'Categorías',
     title: 'Tres formas de *transformar* tu espacio',
-    lead: 'Elige por dónde empezar. Cada categoría reúne ideas, materiales y soluciones pensadas para ese reto.',
+    lead: 'Elige por dónde empezar. Cada categoría reúne ideas, materiales y soluciones pensadas para cualquier tipo de espacio.',
   },
   quiz: {
     eyebrow: 'Quiz interactivo',
-    title: 'Encuentra la solución *perfecta* para ti',
+    title: 'Encuentra la solución *perfecta* para tu espacio',
     lead: 'Unas pocas preguntas, una recomendación hecha a tu medida. Sin registro y en menos de dos minutos.',
-    introTitle: 'Tu hogar tiene un *estilo*. Descúbrelo en unos minutos',
+    introTitle: 'Tu espacio tiene un *estilo*. Descúbrelo en unos minutos',
     start: 'Comenzar el quiz',
     // Botones de la pantalla de resultado. PLACEHOLDER: precios y textos de ejemplo.
     actions: {
@@ -57,7 +57,7 @@ export const site = {
   contact: {
     eyebrow: 'Contacto',
     title: 'Cuéntanos tu *proyecto*',
-    lead: 'Escríbenos qué espacio quieres transformar y te respondemos con ideas y los siguientes pasos.',
+    lead: 'Cuéntanos qué espacio quieres transformar, sea un hogar, una oficina o un local, y te respondemos con ideas y los siguientes pasos.',
     email: 'hola@ejemplo.com',
     whatsapp: { label: '+56 9 0000 0000', href: 'https://wa.me/56900000000' },
     hours: 'Lunes a viernes · 9:00 a 18:00',
@@ -65,7 +65,7 @@ export const site = {
     submit: 'Enviar mensaje',
   },
   footer: {
-    title: 'Hagamos de tu casa *tu lugar favorito*',
+    title: 'Hagamos de tu espacio *el lugar que imaginas*',
     cta: { label: 'Escríbenos', href: '#contacto' },
     note: '© ' + new Date().getFullYear() + ' Atelier Blush. Todos los derechos reservados.',
   },

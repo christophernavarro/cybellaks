@@ -129,7 +129,7 @@ Si la persona recarga la página durante la misma sesión, retoma donde estaba. 
 
 ## Imágenes
 
-Cada `image` apunta a un archivo de `assets/`. Mientras sea `null`, se muestra una ilustración SVG rosada de reserva
+Cada `image` apunta a un archivo de `assets/`. Mientras sea `null`, se muestra una ilustración SVG de reserva
 (`ui/art.js`) para que el diseño ya se vea completo. Basta con rellenar la ruta para reemplazarla.
 
 ## Contenido pendiente → dónde va

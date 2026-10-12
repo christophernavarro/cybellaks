@@ -35,7 +35,7 @@ export const services = [
     id: 'paisajismo',
     number: '03',
     title: 'Paisajismo',
-    description: 'Terrazas, jardines y rincones verdes que conectan tu hogar con la naturaleza.',
+    description: 'Terrazas, jardines y rincones verdes que conectan tu espacio con la naturaleza.',
     art: 'garden',
     image: null,
     alt: 'Jardín con plantas y macetas',

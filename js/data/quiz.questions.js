@@ -8,16 +8,16 @@ export const questions = [
     title: '¿Qué espacio quieres transformar?',
     subtitle: 'Elige el que más te urge.',
     options: [
-      { id: 'sala', label: 'Sala o comedor', art: 'room' },
-      { id: 'dormitorio', label: 'Dormitorio', art: 'lamp' },
+      { id: 'sala', label: 'Sala, comedor o recepción', art: 'room' },
+      { id: 'dormitorio', label: 'Dormitorio o zona de descanso', art: 'lamp' },
       { id: 'pequeno', label: 'Un espacio pequeño', art: 'room' },
-      { id: 'exterior', label: 'Terraza o jardín', art: 'garden' },
+      { id: 'exterior', label: 'Terraza, jardín o patio', art: 'garden' },
     ],
   },
   {
     id: 'sensacion',
     type: 'single',
-    title: '¿Qué quieres sentir al llegar a casa?',
+    title: '¿Qué quieres sentir al entrar a tu espacio?',
     options: [
       { id: 'calma', label: 'Calma y descanso', art: 'lamp' },
       { id: 'energia', label: 'Energía y alegría', art: 'garden' },

@@ -11,10 +11,16 @@
   --rose-deep: #a24f5d;       /* acento con contraste para texto/botones */
   --rose-night: #7a3441;      /* relleno oscuro al pasar el cursor sobre botones */
 
-  /* Neutros cálidos */
-  --cream: #fbf4ec;
-  --offwhite: #fffaf6;
-  --beige: #ecdfd0;
+  /* Fondos: solo blancos, en distintos tonos. El rosa queda para letras y detalles */
+  --white: #ffffff;
+  --offwhite: #ffffff;
+  --paper: #f8f7f5;           /* blanco cálido muy suave */
+  --stone: #f1efec;           /* blanco piedra */
+  --mist: #ebe8e3;            /* blanco humo, el más profundo */
+  --line: #dedad4;            /* líneas y bordes */
+  --smoke: #c9c4bc;
+  --cream: #f8f7f5;
+  --beige: #ebe8e3;
 
   /* Texto */
   --ink: #3a2a2d;
@@ -29,8 +35,8 @@
   --r-md: 24px;
   --r-lg: 36px;
   --r-pill: 999px;
-  --shadow-soft: 0 10px 30px -12px rgba(162, 79, 93, 0.25);
-  --shadow-lift: 0 30px 60px -20px rgba(162, 79, 93, 0.38);
+  --shadow-soft: 0 10px 30px -12px rgba(40, 34, 32, 0.18);
+  --shadow-lift: 0 30px 60px -20px rgba(40, 34, 32, 0.28);
 
   /* Movimiento */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
