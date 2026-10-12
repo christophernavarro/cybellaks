@@ -144,6 +144,10 @@ y escribe su ruta en el campo `image`, por ejemplo `image: 'assets/hogar-sala.jp
 | Fondo al elegir una opción | `js/data/quiz.questions.js` → cada opción | `image` | Horizontal o vertical, se funde por la izquierda |
 | Resultado del quiz (4) | `js/data/quiz.results.js` | `image` | Vertical 4:5 |
 
+**Fotos actuales** (en `assets/img/`, optimizadas a WebP): `salon-arcos`, `rincon-calido`, `carpinteria-madera`, `espacio-pequeno` y `salon-moderno`.
+Como son solo cinco, algunas se repiten con recortes distintos. El recorte de cada una se controla con el campo `pos` (por ejemplo `pos: '30% 50%'`:
+primer valor = horizontal, segundo = vertical). Para cambiar una foto basta con reemplazar el archivo o escribir otra ruta en `image`.
+
 **Consejos para las fotos**
 - Lado largo de 1600 px, en JPG o WebP y por debajo de 300 KB para que la página cargue rápido.
 - Deja un margen de ~10 % alrededor del sujeto: las imágenes se agrandan un poco y se desplazan con el mouse, así que los bordes se recortan.

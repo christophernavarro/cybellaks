@@ -103,8 +103,9 @@ export function art(kind = 'room') {
 }
 
 // Foto real si existe; si no, la ilustración de reserva.
-export function media({ image, art: kind, alt = '' }) {
+// pos: recorte de la foto (object-position, ej. '30% 50%'). eager: carga prioritaria para lo que se ve al abrir la página.
+export function media({ image, art: kind, alt = '', pos, eager }) {
   return image
-    ? `<img src="${image}" alt="${alt}" loading="lazy" decoding="async">`
+    ? `<img src="${image}" alt="${alt}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"${pos ? ` style="object-position:${pos}"` : ''}>`
     : `<div class="art" role="img" aria-label="${alt}">${art(kind)}</div>`;
 }
