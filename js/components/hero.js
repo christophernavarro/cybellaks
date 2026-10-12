@@ -29,9 +29,9 @@ export function hero({ hero: h, brand }) {
       </div>
 
       <div class="hero__collage" aria-hidden="false">
-        <figure class="frame frame--arch" data-mask style="--mask-r:999px 999px 28px 28px"><div class="para" data-parallax="0.06">${media(a)}</div></figure>
-        <figure class="frame frame--round" data-mask style="--i:2;--mask-r:50%"><div class="para" data-parallax="-0.1">${media(b)}</div></figure>
-        <figure class="frame frame--tall" data-mask style="--i:3"><div class="para" data-parallax="0.14">${media(c)}</div></figure>
+        <figure class="frame frame--arch" data-hover data-mask style="--mask-r:999px 999px 28px 28px"><div class="para" data-parallax="0.06">${media(a)}</div></figure>
+        <figure class="frame frame--round" data-hover data-mask style="--i:2;--mask-r:50%"><div class="para" data-parallax="-0.1">${media(b)}</div></figure>
+        <figure class="frame frame--tall" data-hover data-mask style="--i:3"><div class="para" data-parallax="0.14">${media(c)}</div></figure>
         <div class="badge" data-parallax="-0.05">
           <svg viewBox="0 0 120 120" style="animation:spin 22s linear infinite">
             <defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
@@ -47,5 +47,5 @@ export function hero({ hero: h, brand }) {
 
 export function marquee({ marquee: items }) {
   const row = items.map((t) => `<span>${t}</span><i>✦</i>`).join('');
-  return `<div class="marquee" aria-hidden="true"><div class="marquee__track display"><div>${row}</div><div>${row}</div></div></div>`;
+  return `<div class="marquee sheet" aria-hidden="true"><div class="marquee__track display"><div>${row}</div><div>${row}</div></div></div>`;
 }

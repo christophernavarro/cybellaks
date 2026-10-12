@@ -12,7 +12,7 @@ export function initModal(items) {
     dlg.innerHTML = `
       <div class="modal__inner">
         <button class="modal__close" type="button" aria-label="Cerrar">✕</button>
-        <div class="modal__media">${media(s)}</div>
+        <div class="modal__media" data-hover>${media(s)}</div>
         <div class="modal__body">
           <span class="eyebrow">${s.number}</span>
           <h3 class="display">${s.title}</h3>

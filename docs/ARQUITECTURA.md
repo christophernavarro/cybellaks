@@ -24,7 +24,8 @@ css/
   tokens.css                Paleta, tipografías, espaciados, easing  ← aquí se cambian los colores de la tarjeta
   base.css                  Reset, tipografía, botones, utilidades
   sections.css             Hero, servicios, footer
-  contact.css              Formulario de contacto
+  contact.css              Contacto simple (tarjeta sobre palabra gigante)
+  effects.css              Hojas, líneas, mover imágenes, sección flotante, lupa
   quiz.css                  Quiz, barra de progreso, resultado
   motion.css                Estados de animación (reveal, máscaras, marquee)
 js/
@@ -35,7 +36,7 @@ js/
     quiz.questions.js       Preguntas y opciones
     quiz.results.js         Resultados + reglas respuesta → resultado
   components/
-    header.js  hero.js  marquee.js  services.js  quiz.js  contact.js  checkout.js  footer.js
+    header.js  hero.js  marquee.js  services.js  spaces.js  quiz.js  contact.js  checkout.js  footer.js
     modal.js                Detalle de cada card (<dialog>)
   quiz/
     state.js                Estado de la sesión (sessionStorage)
@@ -43,6 +44,7 @@ js/
     view.js                 Render del quiz paso a paso
   ui/
     art.js                  Ilustraciones SVG de reserva (cuando aún no hay foto)
+    lens.js                 Lupa que sigue al mouse
     motion.js               Reveal, parallax, split de texto, contadores, botones magnéticos
 docs/ARQUITECTURA.md
 assets/                     Aquí van las fotos reales (ver "Imágenes")
@@ -56,6 +58,7 @@ assets/                     Aquí van las fotos reales (ver "Imágenes")
 | `hero` | Titular grande, collage de imágenes con parallax, CTA al quiz | `site.hero` |
 | `marquee` | Cinta con texto en movimiento | `site.marquee` |
 | `services` | 3 cards con aparición escalonada y hover | `services` |
+| `spaces` | Frase central con imágenes flotantes que se mueven al hacer scroll | `site.spaces` |
 | `modal` | Detalle ampliado de una card | `services[i].detail` |
 | `quiz` | Contenedor + pantallas: intro → preguntas → resultado | `questions`, `results` |
 | `checkout` | Panel del quiz completo de pago (precio, qué incluye, botón a la pasarela) | `site.quiz.actions.fullQuiz` |
@@ -127,10 +130,37 @@ sin pagar; para protegerlo hace falta confirmar el pago en un servidor (webhook 
 `sessionStorage['cybella.quiz.v1'] = { answers: { espacio: 'sala', … }, step: 2, done: false }`.
 Si la persona recarga la página durante la misma sesión, retoma donde estaba. "Repetir quiz" lo reinicia.
 
-## Imágenes
+## Imágenes (fotos realistas)
 
-Cada `image` apunta a un archivo de `assets/`. Mientras sea `null`, se muestra una ilustración SVG de reserva
-(`ui/art.js`) para que el diseño ya se vea completo. Basta con rellenar la ruta para reemplazarla.
+Mientras un `image` sea `null`, se muestra una ilustración de reserva (`ui/art.js`). Para usar una foto, copia el archivo a `assets/`
+y escribe su ruta en el campo `image`, por ejemplo `image: 'assets/hogar-sala.jpg'`. No hay que tocar el código.
+
+| Dónde se ve | Archivo de datos | Campo | Formato recomendado |
+|---|---|---|---|
+| Collage del inicio (3) | `js/data/site.js` → `hero.collage` | `image` | 1 arco vertical 3:4 · 1 círculo 1:1 · 1 rectángulo 4:5 |
+| Imágenes flotantes (6) | `js/data/site.js` → `spaces.items` | `image` | Vertical 4:5, cuadrada 1:1 o 1:1,15 (según la posición) |
+| Tarjetas de categorías (3) | `js/data/services.js` | `image` | Casi cuadrada 10:11 |
+| Lateral del quiz (3, rotan por pregunta) | `js/data/site.js` → `quiz.aside` | `image` | Vertical 4:5,2 |
+| Fondo al elegir una opción | `js/data/quiz.questions.js` → cada opción | `image` | Horizontal o vertical, se funde por la izquierda |
+| Resultado del quiz (4) | `js/data/quiz.results.js` | `image` | Vertical 4:5 |
+
+**Consejos para las fotos**
+- Lado largo de 1600 px, en JPG o WebP y por debajo de 300 KB para que la página cargue rápido.
+- Deja un margen de ~10 % alrededor del sujeto: las imágenes se agrandan un poco y se desplazan con el mouse, así que los bordes se recortan.
+- Para que se vean serias y de la misma familia, conviene una luz y un tratamiento de color parecidos entre todas.
+- Escribe un `alt` descriptivo en cada una (qué se ve en la imagen).
+
+## Efectos de movimiento
+
+| Efecto | Dónde se configura |
+|---|---|
+| Hojas que se cubren entre secciones (el inicio queda fijo y se atenúa) | clase `sheet` · `css/effects.css` |
+| Líneas verticales finas | clase `lines` + `data-lines` · `--cols` en `css/effects.css` |
+| Imágenes que se mueven con el mouse | atributo `data-hover` |
+| Imágenes flotantes con scroll | `data-parallax` (vertical) y `data-parallax-x` (horizontal); en pantallas chicas el movimiento se reduce a menos de la mitad |
+| Lupa difuminada que sigue al mouse | `js/ui/lens.js` + `.lens` en `css/effects.css` (tamaño, brillo y saturación) |
+
+Todos respetan "reducir movimiento" del sistema y se desactivan o suavizan en pantallas táctiles.
 
 ## Contenido pendiente → dónde va
 

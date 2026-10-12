@@ -21,6 +21,21 @@ export const site = {
     ],
   },
   marquee: ['Iluminación', 'Espacios pequeños', 'Paisajismo', 'Diseño a medida', 'Color y textura', 'Para cualquier espacio'],
+  // Sección de espacios con imágenes flotantes que se mueven al hacer scroll.
+  // image: foto real (assets/...) o null para la ilustración. speed: velocidad vertical del parallax (negativo = sube); speedX: deriva horizontal.
+  spaces: {
+    eyebrow: 'Para cualquier espacio',
+    statement: 'Un buen diseño no depende del tamaño. Transformamos *hogares, oficinas, locales y terrazas* con la misma dedicación.',
+    cta: { label: 'Descubre tu estilo', href: '#quiz' },
+    items: [
+      { label: 'Hogares', art: 'room', image: null, alt: 'Sala de un hogar', speed: -0.16, speedX: 0.02 },
+      { label: 'Oficinas', art: 'office', image: null, alt: 'Oficina luminosa', speed: 0.1, speedX: -0.02 },
+      { label: 'Locales', art: 'shop', image: null, alt: 'Local comercial', speed: -0.08, speedX: 0.03 },
+      { label: 'Terrazas', art: 'garden', image: null, alt: 'Terraza con plantas', speed: 0.12, speedX: -0.03 },
+      { label: 'Restaurantes', art: 'lamp', image: null, alt: 'Iluminación de un restaurante', speed: -0.12, speedX: 0.02 },
+      { label: 'Recepciones', art: 'office', image: null, alt: 'Recepción', speed: 0.1, speedX: -0.02 },
+    ],
+  },
   services: {
     eyebrow: 'Categorías',
     title: 'Tres formas de *transformar* tu espacio',
@@ -32,6 +47,12 @@ export const site = {
     lead: 'Unas pocas preguntas, una recomendación hecha a tu medida. Sin registro y en menos de dos minutos.',
     introTitle: 'Tu espacio tiene un *estilo*. Descúbrelo en unos minutos',
     start: 'Comenzar el quiz',
+    // Imágenes del lateral: una por pregunta, rotan en orden. image: foto real o null para la ilustración.
+    aside: [
+      { art: 'room', image: null, alt: 'Espacio interior' },
+      { art: 'office', image: null, alt: 'Oficina' },
+      { art: 'garden', image: null, alt: 'Terraza o jardín' },
+    ],
     // Botones de la pantalla de resultado. PLACEHOLDER: precios y textos de ejemplo.
     actions: {
       // Visita a terreno. href: enlace de agenda (AgendaPro, etc.). Si está vacío, lleva al formulario de contacto con el tema ya elegido.
@@ -55,9 +76,9 @@ export const site = {
   // Formulario de contacto. PLACEHOLDER: reemplazar correo, WhatsApp y horario.
   // endpoint: URL de un servicio de formularios (Formspree, Web3Forms, etc.). Si está vacío, el formulario abre el correo del visitante con el mensaje listo.
   contact: {
-    eyebrow: 'Contacto',
+    ghost: 'Contacto',
     title: 'Cuéntanos tu *proyecto*',
-    lead: 'Cuéntanos qué espacio quieres transformar, sea un hogar, una oficina o un local, y te respondemos con ideas y los siguientes pasos.',
+    lead: '¿Listo para empezar o solo tienes dudas? Escríbenos y te respondemos pronto.',
     email: 'hola@ejemplo.com',
     whatsapp: { label: '+56 9 0000 0000', href: 'https://wa.me/56900000000' },
     hours: 'Lunes a viernes · 9:00 a 18:00',

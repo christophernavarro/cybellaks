@@ -3,7 +3,7 @@ import { logo } from '../ui/logo.js';
 
 export function footer({ footer: f, brand }) {
   return `
-  <footer class="footer">
+  <footer class="footer sheet">
     <div class="wrap footer__inner">
       <h2 class="display footer__title split">${splitHTML(f.title)}</h2>
       <a class="btn" href="${f.cta.href}" data-magnetic>${f.cta.label}<span class="arrow">→</span></a>

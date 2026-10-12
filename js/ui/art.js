@@ -1,4 +1,4 @@
-// Ilustraciones SVG de reserva (se usan mientras no haya foto real). Paleta rosada coherente con tokens.css.
+// Ilustraciones SVG de reserva (se usan mientras no haya foto real). Tonos neutros, coherentes con tokens.css.
 let n = 0;
 
 const scenes = {
@@ -65,6 +65,35 @@ const scenes = {
     </g>
     <path d="M70 440 h80 l-12 50 h-56z" fill="#4a443f"/>
     <path d="M170 450 h80 l-12 45 h-56z" fill="#a79e92"/>`,
+
+  office: (id) => `
+    <defs><linearGradient id="${id}bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3efe9"/><stop offset="1" stop-color="#e2dcd2"/></linearGradient></defs>
+    <rect width="400" height="500" fill="url(#${id}bg)"/>
+    <rect y="385" width="400" height="115" fill="#ddd6cb"/>
+    <rect x="40" y="60" width="320" height="170" rx="8" fill="#fffaf6"/>
+    <rect x="50" y="70" width="300" height="150" fill="#e9e4dc" opacity=".7"/>
+    <line x1="150" y1="70" x2="150" y2="220" stroke="#fffaf6" stroke-width="4"/><line x1="250" y1="70" x2="250" y2="220" stroke="#fffaf6" stroke-width="4"/>
+    <rect x="60" y="305" width="280" height="14" rx="4" fill="#4a443f"/>
+    <rect x="72" y="319" width="10" height="78" fill="#4a443f"/><rect x="318" y="319" width="10" height="78" fill="#4a443f"/>
+    <rect x="150" y="238" width="104" height="62" rx="6" fill="#4a443f"/><rect x="157" y="245" width="90" height="46" rx="3" fill="#cdc5b9"/>
+    <rect x="195" y="298" width="14" height="10" fill="#a79e92"/>
+    <rect x="262" y="330" width="64" height="14" rx="7" fill="#a79e92"/><rect x="284" y="262" width="14" height="76" rx="7" fill="#a79e92"/><rect x="289" y="344" width="4" height="56" fill="#4a443f"/>
+    <rect x="92" y="272" width="28" height="33" rx="4" fill="#bdb4a8"/>
+    <g style="transform-origin:106px 272px;animation:sway 6s ease-in-out infinite"><ellipse cx="100" cy="250" rx="9" ry="24" fill="#9bb08f" transform="rotate(-18 100 250)"/><ellipse cx="116" cy="254" rx="8" ry="20" fill="#b7c8a9" transform="rotate(22 116 254)"/></g>
+    <g style="transform-origin:330px 0;animation:sway 7s ease-in-out infinite"><line x1="330" y1="0" x2="330" y2="40" stroke="#4a443f" stroke-width="3"/><path d="M308 70 Q330 28 352 70 Z" fill="#fbf4ec"/></g>`,
+
+  shop: (id) => `
+    <defs><linearGradient id="${id}bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3efe9"/><stop offset="1" stop-color="#dcd5cb"/></linearGradient></defs>
+    <rect width="400" height="500" fill="url(#${id}bg)"/>
+    <path d="M55 500V200a145 145 0 0 1 290 0V500Z" fill="#fffaf6"/>
+    <path d="M92 500V215a108 108 0 0 1 216 0V500Z" fill="#e9e4dc"/>
+    <path d="M62 150H338L352 192H48Z" fill="#bdb4a8"/>
+    <path d="M62 150L82 192M110 150L122 192M158 150L162 192M206 150V192M254 150L250 192M302 150L290 192M338 150L318 192" stroke="#fbf4ec" stroke-width="5"/>
+    <rect x="150" y="96" width="100" height="26" rx="4" fill="#4a443f"/>
+    <rect x="118" y="262" width="164" height="6" fill="#4a443f"/><rect x="118" y="336" width="164" height="6" fill="#4a443f"/><rect x="118" y="410" width="164" height="6" fill="#4a443f"/>
+    <rect x="128" y="232" width="26" height="30" rx="3" fill="#cdc5b9"/><circle cx="184" cy="248" r="14" fill="#fbf4ec"/><rect x="214" y="224" width="22" height="38" rx="3" fill="#a79e92"/><rect x="246" y="236" width="24" height="26" rx="3" fill="#bdb4a8"/>
+    <rect x="128" y="306" width="40" height="30" rx="3" fill="#bdb4a8"/><rect x="180" y="296" width="24" height="40" rx="3" fill="#fbf4ec"/><circle cx="238" cy="320" r="16" fill="#cdc5b9"/>
+    <rect x="130" y="380" width="30" height="30" rx="3" fill="#a79e92"/><rect x="172" y="372" width="34" height="38" rx="3" fill="#cdc5b9"/><circle cx="244" cy="394" r="16" fill="#fbf4ec"/>`,
 };
 
 export function art(kind = 'room') {

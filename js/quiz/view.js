@@ -125,7 +125,7 @@ export function mountQuiz({ questions, results, copy }) {
     showBg(null);
     swap(`
       <div class="result">
-        <div class="result__media" data-mask-lite>${media({ ...r, alt: r.title })}<span class="result__sticker">✦ Tu estilo</span></div>
+        <div class="result__media" data-mask-lite data-hover>${media({ ...r, alt: r.title })}<span class="result__sticker">✦ Tu estilo</span></div>
         <div class="result__body">
           <span class="eyebrow">${r.eyebrow}</span>
           <h3 class="display result__title">${r.title}</h3>

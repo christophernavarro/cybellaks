@@ -1,10 +1,10 @@
 import { splitHTML } from '../ui/motion.js';
-import { art } from '../ui/art.js';
+import { media } from '../ui/art.js';
 
 // Contenedor del quiz; el flujo lo pinta quiz/view.js dentro de #quiz-stage y actualiza el lateral (.qaside).
 export function quizSection({ quiz: q }) {
   return `
-  <section class="section quiz" id="quiz">
+  <section class="section sheet quiz" id="quiz">
     <div class="quiz__ghost" aria-hidden="true">Quiz</div>
     <div class="quiz__petals" aria-hidden="true"></div>
     <div class="wrap quiz__wrap">
@@ -16,7 +16,7 @@ export function quizSection({ quiz: q }) {
       <div class="quiz__layout" data-mode="intro" data-reveal style="--i:2">
         <aside class="qaside" aria-hidden="true">
           <div class="qaside__frame">
-            ${['room', 'lamp', 'garden'].map((k, i) => `<div class="qaside__art ${i === 0 ? 'on' : ''}">${art(k)}</div>`).join('')}
+            ${q.aside.map((a, i) => `<div class="qaside__art ${i === 0 ? 'on' : ''}">${media(a)}</div>`).join('')}
             <div class="qaside__num display"></div>
           </div>
           <ul class="qaside__chips"></ul>
@@ -30,6 +30,5 @@ export function quizSection({ quiz: q }) {
         </div>
       </div>
     </div>
-    <svg class="wave wave--cream" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0,70 C240,10 480,110 720,60 C960,10 1200,100 1440,50 L1440,120 L0,120 Z"/></svg>
   </section>`;
 }

@@ -18,7 +18,7 @@ export function splitHTML(text) {
 export const plain = (t) => t.replace(/\*/g, '');
 
 export function initReveal(root = document) {
-  const els = root.querySelectorAll('[data-reveal], [data-mask], .split');
+  const els = root.querySelectorAll('[data-reveal], [data-mask], [data-lines], .split');
   if (reduce || !('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('is-in')); return; }
   // Un elemento recortado por clip-path tiene área 0 y nunca "intersecta": se observa su contenedor.
   const targetOf = new Map();
@@ -40,22 +40,42 @@ export function initReveal(root = document) {
 export function initScroll() {
   const items = [...document.querySelectorAll('[data-parallax]')];
   const bar = document.querySelector('.scroll-progress');
+  const hero = document.querySelector('.hero');
   let ticking = false;
   const run = () => {
     ticking = false;
     const max = document.documentElement.scrollHeight - innerHeight;
     if (bar) bar.style.setProperty('--p', max > 0 ? (scrollY / max).toFixed(4) : 0);
+    if (hero) hero.style.setProperty('--cover', Math.min(1, Math.max(0, scrollY / innerHeight)).toFixed(3));
     if (reduce) return;
+    const k = innerWidth < 900 ? 0.45 : 1;   // menos desplazamiento en pantallas chicas
     for (const el of items) {
       const r = el.getBoundingClientRect();
       if (r.bottom < -200 || r.top > innerHeight + 200) continue;
       const mid = r.top + r.height / 2 - innerHeight / 2;
-      el.style.setProperty('--py', `${(-mid * parseFloat(el.dataset.parallax)).toFixed(1)}px`);
+      el.style.setProperty('--py', `${(-mid * parseFloat(el.dataset.parallax) * k).toFixed(1)}px`);
+      if (el.dataset.parallaxX) el.style.setProperty('--px', `${(-mid * parseFloat(el.dataset.parallaxX) * k).toFixed(1)}px`);
     }
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(run); } }, { passive: true });
   addEventListener('resize', run);
   run();
+}
+
+// Las imágenes con [data-hover] se desplazan en sentido contrario al mouse. Delegado, así también cubre lo que se crea después.
+export function initHoverMove() {
+  if (reduce || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  let cur = null;
+  const set = (el, x, y) => { el.style.setProperty('--mx', x.toFixed(3)); el.style.setProperty('--my', y.toFixed(3)); };
+  addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    const el = e.target.closest?.('[data-hover]') ?? null;
+    if (cur && cur !== el) set(cur, 0, 0);
+    cur = el;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    set(el, ((e.clientX - r.left) / r.width) * 2 - 1, ((e.clientY - r.top) / r.height) * 2 - 1);
+  }, { passive: true });
 }
 
 // Botones que "siguen" levemente al cursor

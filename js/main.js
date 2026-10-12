@@ -6,12 +6,14 @@ import { validate } from './quiz/engine.js';
 import { mountQuiz } from './quiz/view.js';
 import { header, hero, marquee } from './components/hero.js';
 import { servicesSection } from './components/services.js';
+import { spacesSection } from './components/spaces.js';
 import { quizSection } from './components/quiz.js';
 import { contactSection, initContact } from './components/contact.js';
 import { footer } from './components/footer.js';
 import { initModal } from './components/modal.js';
 import { initCheckout } from './components/checkout.js';
-import { initReveal, initScroll, initMagnetic } from './ui/motion.js';
+import { initReveal, initScroll, initMagnetic, initHoverMove } from './ui/motion.js';
+import { initLens } from './ui/lens.js';
 
 document.getElementById('app').innerHTML = [
   header(site),
@@ -19,6 +21,7 @@ document.getElementById('app').innerHTML = [
   hero(site),
   marquee(site),
   servicesSection(site, services),
+  spacesSection(site),
   quizSection(site),
   contactSection(site, services),
   '</main>',
@@ -35,6 +38,8 @@ initContact(site.contact, services);
 initReveal();
 initScroll();
 initMagnetic();
+initHoverMove();
+initLens();
 
 // El header cambia de estilo al bajar
 const hd = document.querySelector('.header');

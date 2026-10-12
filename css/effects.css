@@ -1,0 +1,79 @@
+/* ============ EFECTOS ============ */
+
+/* ---- Hojas: cada sección sube y tapa a la anterior ---- */
+.sheet { position: relative; z-index: 1; margin-top: calc(var(--r-lg) * -1); border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: 0 -22px 44px -28px rgba(40, 34, 32, .22); }
+.sheet.section { padding-top: calc(var(--section-y) + var(--r-lg)); }
+.section { padding-bottom: calc(var(--section-y) + var(--r-lg)); }
+.marquee.sheet { padding: calc(1.1rem + var(--r-lg) * .35) 0 calc(1.1rem + var(--r-lg)); border-top: 0; }
+.footer.sheet { padding-bottom: 2rem; }
+
+/* En escritorio el hero queda fijo y la siguiente hoja lo cubre mientras él se atenúa */
+@media (min-width: 900px) and (min-height: 640px) {
+  .hero { position: sticky; top: 0; z-index: 0; }
+  .hero__grid, .hero__scroll { opacity: calc(1 - var(--cover, 0) * .6); }
+  .hero__grid { transform: scale(calc(1 - var(--cover, 0) * .05)); transform-origin: 50% 40%; }
+}
+
+/* ---- Líneas verticales finas (columnas) ---- */
+.lines { isolation: isolate; --cols: 3; }
+@media (min-width: 700px) { .lines { --cols: 6; } }
+.lines::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; border-radius: inherit;
+  background-image: linear-gradient(to right, rgba(58, 42, 45, .09) 1px, transparent 1px);
+  background-size: calc(100% / var(--cols)) 100%;
+  transform-origin: 50% 0; transition: transform 1.8s var(--ease-inout);
+}
+[data-lines]:not(.is-in)::before { transform: scaleY(0); }
+
+/* ---- Imágenes que se mueven con el mouse ---- */
+[data-hover] { --mx: 0; --my: 0; }
+[data-hover] > :is(.art, img, .card__zoom),
+.frame[data-hover] .para { transition: translate .55s var(--ease-out), scale 1s var(--ease-out); }
+[data-hover]:hover > :is(.art, img, .card__zoom) { scale: 1.1; translate: calc(var(--mx) * -14px) calc(var(--my) * -14px); }
+.frame[data-hover]:hover .para { scale: 1.08; translate: calc(var(--mx) * -14px) calc(var(--my) * -14px); }
+
+/* ---- Sección de espacios con imágenes flotantes ---- */
+.spaces { background: var(--white); }
+.spaces__stage { position: relative; min-height: 880px; display: grid; place-items: center; }
+.spaces__copy { position: relative; z-index: 2; text-align: center; max-width: 34rem; display: grid; gap: 1.7rem; justify-items: center; }
+.spaces__copy .eyebrow { justify-content: center; }
+.spaces__statement { font-size: clamp(2rem, 3.5vw, 3.3rem); text-wrap: balance; }
+.spaces__tiles { display: contents; }
+.tile { position: absolute; margin: 0; z-index: 1; transform: translate3d(var(--px, 0px), var(--py, 0px), 0); will-change: transform; }
+.tile__img { overflow: hidden; border-radius: 22px; background: var(--stone); box-shadow: var(--shadow-soft); aspect-ratio: var(--ar, 4 / 5); transition: box-shadow .6s var(--ease-out); }
+.tile:hover .tile__img { box-shadow: var(--shadow-lift); }
+.tile__img > .art, .tile__img > img { width: 100%; height: 100%; object-fit: cover; }
+.tile figcaption { margin-top: .75rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--rose-deep); }
+.tile:nth-child(1) { left: 2%;  top: 3%;     width: 17%; --ar: 4 / 5; }
+.tile:nth-child(2) { right: 3%; top: 6%;     width: 15%; --ar: 1; }
+.tile:nth-child(3) { left: 11%; top: 50%;    width: 14%; --ar: 1 / 1.15; }
+.tile:nth-child(4) { right: 9%; top: 44%;    width: 15%; --ar: 4 / 5; }
+.tile:nth-child(5) { left: 25%; bottom: -4%; width: 12%; --ar: 1; }
+.tile:nth-child(6) { right: 26%; bottom: -2%; width: 10%; --ar: 4 / 5; }
+@media (max-width: 899px) {
+  .spaces__stage { display: block; min-height: 0; }
+  .spaces__copy { margin: 0 auto 3rem; }
+  .spaces__tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4rem 1.2rem; }
+  .tile { position: static; width: auto !important; }
+  .tile:nth-child(even) { margin-top: 2.2rem; }
+}
+
+/* ---- Lupa que sigue al mouse (solo con mouse, nunca bloquea clics) ---- */
+.lens { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 60; pointer-events: none; }
+.lens::before {
+  content: ""; position: absolute; width: 170px; height: 170px; left: -85px; top: -85px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .5) 0, rgba(255, 255, 255, .22) 34%, rgba(58, 42, 45, .06) 52%, rgba(58, 42, 45, 0) 70%);
+  backdrop-filter: saturate(1.4) brightness(1.04) contrast(1.04);
+  -webkit-backdrop-filter: saturate(1.4) brightness(1.04) contrast(1.04);
+  -webkit-mask-image: radial-gradient(circle, #000 42%, transparent 70%); mask-image: radial-gradient(circle, #000 42%, transparent 70%);
+  opacity: 0; transform: scale(.6); transition: opacity .35s, transform .5s var(--ease-out);
+}
+.lens.on::before { opacity: 1; transform: scale(1); }
+.lens.on.is-link::before { transform: scale(.62); }
+.lens.on.is-down::before { transform: scale(.85); }
+@media (hover: none), (pointer: coarse) { .lens { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-lines]::before { transform: none !important; }
+  .lens { display: none; }
+}
