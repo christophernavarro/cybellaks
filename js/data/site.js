@@ -16,8 +16,8 @@ export const site = {
     // image: ruta a foto real (assets/...) o null para usar ilustración
     collage: [
       { art: 'room', image: 'assets/img/salon-arcos.webp', pos: '30% 50%', alt: 'Salón con ventanales en arco y luz natural' },
-      { art: 'lamp', image: 'assets/img/rincon-calido.webp', pos: '40% 58%', alt: 'Lámpara de mesa sobre un aparador de madera' },
-      { art: 'garden', image: 'assets/img/carpinteria-madera.webp', pos: '50% 55%', alt: 'Mueble de madera curvo en una cocina integrada' },
+      { art: 'garden', image: 'assets/img/jardin-atardecer.webp', pos: '55% 55%', alt: 'Jardín mediterráneo con olivos y una pérgola al atardecer' },
+      { art: 'lamp', image: 'assets/img/cafe-dorado.webp', pos: '50% 50%', alt: 'Cafetería con luz cálida y barra de madera' },
     ],
   },
   marquee: ['Iluminación', 'Espacios pequeños', 'Paisajismo', 'Diseño a medida', 'Color y textura', 'Para cualquier espacio'],
@@ -28,12 +28,12 @@ export const site = {
     statement: 'Un buen diseño no depende del tamaño. Transformamos *hogares, oficinas, locales y terrazas* con la misma dedicación.',
     cta: { label: 'Descubre tu estilo', href: '#quiz' },
     items: [
-      { label: 'Hogares', art: 'room', image: 'assets/img/rincon-calido.webp', pos: '30% 50%', alt: 'Sala de un hogar', speed: -0.16, speedX: 0.02 },
-      { label: 'Oficinas', art: 'office', image: 'assets/img/espacio-pequeno.webp', pos: '15% 75%', alt: 'Oficina luminosa', speed: 0.1, speedX: -0.02 },
-      { label: 'Locales', art: 'shop', image: 'assets/img/carpinteria-madera.webp', pos: '50% 60%', alt: 'Local comercial', speed: -0.08, speedX: 0.03 },
-      { label: 'Terrazas', art: 'garden', image: 'assets/img/salon-arcos.webp', pos: '3% 45%', alt: 'Ventanales con vista a un jardín', speed: 0.12, speedX: -0.03 },
-      { label: 'Restaurantes', art: 'lamp', image: 'assets/img/salon-moderno.webp', pos: '50% 40%', alt: 'Iluminación de un restaurante', speed: -0.12, speedX: 0.02 },
-      { label: 'Recepciones', art: 'office', image: 'assets/img/salon-arcos.webp', pos: '80% 55%', alt: 'Salón amplio con espejo y mesa baja', speed: 0.1, speedX: -0.02 },
+      { label: 'Hogares', art: 'room', image: 'assets/img/rincon-calido.webp', pos: '35% 55%', alt: 'Rincón cálido con lámpara, aparador de madera y sillón', speed: -0.16, speedX: 0.02 },
+      { label: 'Oficinas', art: 'office', image: 'assets/img/escritorio-ventanal.webp', pos: '35% 68%', alt: 'Escritorio integrado frente a un gran ventanal', speed: 0.1, speedX: -0.02 },
+      { label: 'Locales', art: 'shop', image: 'assets/img/tienda-ropa.webp', pos: '50% 55%', alt: 'Tienda con estantes de madera y ropa colgada', speed: -0.08, speedX: 0.03 },
+      { label: 'Terrazas', art: 'garden', image: 'assets/img/patio-nocturno.webp', pos: '50% 55%', alt: 'Patio con jardín iluminado al anochecer', speed: 0.12, speedX: -0.03 },
+      { label: 'Cafeterías', art: 'lamp', image: 'assets/img/cafe-boveda.webp', pos: '50% 62%', alt: 'Cafetería con techo abovedado y barra de madera', speed: -0.12, speedX: 0.02 },
+      { label: 'Recepciones', art: 'office', image: 'assets/img/recepcion-calida.webp', pos: '50% 60%', alt: 'Recepción cálida con barra iluminada', speed: 0.1, speedX: -0.02 },
     ],
   },
   services: {
@@ -49,9 +49,9 @@ export const site = {
     start: 'Comenzar el quiz',
     // Imágenes del lateral: una por pregunta, rotan en orden. image: foto real o null para la ilustración.
     aside: [
-      { art: 'room', image: 'assets/img/carpinteria-madera.webp', pos: '50% 55%', alt: 'Cocina integrada con mueble de madera' },
-      { art: 'office', image: 'assets/img/salon-arcos.webp', pos: '50% 50%', alt: 'Salón con ventanales en arco' },
-      { art: 'garden', image: 'assets/img/rincon-calido.webp', pos: '45% 55%', alt: 'Rincón cálido con lámpara y sillón' },
+      { art: 'room', image: 'assets/img/sofa-curvo.webp', pos: '50% 50%', alt: 'Sofá curvo frente a un muro de listones de madera' },
+      { art: 'office', image: 'assets/img/patio-olivo.webp', pos: '50% 50%', alt: 'Patio interior con un olivo entre muros de piedra' },
+      { art: 'garden', image: 'assets/img/salon-belleza.webp', pos: '50% 50%', alt: 'Salón de belleza con iluminación cálida' },
     ],
     // Botones de la pantalla de resultado. PLACEHOLDER: precios y textos de ejemplo.
     actions: {

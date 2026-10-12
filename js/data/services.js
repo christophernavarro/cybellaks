@@ -7,9 +7,9 @@ export const services = [
     title: 'Iluminación',
     description: 'Capas de luz cálida que dan profundidad, ambiente y vida a cada rincón.',
     art: 'lamp',
-    image: 'assets/img/rincon-calido.webp',
-    pos: '38% 52%',        // ej. 'assets/iluminacion.jpg'
-    alt: 'Lámpara de mesa con luz cálida sobre un aparador de madera',
+    image: 'assets/img/salon-luz-esfera.webp',
+    pos: '50% 45%',
+    alt: 'Salón con lámpara esférica e iluminación indirecta',
     cta: 'Ver más',
     href: null,         // ej. 'iluminacion.html' para abrir página propia
     detail: {
@@ -23,9 +23,9 @@ export const services = [
     title: 'Espacios pequeños',
     description: 'Ideas inteligentes para ganar amplitud, orden y estilo en pocos metros.',
     art: 'room',
-    image: 'assets/img/espacio-pequeno.webp',
-    pos: '60% 62%',
-    alt: 'Sala pequeña con sofá con cajones y escritorio',
+    image: 'assets/img/estudio-compacto.webp',
+    pos: '50% 55%',
+    alt: 'Estudio compacto con sofá, cama y estantes',
     cta: 'Ver más',
     href: null,
     detail: {
@@ -39,9 +39,9 @@ export const services = [
     title: 'Paisajismo',
     description: 'Terrazas, jardines y rincones verdes que conectan tu espacio con la naturaleza.',
     art: 'garden',
-    image: 'assets/img/salon-arcos.webp',
-    pos: '4% 45%',
-    alt: 'Ventanal en arco con vista a un jardín',
+    image: 'assets/img/terraza-jardin.webp',
+    pos: '50% 60%',
+    alt: 'Terraza con jardín, olivo y escalones de piedra',
     cta: 'Ver más',
     href: null,
     detail: {
