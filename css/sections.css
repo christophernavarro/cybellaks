@@ -80,6 +80,8 @@
 .card__body h3 { font-size: 2rem; }
 .card__body p { color: var(--ink-soft); }
 .card__body .link-arrow { margin-top: .6rem; cursor: pointer; }
+.card.is-clickable { cursor: pointer; }
+.card.is-clickable:hover .link-arrow { background-size: 100% 1.5px; gap: 1rem; }
 @media (min-width: 820px) {
   .cards { grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
   .card:nth-child(2) { margin-top: 3rem; }   /* escalonado vertical editorial */

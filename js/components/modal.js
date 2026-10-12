@@ -29,6 +29,8 @@ export function initModal(items) {
   });
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-open]');
-    if (b) open(b.dataset.open);
+    if (!b) return;
+    if (e.target.closest('a')) return;   // un enlace dentro de la tarjeta sigue su camino
+    open(b.dataset.open);
   });
 }

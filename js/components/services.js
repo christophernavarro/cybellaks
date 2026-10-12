@@ -13,7 +13,7 @@ export function servicesSection({ services: copy }, items) {
 
       <div class="cards">
         ${items.map((s, i) => `
-          <article class="card" data-reveal style="--i:${i}" data-service="${s.id}">
+          <article class="card${s.href ? '' : ' is-clickable'}" data-reveal style="--i:${i}" data-service="${s.id}"${s.href ? '' : ` data-open="${s.id}"`}>
             <div class="card__media" data-hover><div class="card__zoom">${media(s)}</div><span class="card__n display">${s.number}</span></div>
             <div class="card__body">
               <h3 class="display">${s.title}</h3>
