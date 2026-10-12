@@ -94,7 +94,7 @@
 @keyframes fadeIn { from { opacity: 0; } }
 @keyframes modalIn { from { opacity: 0; transform: translateY(40px) scale(.96); } }
 .modal__inner { display: grid; position: relative; max-height: 90svh; overflow: auto; }
-.modal__media { aspect-ratio: 16/10; background: var(--stone); }
+.modal__media { aspect-ratio: 16/10; background: var(--stone); overflow: hidden; }
 .modal__media img, .modal__media svg, .modal__media .art { width: 100%; height: 100%; object-fit: cover; }
 .modal__body { padding: 2rem; display: grid; gap: 1rem; justify-items: start; }
 .modal__body h3 { font-size: 2.6rem; }
