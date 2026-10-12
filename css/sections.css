@@ -6,7 +6,14 @@
   transition: background .5s, padding .5s var(--ease-out), box-shadow .5s;
 }
 .header.is-stuck { background: color-mix(in srgb, var(--offwhite) 82%, transparent); backdrop-filter: blur(14px); padding-block: .7rem; box-shadow: 0 1px 0 rgba(162,79,93,.12); }
-.header__logo { text-decoration: none; font-size: 1.5rem; font-style: italic; }
+.header__logo { text-decoration: none; color: var(--ink); }
+.logo { display: inline-flex; align-items: center; gap: .6rem; line-height: 1; }
+.logo__mark { height: 1.55rem; width: auto; flex: none; transition: transform .6s var(--ease-out); }
+.logo__word { font-size: 1.55rem; font-weight: 400; letter-spacing: .01em; font-variation-settings: "opsz" 48; }
+.header__logo:hover .logo__mark { transform: translateY(-2px); }
+.logo--lg .logo__mark { height: 2.1rem; }
+.logo--lg .logo__word { font-size: 2.1rem; }
+@media (max-width: 480px) { .logo { gap: .45rem; } .logo__mark { height: 1.25rem; } .logo__word { font-size: 1.3rem; } .header__nav { gap: .9rem; } .header__nav a { font-size: .8rem; } }
 .header__nav { display: flex; gap: clamp(1rem, 3vw, 2.4rem); }
 .header__nav a {
   text-decoration: none; font-size: .88rem; font-weight: 600; letter-spacing: .04em;
@@ -105,7 +112,8 @@
 .footer__inner { display: grid; gap: 2.4rem; justify-items: center; }
 .footer__title { font-size: clamp(2.4rem, 7vw, 6rem); max-width: 16ch; text-wrap: balance; }
 .footer__title em { color: var(--rose-deep); }
-.footer__note { margin-top: 4rem; font-size: .85rem; opacity: .7; }
+.footer__brand { margin-top: 4.5rem; display: flex; justify-content: center; }
+.footer__note { margin-top: 1.2rem; font-size: .85rem; opacity: .7; }
 
 .hero__grid { z-index: 1; }
 
@@ -122,3 +130,13 @@
 .checkout__price small { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--rose-deep); }
 .checkout__price b { font-size: 2.4rem; font-weight: 400; }
 .checkout__note { margin: 0; font-size: .85rem; color: var(--ink-soft); }
+
+/* Pantallas muy angostas: logo y menú más compactos para que no se monten */
+@media (max-width: 380px) {
+  .header { padding-inline: 1rem; }
+  .logo { gap: .35rem; }
+  .logo__mark { height: 1.05rem; }
+  .logo__word { font-size: 1.1rem; }
+  .header__nav { gap: .6rem; }
+  .header__nav a { font-size: .74rem; letter-spacing: 0; }
+}

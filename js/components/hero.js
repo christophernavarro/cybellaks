@@ -1,10 +1,11 @@
 import { splitHTML } from '../ui/motion.js';
 import { media } from '../ui/art.js';
+import { logo } from '../ui/logo.js';
 
 export function header(site) {
   return `
   <header class="header">
-    <a class="header__logo display" href="#top" aria-label="${site.brand}">${site.brand}</a>
+    <a class="header__logo" href="#top" aria-label="${site.brand}, ir al inicio">${logo(site.brand)}</a>
     <nav class="header__nav" aria-label="Principal">
       ${site.nav.map((n) => `<a href="${n.href}">${n.label}</a>`).join('')}
     </nav>

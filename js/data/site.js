@@ -1,6 +1,6 @@
 // Contenido de marca. PLACEHOLDER: reemplazar con los textos reales.
 export const site = {
-  brand: 'Atelier Blush',
+  brand: 'Cybellaks',
   nav: [
     { label: 'Categorías', href: '#categorias' },
     { label: 'Quiz', href: '#quiz' },
@@ -67,6 +67,6 @@ export const site = {
   footer: {
     title: 'Hagamos de tu espacio *el lugar que imaginas*',
     cta: { label: 'Escríbenos', href: '#contacto' },
-    note: '© ' + new Date().getFullYear() + ' Atelier Blush. Todos los derechos reservados.',
+    note: '© ' + new Date().getFullYear() + ' Cybellaks. Todos los derechos reservados.',
   },
 };
