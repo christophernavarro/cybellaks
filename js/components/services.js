@@ -3,7 +3,7 @@ import { media } from '../ui/art.js';
 
 export function servicesSection({ services: copy }, items) {
   return `
-  <section class="section sheet lines services" id="categorias" data-lines>
+  <section class="section sheet services" id="categorias">
     <div class="wrap">
       <header class="section__head">
         <span class="eyebrow" data-reveal>${copy.eyebrow}</span>
