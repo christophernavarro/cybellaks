@@ -22,18 +22,18 @@ export const site = {
   },
   marquee: ['Iluminación', 'Espacios pequeños', 'Paisajismo', 'Diseño a medida', 'Color y textura', 'Para cualquier espacio'],
   // Sección de espacios con imágenes flotantes que se mueven al hacer scroll.
-  // image: foto real (assets/...) o null para la ilustración. speed: velocidad vertical del parallax (negativo = sube); speedX: deriva horizontal.
+  // desc: texto que se muestra al abrir la imagen en grande. image: foto real (assets/...) o null para la ilustración. speed: velocidad vertical del parallax (negativo = sube); speedX: deriva horizontal.
   spaces: {
     eyebrow: 'Para cualquier espacio',
     statement: 'Un buen diseño no depende del tamaño. Transformamos *hogares, oficinas, locales y terrazas* con la misma dedicación.',
     cta: { label: 'Descubre tu estilo', href: '#quiz' },
     items: [
-      { label: 'Hogares', art: 'room', image: 'assets/img/rincon-calido.webp', pos: '35% 55%', alt: 'Rincón cálido con lámpara, aparador de madera y sillón', speed: -0.16, speedX: 0.02 },
-      { label: 'Oficinas', art: 'office', image: 'assets/img/escritorio-ventanal.webp', pos: '35% 68%', alt: 'Escritorio integrado frente a un gran ventanal', speed: 0.1, speedX: -0.02 },
-      { label: 'Locales', art: 'shop', image: 'assets/img/tienda-ropa.webp', pos: '50% 55%', alt: 'Tienda con estantes de madera y ropa colgada', speed: -0.08, speedX: 0.03 },
-      { label: 'Terrazas', art: 'garden', image: 'assets/img/patio-nocturno.webp', pos: '50% 55%', alt: 'Patio con jardín iluminado al anochecer', speed: 0.12, speedX: -0.03 },
-      { label: 'Cafeterías', art: 'lamp', image: 'assets/img/cafe-boveda.webp', pos: '50% 62%', alt: 'Cafetería con techo abovedado y barra de madera', speed: -0.12, speedX: 0.02 },
-      { label: 'Recepciones', art: 'office', image: 'assets/img/recepcion-calida.webp', pos: '50% 60%', alt: 'Recepción cálida con barra iluminada', speed: 0.1, speedX: -0.02 },
+      { label: 'Hogares', desc: 'Salas, comedores y dormitorios con luz cálida, materiales nobles y piezas que cuentan tu historia.', art: 'room', image: 'assets/img/rincon-calido.webp', pos: '35% 55%', alt: 'Rincón cálido con lámpara, aparador de madera y sillón', speed: -0.16, speedX: 0.02 },
+      { label: 'Oficinas', desc: 'Espacios de trabajo que ordenan la mente: muebles a medida, buena luz y zonas para concentrarse.', art: 'office', image: 'assets/img/escritorio-ventanal.webp', pos: '35% 68%', alt: 'Escritorio integrado frente a un gran ventanal', speed: 0.1, speedX: -0.02 },
+      { label: 'Locales', desc: 'Tiendas y locales que invitan a quedarse: estantes, iluminación y recorridos pensados para tu marca.', art: 'shop', image: 'assets/img/tienda-ropa.webp', pos: '50% 55%', alt: 'Tienda con estantes de madera y ropa colgada', speed: -0.08, speedX: 0.03 },
+      { label: 'Terrazas', desc: 'Terrazas, patios y jardines iluminados para disfrutar de día y de noche.', art: 'garden', image: 'assets/img/patio-nocturno.webp', pos: '50% 55%', alt: 'Patio con jardín iluminado al anochecer', speed: 0.12, speedX: -0.03 },
+      { label: 'Cafeterías', desc: 'Cafés con identidad: texturas, luz indirecta y mobiliario cómodo que hacen volver a la gente.', art: 'lamp', image: 'assets/img/cafe-boveda.webp', pos: '50% 62%', alt: 'Cafetería con techo abovedado y barra de madera', speed: -0.12, speedX: 0.02 },
+      { label: 'Recepciones', desc: 'Recepciones que reciben bien: barras iluminadas, materiales cálidos y un primer impacto memorable.', art: 'office', image: 'assets/img/recepcion-calida.webp', pos: '50% 60%', alt: 'Recepción cálida con barra iluminada', speed: 0.1, speedX: -0.02 },
     ],
   },
   services: {

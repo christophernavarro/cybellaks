@@ -6,7 +6,7 @@ import { validate } from './quiz/engine.js';
 import { mountQuiz } from './quiz/view.js';
 import { header, hero, marquee } from './components/hero.js';
 import { servicesSection } from './components/services.js';
-import { spacesSection } from './components/spaces.js';
+import { spacesSection, initSpacesLightbox } from './components/spaces.js';
 import { quizSection } from './components/quiz.js';
 import { contactSection, initContact } from './components/contact.js';
 import { footer } from './components/footer.js';
@@ -33,6 +33,7 @@ if (issues.length) console.warn('[quiz] Revisa la tabla de resultados:\n' + issu
 
 mountQuiz({ questions, results, copy: site.quiz });
 initModal(services);
+initSpacesLightbox(site);
 initCheckout(site.quiz.actions.fullQuiz);
 initContact(site.contact, services);
 initReveal();
