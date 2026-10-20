@@ -1,15 +1,16 @@
 import { isNight } from './theme.js';
 
-// Al poner el cursor sobre el texto del inicio (o enfocarlo con el teclado), la foto pasa a su versión de noche.
+// Al poner el cursor sobre el texto del inicio (o enfocarlo con el teclado), la foto pasa a su versión contraria:
+// de día a noche, o de noche a día si toda la página está en modo noche.
 // En pantallas táctiles, un toque sobre el texto alterna día y noche.
 export function initHeroNight() {
   const hero = document.querySelector('.hero');
   const copy = hero?.querySelector('.hero__copy');
   if (!copy) return;
-  // El inicio está de noche si el cursor está sobre el texto o si toda la página está en modo noche.
+  // El cursor sobre el texto invierte el estado: de día pasa a noche, y con la página en modo noche pasa a día.
   let hover = false;
   const sync = () => {
-    const on = hover || isNight();
+    const on = hover !== isNight();
     hero.classList.toggle('is-night', on);
     document.documentElement.toggleAttribute('data-night', on);
   };
