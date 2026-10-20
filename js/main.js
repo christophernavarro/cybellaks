@@ -14,6 +14,7 @@ import { initModal } from './components/modal.js';
 import { initCheckout } from './components/checkout.js';
 import { initReveal, initScroll, initMagnetic, initHoverMove } from './ui/motion.js';
 import { initLens } from './ui/lens.js';
+import { initHeroNight } from './ui/heroNight.js';
 
 document.getElementById('app').innerHTML = [
   header(site),
@@ -41,6 +42,7 @@ initScroll();
 initMagnetic();
 initHoverMove();
 initLens();
+initHeroNight();
 
 // El header cambia de estilo al bajar
 const hd = document.querySelector('.header');

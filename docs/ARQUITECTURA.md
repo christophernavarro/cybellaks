@@ -45,6 +45,7 @@ js/
   ui/
     art.js                  Ilustraciones SVG de reserva (cuando aún no hay foto)
     lens.js                 Punto burdeos que sigue al mouse
+    heroNight.js            Inicio: cambio de día a noche al pasar el cursor sobre el texto
     motion.js               Reveal, parallax, split de texto, contadores, botones magnéticos
 docs/ARQUITECTURA.md
 assets/                     Aquí van las fotos reales (ver "Imágenes")
@@ -55,7 +56,7 @@ assets/                     Aquí van las fotos reales (ver "Imágenes")
 | Componente | Responsabilidad | Datos |
 |---|---|---|
 | `header` | Logo + navegación + barra de progreso de scroll | `site.nav` |
-| `hero` | Titular grande, collage de imágenes con parallax, CTA al quiz | `site.hero` |
+| `hero` | Imagen de fondo con la frase; al poner el cursor sobre el texto pasa de día a noche; CTA al quiz | `site.hero` |
 | `marquee` | Cinta con texto en movimiento | `site.marquee` |
 | `services` | 3 cards con aparición escalonada y hover | `services` |
 | `spaces` | Frase central con imágenes flotantes que se mueven al hacer scroll | `site.spaces` |
@@ -137,7 +138,7 @@ y escribe su ruta en el campo `image`, por ejemplo `image: 'assets/hogar-sala.jp
 
 | Dónde se ve | Archivo de datos | Campo | Formato recomendado |
 |---|---|---|---|
-| Collage del inicio (3) | `js/data/site.js` → `hero.collage` | `image` | 1 arco vertical 3:4 · 1 círculo 1:1 · 1 rectángulo 4:5 |
+| Inicio (día y noche) | `js/data/site.js` → `hero.image` | `day`, `night` | Mismo encuadre y tamaño en ambas; cubre toda la pantalla |
 | Imágenes flotantes (6) | `js/data/site.js` → `spaces.items` | `image` | Vertical 4:5, cuadrada 1:1 o 1:1,15 (según la posición) |
 | Tarjetas de categorías (3) | `js/data/services.js` | `image` | Casi cuadrada 10:11 |
 | Lateral del quiz (3, rotan por pregunta) | `js/data/site.js` → `quiz.aside` | `image` | Vertical 4:5,2 |

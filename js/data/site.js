@@ -6,19 +6,17 @@ export const site = {
     { label: 'Quiz', href: '#quiz' },
     { label: 'Contacto', href: '#contacto' },
   ],
+  // Inicio: una sola imagen de fondo con la frase. Al poner el cursor sobre el texto, la misma foto pasa a su versión de noche.
+  // PLACEHOLDER: la frase está por confirmar.
   hero: {
-    eyebrow: 'Diseño de interiores',
-    title: 'Espacios que se sienten *como tú*',
-    lead: 'Diseñamos interiores cálidos, luminosos y llenos de carácter para cualquier espacio: hogares, oficinas, locales y terrazas. Responde un breve quiz y te recomendamos la solución ideal.',
+    title: 'Tu espacio, más cerca de lo que *crees*',
     cta: { label: 'Descubre tu estilo', href: '#quiz' },
-    secondary: { label: 'Ver categorías', href: '#categorias' },
-    badge: 'Descubre tu estilo · Quiz de 2 minutos · ',
-    // image: ruta a foto real (assets/...) o null para usar ilustración
-    collage: [
-      { art: 'room', image: 'assets/img/salon-arcos.webp', pos: '30% 50%', alt: 'Salón con ventanales en arco y luz natural' },
-      { art: 'garden', image: 'assets/img/jardin-atardecer.webp', pos: '55% 55%', alt: 'Jardín mediterráneo con olivos y una pérgola al atardecer' },
-      { art: 'lamp', image: 'assets/img/cafe-dorado.webp', pos: '50% 50%', alt: 'Cafetería con luz cálida y barra de madera' },
-    ],
+    image: {
+      day: 'assets/img/salon-arcos.webp',
+      night: 'assets/img/salon-arcos-noche.webp',
+      pos: '50% 60%',
+      alt: 'Salón con ventanales en arco, de día y de noche',
+    },
   },
   marquee: ['Iluminación', 'Espacios pequeños', 'Paisajismo', 'Diseño a medida', 'Color y textura', 'Para cualquier espacio'],
   // Sección de espacios con imágenes flotantes que se mueven al hacer scroll.
