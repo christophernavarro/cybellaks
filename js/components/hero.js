@@ -4,10 +4,7 @@ import { markSVG } from '../ui/logo.js';
 export function header(site) {
   return `
   <header class="header">
-    <div class="header__brand">
-      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Cambiar a modo noche" title="Cambiar a modo noche">${markSVG()}</button>
-      <a class="header__logo" href="#top" aria-label="${site.brand}, ir al inicio"><span class="logo__word display">${site.brand.toLowerCase()}</span></a>
-    </div>
+    <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Cambiar a modo noche" title="Cambiar a modo noche">${markSVG()}<span class="logo__word display">${site.brand.toLowerCase()}</span></button>
     <nav class="header__nav" aria-label="Principal">
       ${site.nav.map((n) => `<a href="${n.href}">${n.label}</a>`).join('')}
     </nav>

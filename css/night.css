@@ -42,7 +42,6 @@ html[data-theme="night"] .logo__dot { fill: var(--rose-deep); filter: drop-shado
 /* con la página de noche, el inicio pasa a día al pasar el cursor sobre el texto: los textos sobre la foto vuelven a oscuro */
 :root[data-theme="night"] .hero:not(.is-night) .hero__copy,
 :root[data-theme="night"]:not([data-night]) .header:not(.is-stuck),
-:root[data-theme="night"]:not([data-night]) .header:not(.is-stuck) .header__logo,
 :root[data-theme="night"]:not([data-night]) .header:not(.is-stuck) .theme-toggle { color: #3a2a2d; }
 :root[data-theme="night"] .hero:not(.is-night) .hero__title em { color: #a24f5d; }
 :root[data-theme="night"] .hero:not(.is-night) .hero__scroll { border-color: #3a2a2d; }

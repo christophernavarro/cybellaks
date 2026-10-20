@@ -6,10 +6,9 @@
   transition: background .5s, padding .5s var(--ease-out), box-shadow .5s;
 }
 .header.is-stuck { background: color-mix(in srgb, var(--offwhite) 82%, transparent); backdrop-filter: blur(14px); padding-block: .7rem; box-shadow: 0 1px 0 rgba(162,79,93,.12); }
-.header__logo { text-decoration: none; color: var(--ink); }
-.header__brand { display: flex; align-items: center; gap: .6rem; }
-.theme-toggle { display: grid; place-items: center; padding: .3rem; margin: -.3rem; border: 0; background: none; color: inherit; border-radius: 8px; transition: transform .5s var(--ease-out); }
-.theme-toggle:hover { transform: translateY(-2px) scale(1.08); }
+.theme-toggle { display: inline-flex; align-items: center; gap: .6rem; padding: .4rem .6rem; margin: -.4rem -.6rem; border: 0; background: none; color: inherit; font: inherit; line-height: 1; border-radius: 10px; transition: transform .5s var(--ease-out); }
+.theme-toggle:hover { transform: translateY(-2px); }
+.theme-toggle:hover .logo__mark { transform: scale(1.1); }
 .theme-toggle:focus-visible { outline: 2px solid var(--rose-deep); outline-offset: 2px; }
 .theme-toggle .logo__mark { height: 1.55rem; }
 .logo { display: inline-flex; align-items: center; gap: .6rem; line-height: 1; }
@@ -17,7 +16,7 @@
 .logo__word { font-size: 1.55rem; font-weight: 400; letter-spacing: .01em; font-variation-settings: "opsz" 48; }
 .logo--lg .logo__mark { height: 2.1rem; }
 .logo--lg .logo__word { font-size: 2.1rem; }
-@media (max-width: 480px) { .logo, .header__brand { gap: .45rem; } .logo__mark, .theme-toggle .logo__mark { height: 1.25rem; } .logo__word { font-size: 1.3rem; } .header__nav { gap: .9rem; } .header__nav a { font-size: .8rem; } }
+@media (max-width: 480px) { .logo, .theme-toggle { gap: .45rem; } .logo__mark, .theme-toggle .logo__mark { height: 1.25rem; } .logo__word { font-size: 1.3rem; } .header__nav { gap: .9rem; } .header__nav a { font-size: .8rem; } }
 .header__nav { display: flex; gap: clamp(1rem, 3vw, 2.4rem); }
 .header__nav a {
   text-decoration: none; font-size: .88rem; font-weight: 600; letter-spacing: .04em;
@@ -86,7 +85,7 @@
 /* el encabezado se aclara cuando el inicio está de noche */
 .header { color: var(--ink); }
 html[data-night] .header:not(.is-stuck) { color: #fff; }
-html[data-night] .header:not(.is-stuck) .header__logo, html[data-night] .header:not(.is-stuck) .theme-toggle { color: #fff; }
+html[data-night] .header:not(.is-stuck) .theme-toggle { color: #fff; }
 html[data-night] .header:not(.is-stuck) .header__nav a { background-image: linear-gradient(#fff, #fff); }
 
 /* ============ MARQUEE ============ */
