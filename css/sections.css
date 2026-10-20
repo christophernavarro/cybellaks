@@ -58,7 +58,7 @@
 .hero.is-night .hero__scroll span { background: #fff; }
 @media (min-width: 900px) { .hero__scroll { display: block; } }
 /* ---- Puntos sobre la foto (se abren al pasar el mouse o al tocar) ---- */
-.hero__spots { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.hero__spots { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
 .hero__spots--mobile { display: none; }
 @media (max-width: 699px) { .hero__spots--desktop { display: none; } .hero__spots--mobile { display: block; } }
 .spot { position: absolute; left: calc(var(--x) * 1%); top: calc(var(--y) * 1%); width: 44px; height: 44px; margin: -22px 0 0 -22px; padding: 0; border: 0; background: none; pointer-events: auto; }   /* zona de toque más grande que el punto */
@@ -71,10 +71,10 @@
 .spot__card {
   position: absolute; left: 44px; top: 8px; width: max-content; max-width: min(15rem, 62vw);
   padding: .85rem 1rem; border-radius: 16px; background: #fff; color: var(--ink); text-align: left;
-  font-size: .86rem; line-height: 1.45; box-shadow: 0 14px 36px -12px rgba(58, 42, 45, .35);
+  font-size: .9rem; font-weight: 500; line-height: 1.55; box-shadow: 0 14px 36px -12px rgba(58, 42, 45, .35);
   opacity: 0; translate: 0 6px; pointer-events: none; transition: opacity .3s, translate .35s var(--ease-out);
 }
-.spot__card strong { display: block; margin-bottom: .25rem; font-family: var(--font-display, inherit); font-size: 1.1rem; font-weight: 400; color: var(--rose-deep); }
+.spot__card strong { display: block; margin-bottom: .35rem; font-family: var(--font-body); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--rose-deep); }
 .spot__card { max-width: min(15rem, 62vw); }
 @media (max-width: 699px) { .spot__card { max-width: 52vw; } }
 .spot.is-left .spot__card { left: auto; right: 44px; }
