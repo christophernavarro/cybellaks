@@ -15,6 +15,7 @@ import { initCheckout } from './components/checkout.js';
 import { initReveal, initScroll, initMagnetic, initHoverMove } from './ui/motion.js';
 import { initLens } from './ui/lens.js';
 import { initHeroNight, initHeroSpots } from './ui/heroNight.js';
+import { initTheme } from './ui/theme.js';
 
 document.getElementById('app').innerHTML = [
   header(site),
@@ -42,6 +43,7 @@ initScroll();
 initMagnetic();
 initHoverMove();
 initLens();
+initTheme();
 initHeroNight();
 initHeroSpots();
 

@@ -25,6 +25,7 @@ css/
   base.css                  Reset, tipografía, botones, utilidades
   sections.css             Hero, servicios, footer
   contact.css              Contacto simple (tarjeta sobre palabra gigante)
+  night.css                Modo noche: solo redefine colores (variables) y unos pocos ajustes
   effects.css              Hojas, líneas, mover imágenes, sección flotante, lupa
   quiz.css                  Quiz, barra de progreso, resultado
   motion.css                Estados de animación (reveal, máscaras, marquee)
@@ -45,6 +46,7 @@ js/
   ui/
     art.js                  Ilustraciones SVG de reserva (cuando aún no hay foto)
     lens.js                 Punto burdeos que sigue al mouse
+    theme.js                Modo día/noche de toda la página (símbolo del encabezado); se recuerda en el navegador
     heroNight.js            Inicio: día/noche al pasar el cursor sobre el texto y puntos sobre la foto
     motion.js               Reveal, parallax, split de texto, contadores, botones magnéticos
 docs/ARQUITECTURA.md
@@ -165,6 +167,7 @@ La foto `salon-de-unas` (la del letrero de un negocio real) no se usó a propós
 | Líneas verticales finas | clase `lines` + `data-lines` · `--cols` en `css/effects.css` |
 | Imágenes que se mueven con el mouse | atributo `data-hover` |
 | Imágenes flotantes con scroll | `data-parallax` (vertical) y `data-parallax-x` (horizontal); en pantallas chicas el movimiento se reduce a menos de la mitad |
+| Modo día / noche de toda la página | `js/ui/theme.js` + `css/night.css` (paleta nocturna en `:root[data-theme="night"]`) |
 | Punto burdeos que sigue al mouse | `js/ui/lens.js` + `.lens` en `css/effects.css` (punto rojo con brillo que reemplaza la flecha: tamaño `--d`, color en `background`) |
 
 Todos respetan "reducir movimiento" del sistema y se desactivan o suavizan en pantallas táctiles.

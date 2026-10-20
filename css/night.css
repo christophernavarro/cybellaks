@@ -1,0 +1,40 @@
+/* ============ MODO NOCHE ============
+   Se activa con el símbolo del encabezado (arco con punto). Solo redefine colores: el resto del sitio usa estas variables. */
+.logo__dot { fill: #17100f; transition: fill .6s, filter .6s; }                      /* día: punto oscuro */
+.theme-anim, .theme-anim * { transition: background-color .6s, color .6s, border-color .6s, fill .6s !important; }
+
+:root[data-theme="night"] {
+  color-scheme: dark;
+  --white: #17110f; --offwhite: #17110f; --paper: #1e1714; --stone: #251c19; --mist: #2d2320;
+  --line: #40332e; --smoke: #5e4f49; --cream: #1e1714; --beige: #2d2320;
+  --ink: #f4ebe4; --ink-soft: #c9b8ae;
+  --rose-deep: #e0889a; --rose-pale: #8a5560; --rose-night: #f2a9b6;
+  --shadow-soft: 0 10px 30px -12px rgba(0, 0, 0, .55);
+  --shadow-lift: 0 30px 60px -20px rgba(0, 0, 0, .65);
+}
+html[data-theme="night"] .logo__dot { fill: var(--rose-deep); filter: drop-shadow(0 0 3px var(--rose-deep)); }  /* noche: punto rosa encendido */
+[data-theme="night"] ::selection { background: rgba(224, 136, 154, .3); }
+
+/* botones y elementos rellenos de rosa: el texto pasa a oscuro para mantener el contraste */
+[data-theme="night"] .btn { --fg: #2a1519; }
+[data-theme="night"] .btn:hover, [data-theme="night"] .lb__arrow:hover { color: #2a1519; }
+[data-theme="night"] .option.is-selected { color: #2a1519; }
+[data-theme="night"] .option.is-selected .option__text small { color: rgba(42, 21, 25, .75); }
+[data-theme="night"] .option.is-selected .option__key { background: #2a1519; color: var(--rose-deep); }
+[data-theme="night"] .cform-done__icon { color: #2a1519; }
+
+/* superficies que eran blanco fijo */
+[data-theme="night"] .ccard, [data-theme="night"] .lb__arrow, [data-theme="night"] .spot__card { background: var(--paper); color: var(--ink); }
+[data-theme="night"] .field input:focus, [data-theme="night"] .field select:focus, [data-theme="night"] .field textarea:focus { background: var(--stone); }
+[data-theme="night"] .field.has-error input, [data-theme="night"] .field.has-error textarea { background: #2a1a1c; }
+[data-theme="night"] .option { background: rgba(37, 28, 25, .82); }
+[data-theme="night"] .option:hover { background: rgba(45, 35, 32, .94); }
+
+/* textos y líneas decorativas de fondo */
+[data-theme="night"] .contact__ghost, [data-theme="night"] [class*="ghost"] { color: rgba(255, 255, 255, .05); }
+[data-theme="night"] .lines::before { background-image: linear-gradient(to right, rgba(255, 255, 255, .08) 1px, transparent 1px); }
+[data-theme="night"] .sheet { box-shadow: 0 -22px 44px -28px rgba(0, 0, 0, .6); }
+[data-theme="night"] .modal::backdrop { background: rgba(0, 0, 0, .6); }
+
+/* las fotos son de día: se suavizan un poco para no deslumbrar */
+[data-theme="night"] .card img, [data-theme="night"] .tile img, [data-theme="night"] .qaside img, [data-theme="night"] .result img { filter: brightness(.86) saturate(.95); }
