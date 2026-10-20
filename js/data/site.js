@@ -7,15 +7,34 @@ export const site = {
     { label: 'Contacto', href: '#contacto' },
   ],
   // Inicio: una sola imagen de fondo con la frase. Al poner el cursor sobre el texto, la misma foto pasa a su versión de noche.
-  // PLACEHOLDER: la frase está por confirmar.
+  // PLACEHOLDER: la frase y los textos de los puntos están por confirmar.
+  // desktop / mobile: foto de escritorio y foto vertical para celular (cada una con su pareja día/noche).
+  // ratio: ancho / alto de la foto. pos: parte de la foto que se ve al recortar (object-position).
+  // spots: puntos sobre la foto. x, y: posición en % de la foto (no de la pantalla). Se abren al pasar el mouse o al tocar.
   hero: {
     title: 'Tu espacio, más cerca de lo que *crees*',
     cta: { label: 'Descubre tu estilo', href: '#quiz' },
-    image: {
+    desktop: {
       day: 'assets/img/salon-arcos.webp',
       night: 'assets/img/salon-arcos-noche.webp',
-      pos: '50% 60%',
+      ratio: 1, pos: '50% 60%',
       alt: 'Salón con ventanales en arco, de día y de noche',
+      spots: [
+        { x: 38, y: 40, title: 'Luz', text: 'Ventanales en arco que llenan el espacio de luz natural durante el día.' },
+        { x: 72, y: 38, title: 'Espejo', text: 'Un espejo con forma orgánica que amplía el espacio y refleja la luz.' },
+        { x: 84, y: 69, title: 'Butacas', text: 'Piezas de madera y fibras naturales que suman calidez y textura.' },
+      ],
+    },
+    mobile: {
+      day: 'assets/img/cafe-dorado-dia.webp',
+      night: 'assets/img/cafe-dorado-noche.webp',
+      ratio: 0.75, pos: '70% 50%',
+      alt: 'Cafetería con luz natural de día y luces cálidas de noche',
+      spots: [
+        { x: 68, y: 17, title: 'Lámparas', text: 'Luz colgante que da calidez y define cada zona del local.' },
+        { x: 84, y: 50, title: 'Vitrina', text: 'Un punto de atención iluminado que invita a acercarse.' },
+        { x: 70, y: 66, title: 'Barra', text: 'Iluminación indirecta que resalta los materiales y la textura.' },
+      ],
     },
   },
   marquee: ['Iluminación', 'Espacios pequeños', 'Paisajismo', 'Diseño a medida', 'Color y textura', 'Para cualquier espacio'],

@@ -11,17 +11,29 @@ export function header(site) {
   </header>`;
 }
 
+const spots = (v, key) => `
+      <div class="hero__spots hero__spots--${key}" data-ratio="${v.ratio}" data-pos="${v.pos}">
+        ${v.spots.map((p) => `<button class="spot" type="button" style="--x:${p.x};--y:${p.y}" aria-expanded="false" aria-label="${p.title}">
+          <span class="spot__dot"></span>
+          <span class="spot__card"><strong>${p.title}</strong>${p.text}</span>
+        </button>`).join('')}
+      </div>`;
+
 export function hero({ hero: h }) {
-  const img = h.image;
-  const pos = img.pos ? ` style="object-position:${img.pos}"` : '';
+  const d = h.desktop, m = h.mobile;
+  const pic = (k) => `<picture class="hero__pic hero__pic--${k}">
+        <source media="(max-width: 699px)" srcset="${m[k]}">
+        <img class="hero__img" src="${d[k]}" alt="" ${k === 'day' ? 'fetchpriority="high"' : ''} decoding="async">
+      </picture>`;
   return `
-  <section class="hero" id="top">
+  <section class="hero" id="top" style="--pos-d:${d.pos};--pos-m:${m.pos}">
     <div class="hero__bg" aria-hidden="true">
-      <img class="hero__img hero__img--day" src="${img.day}" alt="" fetchpriority="high" decoding="async"${pos}>
-      <img class="hero__img hero__img--night" src="${img.night}" alt="" decoding="async"${pos}>
+      ${pic('day')}
+      ${pic('night')}
     </div>
+    ${spots(d, 'desktop')}${spots(m, 'mobile')}
     <div class="wrap hero__grid">
-      <div class="hero__copy" tabindex="0" aria-label="${img.alt}">
+      <div class="hero__copy" tabindex="0" aria-label="${d.alt}">
         <h1 class="display hero__title split" style="--base:200ms">${splitHTML(h.title)}</h1>
         <div class="hero__cta" data-reveal style="--i:5">
           <a class="btn" href="${h.cta.href}" data-quiz-start data-magnetic>${h.cta.label}<span class="arrow">→</span></a>

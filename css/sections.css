@@ -31,13 +31,17 @@
 /* ============ HERO ============ */
 .hero { position: relative; min-height: 100svh; display: grid; align-items: center; padding: 7rem 0 4rem; overflow: hidden; background: var(--offwhite); }
 .hero__grid { position: relative; z-index: 1; }
-.hero__bg, .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero__img { object-fit: cover; transition: opacity 1s var(--ease-out); }
-.hero__img--night { opacity: 0; }
-.hero.is-night .hero__img--night { opacity: 1; }
+.hero__bg, .hero__pic, .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero__img { object-fit: cover; object-position: var(--pos-d); }
+@media (max-width: 699px) { .hero__img { object-position: var(--pos-m); } }
+.hero__pic--night { opacity: 0; transition: opacity 1s var(--ease-out); }
+.hero.is-night .hero__pic--night { opacity: 1; }
 /* velo suave para que el texto se lea sobre la foto */
 .hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(251, 247, 243, .55), rgba(251, 247, 243, 0) 65%); transition: opacity 1s; }
 .hero.is-night .hero__bg::after { opacity: 0; }
+@media (max-width: 699px) {
+  .hero__bg::after { background: linear-gradient(rgba(251, 247, 243, 0), rgba(251, 247, 243, .5) 38%, rgba(251, 247, 243, .5) 72%, rgba(251, 247, 243, 0)); }
+}
 .hero__copy { display: inline-block; max-width: 38rem; padding: 2.4rem 2.4rem 2.4rem 0; outline: none; color: var(--ink); transition: color .8s; }
 .hero__copy:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }
 .hero__title { font-size: clamp(3.1rem, 7.6vw, 7rem); margin: 0 0 2rem; }
@@ -50,6 +54,31 @@
 .hero.is-night .hero__scroll { border-color: #fff; }
 .hero.is-night .hero__scroll span { background: #fff; }
 @media (min-width: 900px) { .hero__scroll { display: block; } }
+/* ---- Puntos sobre la foto (se abren al pasar el mouse o al tocar) ---- */
+.hero__spots { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.hero__spots--mobile { display: none; }
+@media (max-width: 699px) { .hero__spots--desktop { display: none; } .hero__spots--mobile { display: block; } }
+.spot { position: absolute; left: calc(var(--x) * 1%); top: calc(var(--y) * 1%); width: 44px; height: 44px; margin: -22px 0 0 -22px; padding: 0; border: 0; background: none; pointer-events: auto; }   /* zona de toque más grande que el punto */
+.spot__dot { position: absolute; left: 13px; top: 13px; width: 18px; height: 18px; border-radius: 50%; background: var(--rose-deep); border: 2px solid #fff; box-shadow: 0 2px 10px rgba(58, 42, 45, .35); transition: transform .35s var(--ease-out); }
+.spot__dot::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 1.5px solid #fff; opacity: .8; animation: spot-pulse 2.2s ease-out infinite; }
+@keyframes spot-pulse { from { transform: scale(.6); opacity: .9; } to { transform: scale(1.5); opacity: 0; } }
+.spot:hover .spot__dot, .spot.is-open .spot__dot, .spot:focus-visible .spot__dot { transform: scale(1.25); }
+.spot:focus-visible { outline: none; }
+.spot:focus-visible .spot__dot { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--rose-deep); }
+.spot__card {
+  position: absolute; left: 44px; top: 8px; width: max-content; max-width: min(15rem, 62vw);
+  padding: .85rem 1rem; border-radius: 16px; background: #fff; color: var(--ink); text-align: left;
+  font-size: .86rem; line-height: 1.45; box-shadow: 0 14px 36px -12px rgba(58, 42, 45, .35);
+  opacity: 0; translate: 0 6px; pointer-events: none; transition: opacity .3s, translate .35s var(--ease-out);
+}
+.spot__card strong { display: block; margin-bottom: .25rem; font-family: var(--font-display, inherit); font-size: 1.1rem; font-weight: 400; color: var(--rose-deep); }
+.spot__card { max-width: min(15rem, 62vw); }
+@media (max-width: 699px) { .spot__card { max-width: 52vw; } }
+.spot.is-left .spot__card { left: auto; right: 44px; }
+.spot.is-up .spot__card { top: auto; bottom: 8px; }
+.spot:hover .spot__card, .spot.is-open .spot__card, .spot:focus-visible .spot__card { opacity: 1; translate: 0 0; }
+.spot:hover, .spot.is-open { z-index: 2; }
+
 /* el encabezado se aclara cuando el inicio está de noche */
 .header { color: var(--ink); }
 html[data-night] .header:not(.is-stuck) { color: #fff; }

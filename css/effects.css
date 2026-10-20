@@ -10,7 +10,7 @@
 /* En escritorio el hero queda fijo y la siguiente hoja lo cubre mientras él se atenúa */
 @media (min-width: 900px) and (min-height: 640px) {
   .hero { position: sticky; top: 0; z-index: 0; }
-  .hero__bg, .hero__grid, .hero__scroll { opacity: calc(1 - var(--cover, 0) * .6); }
+  .hero__bg, .hero__spots, .hero__grid, .hero__scroll { opacity: calc(1 - var(--cover, 0) * .6); }
   .hero__grid { transform: scale(calc(1 - var(--cover, 0) * .05)); transform-origin: 50% 40%; }
 }
 

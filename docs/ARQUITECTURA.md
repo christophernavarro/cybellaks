@@ -45,7 +45,7 @@ js/
   ui/
     art.js                  Ilustraciones SVG de reserva (cuando aún no hay foto)
     lens.js                 Punto burdeos que sigue al mouse
-    heroNight.js            Inicio: cambio de día a noche al pasar el cursor sobre el texto
+    heroNight.js            Inicio: día/noche al pasar el cursor sobre el texto y puntos sobre la foto
     motion.js               Reveal, parallax, split de texto, contadores, botones magnéticos
 docs/ARQUITECTURA.md
 assets/                     Aquí van las fotos reales (ver "Imágenes")
@@ -138,7 +138,8 @@ y escribe su ruta en el campo `image`, por ejemplo `image: 'assets/hogar-sala.jp
 
 | Dónde se ve | Archivo de datos | Campo | Formato recomendado |
 |---|---|---|---|
-| Inicio (día y noche) | `js/data/site.js` → `hero.image` | `day`, `night` | Mismo encuadre y tamaño en ambas; cubre toda la pantalla |
+| Inicio, escritorio y celular (día y noche) | `js/data/site.js` → `hero.desktop` y `hero.mobile` | `day`, `night`, `ratio`, `pos` | Cada foto con su pareja de noche, mismo encuadre y tamaño. En celular se usa una foto vertical (3:4) |
+| Puntos sobre la foto del inicio | `js/data/site.js` → `hero.*.spots` | `x`, `y` (% de la foto), `title`, `text` | Se abren al pasar el mouse o al tocar |
 | Imágenes flotantes (6) | `js/data/site.js` → `spaces.items` | `image` | Vertical 4:5, cuadrada 1:1 o 1:1,15 (según la posición) |
 | Tarjetas de categorías (3) | `js/data/services.js` | `image` | Casi cuadrada 10:11 |
 | Lateral del quiz (3, rotan por pregunta) | `js/data/site.js` → `quiz.aside` | `image` | Vertical 4:5,2 |
