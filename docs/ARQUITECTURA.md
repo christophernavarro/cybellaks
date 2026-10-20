@@ -163,7 +163,7 @@ La foto `salon-de-unas` (la del letrero de un negocio real) no se usó a propós
 | Líneas verticales finas | clase `lines` + `data-lines` · `--cols` en `css/effects.css` |
 | Imágenes que se mueven con el mouse | atributo `data-hover` |
 | Imágenes flotantes con scroll | `data-parallax` (vertical) y `data-parallax-x` (horizontal); en pantallas chicas el movimiento se reduce a menos de la mitad |
-| Punto burdeos que sigue al mouse | `js/ui/lens.js` + `.lens` en `css/effects.css` (punto burdeos: tamaño `--d`, color en `background`) |
+| Punto burdeos que sigue al mouse | `js/ui/lens.js` + `.lens` en `css/effects.css` (punto rojo con brillo que reemplaza la flecha: tamaño `--d`, color en `background`) |
 
 Todos respetan "reducir movimiento" del sistema y se desactivan o suavizan en pantallas táctiles.
 

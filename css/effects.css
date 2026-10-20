@@ -58,18 +58,23 @@
   .tile:nth-child(even) { margin-top: 2.2rem; }
 }
 
-/* ---- Puntero: punto pequeño burdeos que sigue al mouse (solo mouse, nunca bloquea clics) ---- */
-.lens { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 60; pointer-events: none; --d: 10px; }
+/* ---- Puntero: reemplaza la flecha del mouse por un punto rojo burdeos con brillo (solo mouse, nunca bloquea clics) ---- */
+html.has-lens, html.has-lens * { cursor: none !important; }
+.lens { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 60; pointer-events: none; --d: 18px; }
 .lens::before {
   content: ""; position: absolute; border-radius: 50%;
   width: var(--d); height: var(--d); left: calc(var(--d) / -2); top: calc(var(--d) / -2);
-  background: var(--rose-night);
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, .8) 0, rgba(255, 255, 255, 0) 34%),
+    radial-gradient(circle at 50% 50%, rgba(222, 30, 50, .92) 0, rgba(170, 14, 36, .82) 100%);
+  border: 1px solid rgba(255, 150, 160, .55);
+  box-shadow: 0 0 10px 2px rgba(220, 45, 70, .4), 0 0 22px 6px rgba(220, 45, 70, .18), inset 0 0 5px rgba(255, 255, 255, .35);
   opacity: 0; scale: .4;
-  transition: opacity .3s, scale .4s var(--ease-out), background-color .3s;
+  transition: opacity .25s, scale .35s var(--ease-out);
 }
 .lens.on::before { opacity: 1; scale: 1; }
-.lens.on.is-link::before { scale: 2.2; opacity: .55; }
-.lens.on.is-down::before { scale: .7; }
+.lens.on.is-link::before { scale: 1.7; }
+.lens.on.is-down::before { scale: .75; }
 @media (hover: none), (pointer: coarse) { .lens { display: none; } }
 
 @media (prefers-reduced-motion: reduce) {
