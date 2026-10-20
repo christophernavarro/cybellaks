@@ -44,7 +44,7 @@ js/
     view.js                 Render del quiz paso a paso
   ui/
     art.js                  Ilustraciones SVG de reserva (cuando aún no hay foto)
-    lens.js                 Lupa que sigue al mouse
+    lens.js                 Punto burdeos que sigue al mouse
     motion.js               Reveal, parallax, split de texto, contadores, botones magnéticos
 docs/ARQUITECTURA.md
 assets/                     Aquí van las fotos reales (ver "Imágenes")
@@ -163,7 +163,7 @@ La foto `salon-de-unas` (la del letrero de un negocio real) no se usó a propós
 | Líneas verticales finas | clase `lines` + `data-lines` · `--cols` en `css/effects.css` |
 | Imágenes que se mueven con el mouse | atributo `data-hover` |
 | Imágenes flotantes con scroll | `data-parallax` (vertical) y `data-parallax-x` (horizontal); en pantallas chicas el movimiento se reduce a menos de la mitad |
-| Esfera de cristal que sigue al mouse | `js/ui/lens.js` + `.lens` en `css/effects.css` (esfera de cristal: tamaño `--d`, brillo, color del reflejo) |
+| Punto burdeos que sigue al mouse | `js/ui/lens.js` + `.lens` en `css/effects.css` (punto burdeos: tamaño `--d`, color en `background`) |
 
 Todos respetan "reducir movimiento" del sistema y se desactivan o suavizan en pantallas táctiles.
 
