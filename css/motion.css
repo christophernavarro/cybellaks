@@ -28,7 +28,7 @@
 
 /* Marquee */
 .marquee { overflow: hidden; }
-.marquee__track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+.marquee__track { display: flex; width: max-content; animation: marquee 70s linear infinite; }
 .marquee:hover .marquee__track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 

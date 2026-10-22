@@ -46,6 +46,8 @@ export function hero({ hero: h }) {
 }
 
 export function marquee({ marquee: items }) {
-  const row = items.map((t) => `<span>${t}</span><i>✦</i>`).join('');
+  // La cinta se mueve la mitad de su ancho y vuelve a empezar: cada mitad debe ser más ancha que la pantalla,
+  // si no se ve un hueco a la derecha antes de reiniciar. Por eso se repiten las palabras varias veces.
+  const row = items.map((t) => `<span>${t}</span><i>✦</i>`).join('').repeat(4);
   return `<div class="marquee sheet" aria-hidden="true"><div class="marquee__track display"><div>${row}</div><div>${row}</div></div></div>`;
 }
