@@ -37,7 +37,7 @@
 .hero__bg, .hero__pic, .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero__img { object-fit: cover; object-position: var(--pos-d); }
 @media (max-width: 699px) { .hero__img { object-position: var(--pos-m); } }
-.hero__pic--night { opacity: 0; transition: opacity 1s var(--ease-out); }
+.hero__pic--night { opacity: 0; }   /* el paso de día a noche lo anima js/ui/heroNight.js con una máscara de izquierda a derecha */
 .hero.is-night .hero__pic--night { opacity: 1; }
 /* velo suave para que el texto se lea sobre la foto */
 .hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(251, 247, 243, .55), rgba(251, 247, 243, 0) 65%); transition: opacity 1s; }
@@ -45,10 +45,10 @@
 @media (max-width: 699px) {
   .hero__bg::after { background: linear-gradient(rgba(251, 247, 243, 0), rgba(251, 247, 243, .5) 38%, rgba(251, 247, 243, .5) 72%, rgba(251, 247, 243, 0)); }
 }
-.hero__copy { display: inline-block; max-width: 38rem; padding: 2.4rem 2.4rem 2.4rem 0; outline: none; color: var(--ink); transition: color .8s; }
+.hero__copy { display: inline-block; max-width: 38rem; padding: 2.4rem 2.4rem 2.4rem 0; outline: none; color: var(--ink); transition: color 1.4s; }
 .hero__copy:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }
 .hero__title { font-size: clamp(3.1rem, 7.6vw, 7rem); margin: 0 0 2rem; }
-.hero__title em { transition: color .8s; }
+.hero__title em { transition: color 1.4s; }
 .hero.is-night .hero__copy { color: #fff; }
 .hero.is-night .hero__title em { color: #ffd9a8; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: .9rem; }

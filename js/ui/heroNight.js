@@ -8,9 +8,27 @@ export function initHeroNight() {
   const copy = hero?.querySelector('.hero__copy');
   if (!copy) return;
   // El cursor sobre el texto invierte el estado: de día pasa a noche, y con la página en modo noche pasa a día.
-  let hover = false;
+  let hover = false, shown = null, wipe = null;
+  const night = hero.querySelector('.hero__pic--night');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // El cambio avanza de izquierda a derecha, con un borde suave. De día a noche la noche "entra" por la izquierda;
+  // de noche a día la noche "sale" por la izquierda, así siempre se recorre en el mismo sentido.
+  const WIPE_MS = 2200;
+  const IN = 'linear-gradient(90deg, #000 40%, transparent 60%)';
+  const OUT = 'linear-gradient(90deg, transparent 40%, #000 60%)';
+  const run = (img) => {
+    wipe?.finish();
+    const frame = (pos) => ({ maskImage: img, webkitMaskImage: img, maskSize: '300% 100%', webkitMaskSize: '300% 100%', maskPosition: pos, webkitMaskPosition: pos, opacity: 1 });
+    const a = night.animate([frame('100% 0'), frame('0% 0')], { duration: WIPE_MS, easing: 'cubic-bezier(.65, 0, .35, 1)' });
+    a.onfinish = () => { a.cancel(); if (wipe === a) wipe = null; };   // al terminar manda el estado normal (clase is-night)
+    wipe = a;
+  };
+
   const sync = () => {
     const on = hover !== isNight();
+    if (shown !== null && on !== shown && night && !reduce) run(on ? IN : OUT);
+    shown = on;
     hero.classList.toggle('is-night', on);
     document.documentElement.toggleAttribute('data-night', on);
   };
