@@ -33,7 +33,7 @@ export function hero({ hero: h }) {
     </div>
     ${spots(d, 'desktop')}${spots(m, 'mobile')}
     <div class="wrap hero__grid">
-      <div class="hero__copy" tabindex="0" aria-label="${d.alt}">
+      <div class="hero__copy">
         <h1 class="display hero__title split" style="--base:200ms">${splitHTML(h.title)}</h1>
         <div class="hero__cta" data-reveal style="--i:5">
           <a class="btn" href="${h.cta.href}" data-quiz-start data-magnetic>${h.cta.label}<span class="arrow">→</span></a>

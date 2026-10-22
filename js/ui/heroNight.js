@@ -1,13 +1,14 @@
 import { isNight } from './theme.js';
 
-// Al poner el cursor sobre el texto del inicio (o enfocarlo con el teclado), la foto pasa a su versión contraria:
+// Al poner el cursor sobre el botón del inicio (o enfocarlo con el teclado), la foto pasa a su versión contraria:
 // de día a noche, o de noche a día si toda la página está en modo noche.
-// En pantallas táctiles, un toque sobre el texto alterna día y noche.
+// En pantallas táctiles no hay cursor: un toque sobre el texto del inicio alterna día y noche.
 export function initHeroNight() {
   const hero = document.querySelector('.hero');
   const copy = hero?.querySelector('.hero__copy');
-  if (!copy) return;
-  // El cursor sobre el texto invierte el estado: de día pasa a noche, y con la página en modo noche pasa a día.
+  const btn = copy?.querySelector('.hero__cta .btn');
+  if (!btn) return;
+  // El cursor sobre el botón invierte el estado: de día pasa a noche, y con la página en modo noche pasa a día.
   let hover = false, shown = null, wipe = null;
   const night = hero.querySelector('.hero__pic--night');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -36,10 +37,10 @@ export function initHeroNight() {
   const set = (on) => { hover = on; sync(); };
   addEventListener('cybella:theme', sync);
   sync();
-  copy.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') set(true); });
-  copy.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') set(false); });
-  copy.addEventListener('focusin', () => set(true));
-  copy.addEventListener('focusout', () => set(false));
+  btn.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') set(true); });
+  btn.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') set(false); });
+  btn.addEventListener('focusin', () => set(true));
+  btn.addEventListener('focusout', () => set(false));
   copy.addEventListener('click', (e) => {
     if (e.pointerType && e.pointerType !== 'mouse' && !e.target.closest('a')) set(!hover);
   });
