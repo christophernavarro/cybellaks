@@ -37,7 +37,8 @@ export const site = {
       ],
     },
   },
-  marquee: ['Iluminación', 'Espacios pequeños', 'Paisajismo', 'Diseño a medida', 'Color y textura', 'Para cualquier espacio'],
+  // Cinta de palabras bajo el inicio: los seis ejes del enfoque de la marca.
+  marquee: ['Tu mente', 'La luz', 'El color', 'El orden', 'Naturaleza', 'Consejos'],
   // Sección de espacios con imágenes flotantes que se mueven al hacer scroll.
   // desc: texto que se muestra al abrir la imagen en grande. image: foto real (assets/...) o null para la ilustración. speed: velocidad vertical del parallax (negativo = sube); speedX: deriva horizontal.
   spaces: {
