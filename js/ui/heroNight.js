@@ -13,23 +13,28 @@ export function initHeroNight() {
   const night = hero.querySelector('.hero__pic--night');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // El cambio avanza en diagonal, desde la esquina superior izquierda hasta la inferior derecha, con un borde suave.
-  // De día a noche la noche "entra" por esa esquina; de noche a día la noche "sale" por la misma esquina,
-  // así siempre se recorre en el mismo sentido.
-  const WIPE_MS = 2200;
-  const IN = 'linear-gradient(to bottom right, #000 38%, transparent 62%)';
-  const OUT = 'linear-gradient(to bottom right, transparent 38%, #000 62%)';
-  const run = (img) => {
+  // El cambio imita la luz real: la noche se funde poco a poco sobre el día, avanzando en diagonal desde la esquina
+  // superior izquierda, mientras un resplandor de atardecer sube y baja a mitad del camino. Con "reducir movimiento" es directo.
+  const WIPE_MS = 3600;
+  const EASE = 'cubic-bezier(.45, 0, .25, 1)';
+  const IN = 'linear-gradient(to bottom right, #000 12%, transparent 75%)';
+  const OUT = 'linear-gradient(to bottom right, transparent 12%, #000 75%)';
+  const dusk = hero.querySelector('.hero__dusk');
+  const run = (entering) => {
     wipe?.finish();
-    const frame = (pos) => ({ maskImage: img, webkitMaskImage: img, maskSize: '300% 300%', webkitMaskSize: '300% 300%', maskPosition: pos, webkitMaskPosition: pos, opacity: 1 });
-    const a = night.animate([frame('100% 100%'), frame('0% 0%')], { duration: WIPE_MS, easing: 'cubic-bezier(.65, 0, .35, 1)' });
+    const img = entering ? IN : OUT;
+    const frame = (pos, opacity) => ({ maskImage: img, webkitMaskImage: img, maskSize: '400% 400%', webkitMaskSize: '400% 400%', maskPosition: pos, webkitMaskPosition: pos, opacity });
+    const a = night.animate(
+      [frame('100% 100%', entering ? 0 : 1), frame('0% 0%', entering ? 1 : 0)],
+      { duration: WIPE_MS, easing: EASE });
     a.onfinish = () => { a.cancel(); if (wipe === a) wipe = null; };   // al terminar manda el estado normal (clase is-night)
     wipe = a;
+    dusk?.animate([{ opacity: 0 }, { opacity: 1, offset: .5 }, { opacity: 0 }], { duration: WIPE_MS, easing: 'ease-in-out' });
   };
 
   const sync = () => {
     const on = hover !== isNight();
-    if (shown !== null && on !== shown && night && !reduce) run(on ? IN : OUT);
+    if (shown !== null && on !== shown && night && !reduce) run(on);
     shown = on;
     hero.classList.toggle('is-night', on);
     document.documentElement.toggleAttribute('data-night', on);

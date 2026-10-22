@@ -30,6 +30,7 @@ export function hero({ hero: h }) {
     <div class="hero__bg" aria-hidden="true">
       ${pic('day')}
       ${pic('night')}
+      <div class="hero__dusk"></div>
     </div>
     ${spots(d, 'desktop')}${spots(m, 'mobile')}
     <div class="wrap hero__grid">
