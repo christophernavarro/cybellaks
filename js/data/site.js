@@ -105,7 +105,6 @@ export const site = {
   },
   footer: {
     title: 'Hagamos de tu espacio *el lugar que imaginas*',
-    cta: { label: 'Escríbenos', href: '#contacto' },
     note: '© ' + new Date().getFullYear() + ' Cybellaks. Todos los derechos reservados.',
   },
 };

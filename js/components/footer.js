@@ -6,7 +6,6 @@ export function footer({ footer: f, brand }) {
   <footer class="footer sheet">
     <div class="wrap footer__inner">
       <h2 class="display footer__title split">${splitHTML(f.title)}</h2>
-      <a class="btn" href="${f.cta.href}" data-magnetic>${f.cta.label}<span class="arrow">→</span></a>
     </div>
     <div class="footer__brand wrap">${logo(brand, 'logo logo--lg')}</div>
     <p class="footer__note wrap">${f.note}</p>
