@@ -193,7 +193,6 @@ export function mountQuiz({ questions, results, copy }) {
     if (act === 'next') next();
     if (act === 'back' && state.step > 0) { state.step--; saveState(state); renderQuestion(-1); }
     if (act === 'restart') { state = resetState(); render(); }
-    if (act === 'visit') document.dispatchEvent(new CustomEvent('cybella:contact', { detail: { topic: 'Visita a terreno', message: 'Quiero agendar una visita a terreno.' } }));
     if (act === 'full') document.dispatchEvent(new CustomEvent('cybella:checkout'));
   });
 

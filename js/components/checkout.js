@@ -2,7 +2,7 @@
 const em = (t) => t.replace(/\*([^*]+)\*/g, '<em>$1</em>');
 
 // Panel del quiz completo de pago. Se abre con el evento 'cybella:checkout'.
-// Con paymentUrl lleva a la pasarela; sin él, deriva al formulario de contacto para no perder a la persona.
+// Con paymentUrl lleva a la pasarela; sin él, el botón solo cierra el panel (el flujo del final del quiz está pendiente).
 export function initCheckout(cfg) {
   const dlg = document.createElement('dialog');
   dlg.className = 'modal modal--checkout';
@@ -28,11 +28,7 @@ export function initCheckout(cfg) {
   };
 
   dlg.addEventListener('click', (e) => {
-    if (e.target === dlg || e.target.closest('.modal__close')) return dlg.close();
-    if (e.target.closest('[data-fallback]')) {
-      dlg.close();
-      document.dispatchEvent(new CustomEvent('cybella:contact', { detail: { topic: 'Quiz completo', message: 'Quiero acceder al quiz completo.' } }));
-    }
+    if (e.target === dlg || e.target.closest('.modal__close') || e.target.closest('[data-fallback]')) dlg.close();
   });
   document.addEventListener('cybella:checkout', open);
 }

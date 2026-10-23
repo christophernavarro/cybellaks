@@ -4,7 +4,6 @@ export const site = {
   nav: [
     { label: 'Categorías', href: '#categorias' },
     { label: 'Quiz', href: '#quiz' },
-    { label: 'Contacto', href: '#contacto' },
   ],
   // Inicio: una sola imagen de fondo con la frase. Al poner el cursor sobre el texto, la misma foto pasa a su versión de noche.
   // PLACEHOLDER: la frase y los textos de los puntos están por confirmar.
@@ -73,9 +72,9 @@ export const site = {
     ],
     // Botones de la pantalla de resultado. PLACEHOLDER: precios y textos de ejemplo.
     actions: {
-      // Visita a terreno. href: enlace de agenda (AgendaPro, etc.). Si está vacío, lleva al formulario de contacto con el tema ya elegido.
+      // Visita a terreno. href: enlace de agenda (AgendaPro, etc.). Si está vacío, el botón no lleva a ningún lado (el flujo del final del quiz está pendiente).
       visit: { label: 'Agendar visita a terreno', href: '' },
-      // Quiz completo de pago. paymentUrl: enlace de la pasarela (Flow, Mercado Pago, Webpay...). Si está vacío, el botón del panel lleva al formulario de contacto.
+      // Quiz completo de pago. paymentUrl: enlace de la pasarela (Flow, Mercado Pago, Webpay...). Si está vacío, el botón del panel solo lo cierra (pendiente).
       fullQuiz: {
         label: 'Quiz completo',
         price: '$9.990',
@@ -90,18 +89,6 @@ export const site = {
         fallbackNote: 'El pago en línea estará disponible muy pronto. Déjanos tus datos y te damos acceso.',
       },
     },
-  },
-  // Formulario de contacto. PLACEHOLDER: reemplazar correo, WhatsApp y horario.
-  // endpoint: URL de un servicio de formularios (Formspree, Web3Forms, etc.). Si está vacío, el formulario abre el correo del visitante con el mensaje listo.
-  contact: {
-    ghost: 'Contacto',
-    title: 'Cuéntanos tu *proyecto*',
-    lead: '¿Listo para empezar o solo tienes dudas? Escríbenos y te respondemos pronto.',
-    email: 'hola@ejemplo.com',
-    whatsapp: { label: '+56 9 0000 0000', href: 'https://wa.me/56900000000' },
-    hours: 'Lunes a viernes · 9:00 a 18:00',
-    endpoint: '',
-    submit: 'Enviar mensaje',
   },
   footer: {
     title: 'Hagamos de tu espacio *el lugar que imaginas*',

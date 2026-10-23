@@ -8,7 +8,6 @@ import { header, hero, marquee } from './components/hero.js';
 import { servicesSection } from './components/services.js';
 import { spacesSection, initSpacesLightbox } from './components/spaces.js';
 import { quizSection } from './components/quiz.js';
-import { contactSection, initContact } from './components/contact.js';
 import { footer } from './components/footer.js';
 import { initModal } from './components/modal.js';
 import { initCheckout } from './components/checkout.js';
@@ -25,7 +24,6 @@ document.getElementById('app').innerHTML = [
   servicesSection(site, services),
   spacesSection(site),
   quizSection(site),
-  contactSection(site, services),
   '</main>',
   footer(site),
 ].join('');
@@ -37,7 +35,6 @@ mountQuiz({ questions, results, copy: site.quiz });
 initModal(services);
 initSpacesLightbox(site);
 initCheckout(site.quiz.actions.fullQuiz);
-initContact(site.contact, services);
 initReveal();
 initScroll();
 initMagnetic();

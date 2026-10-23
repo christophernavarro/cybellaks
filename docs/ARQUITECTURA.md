@@ -24,7 +24,6 @@ css/
   tokens.css                Paleta, tipografías, espaciados, easing  ← aquí se cambian los colores de la tarjeta
   base.css                  Reset, tipografía, botones, utilidades
   sections.css             Hero, servicios, footer
-  contact.css              Contacto simple (tarjeta sobre palabra gigante)
   night.css                Modo noche: solo redefine colores (variables) y unos pocos ajustes
   effects.css              Hojas, líneas, mover imágenes, sección flotante, lupa
   quiz.css                  Quiz, barra de progreso, resultado
@@ -32,12 +31,12 @@ css/
 js/
   main.js                   Arranque: monta secciones, inicia animaciones
   data/
-    site.js                 Marca, hero, contacto, footer
+    site.js                 Marca, hero, footer
     services.js             Las 3 cards (Iluminación, Jerarquización, Biofilia)
     quiz.questions.js       Preguntas y opciones
     quiz.results.js         Resultados + reglas respuesta → resultado
   components/
-    header.js  hero.js  marquee.js  services.js  spaces.js  quiz.js  contact.js  checkout.js  footer.js
+    header.js  hero.js  marquee.js  services.js  spaces.js  quiz.js  checkout.js  footer.js
     modal.js                Detalle de cada card (<dialog>)
   quiz/
     state.js                Estado de la sesión (sessionStorage)
@@ -65,7 +64,6 @@ assets/                     Aquí van las fotos reales (ver "Imágenes")
 | `modal` | Detalle ampliado de una card | `services[i].detail` |
 | `quiz` | Contenedor + pantallas: intro → preguntas → resultado | `questions`, `results` |
 | `checkout` | Panel del quiz completo de pago (precio, qué incluye, botón a la pasarela) | `site.quiz.actions.fullQuiz` |
-| `contact` | Formulario de contacto debajo del quiz (muestra el resultado del quiz si ya lo hizo) | `site.contact` |
 | `footer` | Cierre y CTA final | `site.footer` |
 
 ## Esquema: preguntas (`quiz.questions.js`)
@@ -122,8 +120,8 @@ Se configuran en `site.quiz.actions` (`js/data/site.js`), iguales para todos los
 
 | Botón | Qué hace | Cómo conectarlo |
 |---|---|---|
-| Agendar visita a terreno | Abre el enlace de agenda | `visit.href` = enlace de AgendaPro u otra agenda. Vacío → lleva al formulario de contacto con "Visita a terreno" ya elegido |
-| Quiz completo | Abre un panel con precio y contenido; "Ir a pagar" envía a la pasarela | `fullQuiz.paymentUrl` = enlace de pago (Flow, Mercado Pago, Webpay…). Vacío → "Solicitar acceso" lleva al formulario de contacto |
+| Agendar visita a terreno | Abre el enlace de agenda | `visit.href` = enlace de AgendaPro u otra agenda. Vacío → por ahora no hace nada (flujo pendiente) |
+| Quiz completo | Abre un panel con precio y contenido; "Ir a pagar" envía a la pasarela | `fullQuiz.paymentUrl` = enlace de pago (Flow, Mercado Pago, Webpay…). Vacío → "Solicitar acceso" solo cierra el panel (flujo pendiente) |
 
 **Pendiente:** el quiz detallado en sí, y la verificación del pago. Un enlace de pago por sí solo no impide que alguien abra la página del quiz
 sin pagar; para protegerlo hace falta confirmar el pago en un servidor (webhook de la pasarela) y entregar un acceso firmado.
@@ -179,6 +177,5 @@ Todos respetan "reducir movimiento" del sistema y se desactivan o suavizan en pa
 | Preguntas y opciones | `js/data/quiz.questions.js` |
 | Tabla respuesta → resultado + textos | `js/data/quiz.results.js` |
 | Tarjeta de colores | `css/tokens.css` |
-| Textos de marca, correo/WhatsApp del contacto | `js/data/site.js` |
-| Envío del formulario (servicio de formularios) | `site.contact.endpoint` en `js/data/site.js` |
+| Textos de marca | `js/data/site.js` |
 | Textos/imágenes de las 3 cards | `js/data/services.js` |
