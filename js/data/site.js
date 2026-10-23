@@ -10,6 +10,8 @@ export const site = {
     number: '56920253338',
     label: 'Escríbenos por WhatsApp',
     message: 'Hola Cybellaks, quiero más información.',
+    // Globo que aparece junto al botón después de un rato en la página. delay: segundos de espera. Si la persona lo cierra, no vuelve a salir en esa visita.
+    bubble: { text: '¿Conversemos?', delay: 12 },
   },
   // Inicio: una sola imagen de fondo con la frase. Al poner el cursor sobre el texto, la misma foto pasa a su versión de noche.
   // PLACEHOLDER: la frase y los textos de los puntos están por confirmar.
