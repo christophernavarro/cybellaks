@@ -102,7 +102,7 @@ export const site = {
     },
   },
   footer: {
-    title: 'Hagamos de tu espacio *el lugar que imaginas*',
+    title: 'Haz de tu espacio *el lugar que imaginas*',
     note: '© ' + new Date().getFullYear() + ' Cybellaks. Todos los derechos reservados.',
   },
 };
