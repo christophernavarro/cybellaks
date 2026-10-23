@@ -8,7 +8,11 @@ export function header(site) {
     <nav class="header__nav" aria-label="Principal">
       ${site.nav.map((n) => `<a href="${n.href}">${n.label}</a>`).join('')}
     </nav>
-  </header>`;
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú"><span></span></button>
+  </header>
+  <nav class="mnav" id="mnav" aria-label="Menú" inert>
+    ${site.nav.map((n, i) => `<a href="${n.href}" style="--i:${i}"><small>${String(i + 1).padStart(2, '0')}</small>${n.label}</a>`).join('')}
+  </nav>`;
 }
 
 const spots = (v, key) => `

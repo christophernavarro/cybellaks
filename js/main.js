@@ -16,6 +16,7 @@ import { initReveal, initScroll, initMagnetic, initHoverMove } from './ui/motion
 import { initLens } from './ui/lens.js';
 import { initHeroNight, initHeroSpots } from './ui/heroNight.js';
 import { initTheme } from './ui/theme.js';
+import { initMenu } from './ui/menu.js';
 
 document.getElementById('app').innerHTML = [
   header(site),
@@ -44,11 +45,12 @@ initMagnetic();
 initHoverMove();
 initLens();
 initTheme();
+initMenu();
 initHeroNight();
 initHeroSpots();
 
 // El header cambia de estilo al bajar
 const hd = document.querySelector('.header');
-const onScroll = () => hd.classList.toggle('is-stuck', scrollY > 40);
+const onScroll = () => hd.classList.toggle('is-stuck', scrollY > 40 || hd.classList.contains('is-open'));   // con el menú abierto se mantiene con fondo y colores normales
 addEventListener('scroll', onScroll, { passive: true });
 onScroll();

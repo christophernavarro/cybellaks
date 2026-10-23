@@ -1,8 +1,11 @@
 // Contenido de marca. PLACEHOLDER: reemplazar con los textos reales.
 export const site = {
   brand: 'Cybellaks',
+  // Menú del header (y del menú hamburguesa en celular): una entrada por sección de la página.
   nav: [
+    { label: 'Inicio', href: '#top' },
     { label: 'Categorías', href: '#categorias' },
+    { label: 'Espacios', href: '#espacios' },
     { label: 'Quiz', href: '#quiz' },
   ],
   // Botón flotante de WhatsApp (abajo a la derecha). number: solo dígitos, con código de país (56 9 2025 3338).
