@@ -5,6 +5,12 @@ export const site = {
     { label: 'Categorías', href: '#categorias' },
     { label: 'Quiz', href: '#quiz' },
   ],
+  // Botón flotante de WhatsApp (abajo a la derecha). number: solo dígitos, con código de país (56 9 2025 3338).
+  whatsapp: {
+    number: '56920253338',
+    label: 'Escríbenos por WhatsApp',
+    message: 'Hola Cybellaks, quiero más información.',
+  },
   // Inicio: una sola imagen de fondo con la frase. Al poner el cursor sobre el texto, la misma foto pasa a su versión de noche.
   // PLACEHOLDER: la frase y los textos de los puntos están por confirmar.
   // desktop / mobile: foto de escritorio y foto vertical para celular (cada una con su pareja día/noche).

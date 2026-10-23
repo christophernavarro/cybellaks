@@ -9,6 +9,7 @@ import { servicesSection } from './components/services.js';
 import { spacesSection, initSpacesLightbox } from './components/spaces.js';
 import { quizSection } from './components/quiz.js';
 import { footer } from './components/footer.js';
+import { whatsappButton } from './components/whatsapp.js';
 import { initModal } from './components/modal.js';
 import { initCheckout } from './components/checkout.js';
 import { initReveal, initScroll, initMagnetic, initHoverMove } from './ui/motion.js';
@@ -26,6 +27,7 @@ document.getElementById('app').innerHTML = [
   quizSection(site),
   '</main>',
   footer(site),
+  whatsappButton(site),
 ].join('');
 
 const issues = validate(questions, results);
