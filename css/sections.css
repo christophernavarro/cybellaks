@@ -16,6 +16,7 @@
 .logo__word { font-size: 1.55rem; font-weight: 400; letter-spacing: .01em; font-variation-settings: "opsz" 48; }
 .logo--lg .logo__mark { height: 2.1rem; }
 .logo--lg .logo__word { font-size: 2.1rem; }
+.footer .theme-toggle .logo__mark { height: 2.1rem; }   /* el logo del footer también cambia día/noche, pero mantiene su tamaño grande */
 @media (max-width: 480px) { .logo, .theme-toggle { gap: .45rem; } .logo__mark, .theme-toggle .logo__mark { height: 1.25rem; } .logo__word { font-size: 1.3rem; } .header__nav { gap: .9rem; } .header__nav a { font-size: .8rem; } }
 .header__nav { display: flex; gap: clamp(1rem, 3vw, 2.4rem); }
 .header__nav a {
