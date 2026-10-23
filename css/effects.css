@@ -61,6 +61,7 @@
 /* ---- Puntero: reemplaza la flecha del mouse por un punto rojo burdeos con brillo (solo mouse, nunca bloquea clics) ---- */
 html.has-lens, html.has-lens * { cursor: none !important; }
 .lens { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 60; pointer-events: none; --d: 18px; }
+.lens[popover] { inset: 0 auto auto 0; margin: 0; padding: 0; border: 0; background: none; overflow: visible; }   /* quita los estilos por defecto del popover */
 .lens::before {
   content: ""; position: absolute; border-radius: 50%;
   width: var(--d); height: var(--d); left: calc(var(--d) / -2); top: calc(var(--d) / -2);

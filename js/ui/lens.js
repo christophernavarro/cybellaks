@@ -10,6 +10,15 @@ export function initLens() {
   document.body.appendChild(el);
   document.documentElement.classList.add('has-lens');   // oculta la flecha del mouse; el punto la reemplaza
 
+  // Los modales (<dialog>) se abren en la capa superior del navegador, por encima de cualquier z-index, y tapaban el punto.
+  // El punto vive en esa misma capa (popover) y se vuelve a poner encima cada vez que se abre o cierra un modal.
+  if ('showPopover' in el) {
+    el.popover = 'manual';
+    el.showPopover();
+    const raise = () => { el.hidePopover(); el.showPopover(); };
+    new MutationObserver(raise).observe(document.body, { subtree: true, attributeFilter: ['open'] });
+  }
+
   let x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y, raf = 0;
   const loop = () => {
     const dx = tx - x, dy = ty - y;
