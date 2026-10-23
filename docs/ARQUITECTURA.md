@@ -33,7 +33,7 @@ js/
   main.js                   Arranque: monta secciones, inicia animaciones
   data/
     site.js                 Marca, hero, contacto, footer
-    services.js             Las 3 cards (Iluminación, Espacios pequeños, Paisajismo)
+    services.js             Las 3 cards (Iluminación, Jerarquización, Biofilia)
     quiz.questions.js       Preguntas y opciones
     quiz.results.js         Resultados + reglas respuesta → resultado
   components/

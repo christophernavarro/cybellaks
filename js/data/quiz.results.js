@@ -33,7 +33,7 @@ export const results = [
     art: 'room',
     image: 'assets/img/salon-muebles-medida.webp',
     pos: '50% 50%',
-    service: 'espacios-pequenos',
+    service: 'jerarquizacion',
     rules: [
       { espacio: 'pequeno' },
       { sensacion: 'amplitud', estilo: 'minimal' },
@@ -50,7 +50,7 @@ export const results = [
     art: 'garden',
     image: 'assets/img/jardin-urbano.webp',
     pos: '50% 55%',
-    service: 'paisajismo',
+    service: 'biofilia',
     rules: [
       { espacio: 'exterior' },
       { sensacion: 'naturaleza', estilo: 'organico' },
