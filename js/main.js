@@ -17,6 +17,7 @@ import { initLens } from './ui/lens.js';
 import { initHeroNight, initHeroSpots } from './ui/heroNight.js';
 import { initTheme } from './ui/theme.js';
 import { initMenu } from './ui/menu.js';
+import { initAnchors } from './ui/anchors.js';
 
 document.getElementById('app').innerHTML = [
   header(site),
@@ -46,6 +47,7 @@ initHoverMove();
 initLens();
 initTheme();
 initMenu();
+initAnchors();
 initHeroNight();
 initHeroSpots();
 
