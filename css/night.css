@@ -17,6 +17,8 @@ html[data-theme="night"] .logo__dot { fill: var(--rose-deep); filter: drop-shado
 
 /* botones y elementos rellenos de rosa: el texto pasa a oscuro para mantener el contraste */
 [data-theme="night"] .btn { --fg: #2a1519; }
+[data-theme="night"] .btn--ghost { --fg: var(--ink); }          /* borde y texto claros sobre el fondo oscuro */
+[data-theme="night"] .btn--light { --fg: var(--rose-deep); }
 [data-theme="night"] .btn:hover, [data-theme="night"] .lb__arrow:hover { color: #2a1519; }
 [data-theme="night"] .option.is-selected { color: #2a1519; }
 [data-theme="night"] .option.is-selected .option__text small { color: rgba(42, 21, 25, .75); }
@@ -31,7 +33,7 @@ html[data-theme="night"] .logo__dot { fill: var(--rose-deep); filter: drop-shado
 [data-theme="night"] .option:hover { background: rgba(45, 35, 32, .94); }
 
 /* textos y líneas decorativas de fondo */
-[data-theme="night"] [class*="ghost"] { color: rgba(255, 255, 255, .05); }
+[data-theme="night"] .quiz__ghost { color: rgba(255, 255, 255, .05); }
 [data-theme="night"] .lines::before { background-image: linear-gradient(to right, rgba(255, 255, 255, .08) 1px, transparent 1px); }
 [data-theme="night"] .sheet { box-shadow: 0 -22px 44px -28px rgba(0, 0, 0, .6); }
 [data-theme="night"] .modal::backdrop { background: rgba(0, 0, 0, .6); }
