@@ -1,5 +1,5 @@
 import { resolveResult } from './engine.js';
-import { loadState, saveState, resetState } from './state.js';
+import { loadState, saveState } from './state.js';
 import { media } from '../ui/art.js';
 import { petals } from '../ui/motion.js';
 
@@ -133,12 +133,12 @@ export function mountQuiz({ questions, results, copy }) {
           <p>${r.description}</p>
           <ul class="result__tips">${r.tips.map((t, i) => `<li style="--i:${i}">${t}</li>`).join('')}</ul>
           <div class="result__cta">
+            <button class="btn" type="button" data-act="full">${actions.fullQuiz.label}<span class="tag">${actions.fullQuiz.price}</span></button>
             ${actions.visit.href
-              ? `<a class="btn" href="${actions.visit.href}" target="_blank" rel="noopener">${actions.visit.label}<span class="arrow">→</span></a>`
-              : `<button class="btn" type="button" data-act="visit">${actions.visit.label}<span class="arrow">→</span></button>`}
-            <button class="btn btn--ghost" type="button" data-act="full">${actions.fullQuiz.label}<span class="tag">${actions.fullQuiz.price}</span></button>
+              ? `<a class="btn btn--ghost" href="${actions.visit.href}" target="_blank" rel="noopener">${actions.visit.label}<span class="arrow">→</span></a>`
+              : `<button class="btn btn--ghost" type="button" data-act="visit">${actions.visit.label}<span class="arrow">→</span></button>`}
           </div>
-          <button class="link-arrow link-arrow--back" type="button" data-act="restart">↺ Repetir el quiz</button>
+          <button class="btn btn--ghost result__mail" type="button" data-act="email"><span class="result__mail-ico" aria-hidden="true">✉</span>${actions.email.label}</button>
         </div>
       </div>`);
     setTimeout(() => petals(petalsBox), 350);
@@ -192,7 +192,7 @@ export function mountQuiz({ questions, results, copy }) {
     if (act === 'start') { state.started = true; saveState(state); renderQuestion(1); }
     if (act === 'next') next();
     if (act === 'back' && state.step > 0) { state.step--; saveState(state); renderQuestion(-1); }
-    if (act === 'restart') { state = resetState(); render(); }
+    if (act === 'email') document.dispatchEvent(new CustomEvent('cybella:email-result', { detail: { result: resolveResult(state.answers, results), answers: state.answers } }));
     if (act === 'full') document.dispatchEvent(new CustomEvent('cybella:checkout'));
   });
 

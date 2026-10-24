@@ -198,3 +198,26 @@
 .result__body > .link-arrow--back { margin-top: .2rem; }
 
 .qaside__art .art, .qaside__art img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---- Botón «Enviar al correo» y su modal ---- */
+.result__mail { margin-top: .9rem; gap: .6rem; }
+.result__mail-ico { font-size: 1.05rem; line-height: 1; }
+.modal--email { width: min(520px, 92vw); }
+.emailres { position: relative; padding: clamp(1.6rem, 5vw, 2.8rem); max-height: 90svh; overflow: auto; }
+.emailres__form[hidden], .emailres__done[hidden] { display: none; }
+.emailres__form, .emailres__done { display: grid; gap: 1.1rem; justify-items: start; }
+.emailres__title { font-size: clamp(2rem, 5vw, 2.7rem); text-wrap: balance; margin: 0; }
+.emailres__desc { margin: 0; color: var(--ink-soft); }
+.emailres__chip { margin: 0; display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .9rem; border-radius: var(--r-pill); background: var(--stone); color: var(--rose-deep); font-size: .85rem; font-weight: 600; }
+.emailres__field { display: grid; gap: .45rem; width: 100%; font-size: .85rem; font-weight: 700; letter-spacing: .04em; }
+.emailres__field input { width: 100%; padding: 1rem 1.15rem; border-radius: var(--r-sm); border: 1.5px solid var(--line); background: var(--paper); color: var(--ink); font: inherit; font-size: 1rem; font-weight: 500; letter-spacing: 0; transition: border-color .3s, box-shadow .3s, background .3s; }
+.emailres__field input::placeholder { color: var(--smoke); }
+.emailres__field input:focus { outline: none; border-color: var(--rose-deep); box-shadow: 0 0 0 4px color-mix(in srgb, var(--rose-deep) 18%, transparent); background: var(--white); }
+.emailres__field.has-error input { border-color: #c0392b; }
+.emailres__err { color: #c0392b; font-size: .82rem; font-weight: 600; letter-spacing: 0; }
+.emailres__form .btn--xl { width: 100%; justify-content: center; margin-top: .2rem; }
+.emailres__legal { margin: 0; font-size: .8rem; color: var(--ink-soft); }
+.emailres__tick { width: 3.6rem; height: 3.6rem; border-radius: 50%; display: grid; place-items: center; font-size: 1.5rem; color: #fff; background: var(--rose-deep); box-shadow: 0 0 0 10px color-mix(in srgb, var(--rose-deep) 15%, transparent); margin-bottom: .6rem; }
+.emailres__sent b { color: var(--ink); word-break: break-all; }
+[data-theme="night"] .emailres__tick { color: #2a1519; }
+[data-theme="night"] .emailres__err, [data-theme="night"] .emailres__field.has-error input { color: #ff8a7a; border-color: #ff8a7a; }

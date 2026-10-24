@@ -36,7 +36,7 @@ js/
     quiz.questions.js       Preguntas y opciones
     quiz.results.js         Resultados + reglas respuesta → resultado
   components/
-    header.js  hero.js  marquee.js  services.js  spaces.js  quiz.js  checkout.js  footer.js
+    header.js  hero.js  emailResult.js  marquee.js  services.js  spaces.js  quiz.js  checkout.js  footer.js
     modal.js                Detalle de cada card (<dialog>)
   quiz/
     state.js                Estado de la sesión (sessionStorage)

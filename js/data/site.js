@@ -99,6 +99,24 @@ export const site = {
         fallback: 'Solicitar acceso',
         fallbackNote: 'El pago en línea estará disponible muy pronto. Déjanos tus datos y te damos acceso.',
       },
+      // Enviar el resultado por correo en PDF (modal). DISEÑO: todavía no se envía nada.
+      // endpoint: URL del servicio que arma y envía el PDF (se conecta cuando exista el correo corporativo). Vacío = solo muestra la confirmación.
+      email: {
+        label: 'Enviar al correo',
+        eyebrow: 'Tu resultado',
+        title: 'Recíbelo en tu *correo*',
+        description: 'Escribe tu correo y te enviamos tu resultado en un PDF para que lo guardes y lo revises cuando quieras.',
+        field: 'Correo electrónico',
+        placeholder: 'tu@correo.com',
+        error: 'Revisa tu correo: parece que le falta algo.',
+        submit: 'Enviar PDF',
+        sending: 'Enviando…',
+        legal: 'Usamos tu correo solo para enviarte este resultado.',
+        doneTitle: 'Revisa tu *correo*',
+        doneText: 'Te enviaremos el PDF a {email}. Si no lo ves en unos minutos, mira en spam.',
+        close: 'Listo',
+        endpoint: '',
+      },
     },
   },
   footer: {
