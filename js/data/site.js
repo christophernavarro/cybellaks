@@ -88,7 +88,6 @@ export const site = {
       // Quiz completo de pago. paymentUrl: enlace de la pasarela (Flow, Mercado Pago, Webpay...). Si está vacío, el botón del panel solo lo cierra (pendiente).
       fullQuiz: {
         label: 'Quiz completo',
-        price: '$9.990',
         eyebrow: 'Quiz completo',
         title: 'Un diagnóstico *mucho más detallado*',
         description: 'Un quiz más largo y profundo que analiza tu espacio, tus hábitos y tu estilo para entregarte una propuesta mucho más precisa.',

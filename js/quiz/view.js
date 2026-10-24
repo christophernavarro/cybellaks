@@ -133,7 +133,7 @@ export function mountQuiz({ questions, results, copy }) {
           <p>${r.description}</p>
           <ul class="result__tips">${r.tips.map((t, i) => `<li style="--i:${i}">${t}</li>`).join('')}</ul>
           <div class="result__cta">
-            <button class="btn" type="button" data-act="full">${actions.fullQuiz.label}<span class="tag">${actions.fullQuiz.price}</span></button>
+            <button class="btn" type="button" data-act="full">${actions.fullQuiz.label}<span class="arrow">→</span></button>
             ${actions.visit.href
               ? `<a class="btn btn--ghost" href="${actions.visit.href}" target="_blank" rel="noopener">${actions.visit.label}<span class="arrow">→</span></a>`
               : `<button class="btn btn--ghost" type="button" data-act="visit">${actions.visit.label}<span class="arrow">→</span></button>`}

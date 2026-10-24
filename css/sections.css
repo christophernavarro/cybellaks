@@ -198,10 +198,7 @@ html[data-night] .header:not(.is-stuck) .header__nav a { background-image: linea
 .checkout__list { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; width: 100%; }
 .checkout__list li { position: relative; padding-left: 1.9rem; }
 .checkout__list li::before { content: "✓"; position: absolute; left: 0; top: .1rem; width: 1.3rem; height: 1.3rem; border-radius: 50%; display: grid; place-items: center; font-size: .75rem; color: #fff; background: var(--rose-deep); }
-.checkout__buy { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.6rem; width: 100%; padding: 1.1rem 1.3rem; border-radius: var(--r-md); background: var(--stone); }
-.checkout__price { display: grid; line-height: 1.1; }
-.checkout__price small { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--rose-deep); }
-.checkout__price b { font-size: 2.4rem; font-weight: 400; }
+.checkout__buy { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.6rem; width: 100%; }
 .checkout__note { margin: 0; font-size: .85rem; color: var(--ink-soft); }
 
 /* Pantallas muy angostas: logo y menú más compactos para que no se monten */

@@ -17,7 +17,6 @@ export function initCheckout(cfg) {
         <p class="checkout__desc">${cfg.description}</p>
         <ul class="checkout__list">${cfg.includes.map((i) => `<li>${i}</li>`).join('')}</ul>
         <div class="checkout__buy">
-          <div class="checkout__price"><small>Precio</small><b class="display">${cfg.price}</b></div>
           ${cfg.paymentUrl
             ? `<a class="btn btn--xl" href="${cfg.paymentUrl}" data-pay>${cfg.pay}<span class="arrow">→</span></a>`
             : `<button class="btn btn--xl" type="button" data-fallback>${cfg.fallback}<span class="arrow">→</span></button>`}
