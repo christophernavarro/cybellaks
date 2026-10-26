@@ -93,7 +93,7 @@ export function initMagnetic() {
 // Lluvia de pétalos al mostrar el resultado
 export function petals(container, count = 26) {
   if (reduce) return;
-  const colors = ['#dca4a9', '#c98791', '#e6bcc1', '#a24f5d'];
+  const colors = ['#b5687a', '#9a3a50', '#c27a8a', '#86283d'];
   for (let i = 0; i < count; i++) {
     const p = document.createElement('i');
     p.className = 'petal';

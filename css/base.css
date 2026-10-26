@@ -15,7 +15,7 @@ h1, h2, h3, p { margin: 0; }
 a { color: inherit; }
 button { font: inherit; color: inherit; cursor: pointer; }
 :focus-visible { outline: 2px solid var(--rose-deep); outline-offset: 3px; }
-::selection { background: rgba(162, 79, 93, .18); }
+::selection { background: rgba(134, 40, 61, .18); }
 
 .wrap { width: min(100% - 2 * var(--gutter), var(--maxw)); margin-inline: auto; }
 .section { padding-block: var(--section-y); position: relative; }

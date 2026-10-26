@@ -8,22 +8,20 @@
   --white: #17110f; --offwhite: #17110f; --paper: #1e1714; --stone: #251c19; --mist: #2d2320;
   --line: #40332e; --smoke: #5e4f49; --cream: #1e1714; --beige: #2d2320;
   --ink: #f4ebe4; --ink-soft: #c9b8ae;
-  --rose-deep: #e0889a; --rose-pale: #8a5560; --rose-night: #f2a9b6;
+  --rose-deep: #d24e63; --rose-pale: #7a2e40; --rose-night: #c13a54;   /* burdeos vivo: se lee sobre fondo oscuro */
+  --wine: #9c2d45;                                                        /* relleno de botones y selección */
   --shadow-soft: 0 10px 30px -12px rgba(0, 0, 0, .55);
   --shadow-lift: 0 30px 60px -20px rgba(0, 0, 0, .65);
 }
 html[data-theme="night"] .logo__dot { fill: var(--rose-deep); filter: drop-shadow(0 0 3px var(--rose-deep)); }  /* noche: punto rosa encendido */
-[data-theme="night"] ::selection { background: rgba(224, 136, 154, .3); }
+[data-theme="night"] ::selection { background: rgba(210, 78, 99, .3); }
 
-/* botones y elementos rellenos de rosa: el texto pasa a oscuro para mantener el contraste */
-[data-theme="night"] .btn { --fg: #2a1519; }
-[data-theme="night"] .btn--ghost { --fg: var(--ink); }          /* borde y texto claros sobre el fondo oscuro */
-[data-theme="night"] .btn--light { --fg: var(--rose-deep); }
-[data-theme="night"] .btn:hover, [data-theme="night"] .lb__arrow:hover { color: #2a1519; }
-[data-theme="night"] .option.is-selected { color: #2a1519; }
-[data-theme="night"] .option.is-selected .option__text small { color: rgba(42, 21, 25, .75); }
-[data-theme="night"] .option.is-selected .option__key { background: #2a1519; color: var(--rose-deep); }
-[data-theme="night"] .cform-done__icon { color: #2a1519; }
+/* botones y elementos rellenos: burdeos con texto blanco */
+[data-theme="night"] .btn { --bg: var(--wine); --fg: #fff; }
+[data-theme="night"] .btn--ghost { --bg: transparent; --fg: var(--ink); }   /* borde y texto claros sobre el fondo oscuro */
+[data-theme="night"] .btn--light { --bg: var(--offwhite); --fg: var(--rose-deep); }
+[data-theme="night"] .option.is-selected { background: var(--wine); border-color: var(--rose-night); color: #fff; }
+[data-theme="night"] .emailres__tick, [data-theme="night"] .cform-done__icon { background: var(--wine); color: #fff; }
 
 /* superficies que eran blanco fijo */
 [data-theme="night"] .ccard, [data-theme="night"] .lb__arrow, [data-theme="night"] .spot__card { background: var(--paper); color: var(--ink); }
@@ -45,7 +43,7 @@ html[data-theme="night"] .logo__dot { fill: var(--rose-deep); filter: drop-shado
 :root[data-theme="night"] .hero:not(.is-night) .hero__copy,
 :root[data-theme="night"]:not([data-night]) .header:not(.is-stuck),
 :root[data-theme="night"]:not([data-night]) .header:not(.is-stuck) .theme-toggle { color: #3a2a2d; }
-:root[data-theme="night"] .hero:not(.is-night) .hero__title em { color: #a24f5d; }
+:root[data-theme="night"] .hero:not(.is-night) .hero__title em { color: #86283d; }
 :root[data-theme="night"] .hero:not(.is-night) .hero__scroll { border-color: #3a2a2d; }
 :root[data-theme="night"] .hero:not(.is-night) .hero__scroll span { background: #3a2a2d; }
-:root[data-theme="night"]:not([data-night]) .header:not(.is-stuck) .logo__dot { fill: #a24f5d; filter: none; }
+:root[data-theme="night"]:not([data-night]) .header:not(.is-stuck) .logo__dot { fill: #86283d; filter: none; }

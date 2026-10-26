@@ -7,9 +7,9 @@
   --rose-blush: #fbe4e2;      /* blush */
   --rose-powder: #f1c3c4;     /* rosa empolvado */
   --rose-peach: #f7c9b6;      /* rosa durazno */
-  --rose-pale: #dca4a9;       /* rosa palo */
-  --rose-deep: #a24f5d;       /* acento con contraste para texto/botones */
-  --rose-night: #7a3441;      /* relleno oscuro al pasar el cursor sobre botones */
+  --rose-pale: #b5687a;       /* burdeos suave: bordes y degradados */
+  --rose-deep: #86283d;       /* burdeos: acento para texto, botones y detalles */
+  --rose-night: #5a1727;      /* burdeos profundo: relleno al pasar el cursor sobre botones */
 
   /* Fondos: solo blancos, en distintos tonos. El rosa queda para letras y detalles */
   --white: #ffffff;
