@@ -8,17 +8,20 @@
   --white: #17110f; --offwhite: #17110f; --paper: #1e1714; --stone: #251c19; --mist: #2d2320;
   --line: #40332e; --smoke: #5e4f49; --cream: #1e1714; --beige: #2d2320;
   --ink: #f4ebe4; --ink-soft: #c9b8ae;
-  --rose-deep: #d24e63; --rose-pale: #7a2e40; --rose-night: #c13a54;   /* burdeos vivo: se lee sobre fondo oscuro */
-  --wine: #9c2d45;                                                        /* relleno de botones y selección */
+  --rose-deep: #e3c9b3; --rose-pale: #7a2e40; --rose-night: #ecd9c6;   /* acentos de texto y detalles: beige cálido (el burdeos no se lee sobre fondo oscuro) */
+  --wine: #9c2d45;                                                        /* relleno burdeos de botones y selección, con texto blanco */
   --shadow-soft: 0 10px 30px -12px rgba(0, 0, 0, .55);
   --shadow-lift: 0 30px 60px -20px rgba(0, 0, 0, .65);
 }
 html[data-theme="night"] .logo__dot { fill: var(--rose-deep); filter: drop-shadow(0 0 3px var(--rose-deep)); }  /* noche: punto rosa encendido */
-[data-theme="night"] ::selection { background: rgba(210, 78, 99, .3); }
+[data-theme="night"] ::selection { background: rgba(227, 201, 179, .28); }
 
-/* botones y elementos rellenos: burdeos con texto blanco */
+/* botones y elementos rellenos: burdeos con texto blanco; al pasar el cursor se rellenan de beige con texto oscuro */
 [data-theme="night"] .btn { --bg: var(--wine); --fg: #fff; }
 [data-theme="night"] .btn--ghost { --bg: transparent; --fg: var(--ink); }   /* borde y texto claros sobre el fondo oscuro */
+[data-theme="night"] .btn:hover, [data-theme="night"] .lb__arrow:hover { color: #2a1519; }
+[data-theme="night"] .option.is-selected .option__key { background: #fff; color: var(--wine); }
+[data-theme="night"] .checkout__list li::before { background: var(--wine); color: #fff; }
 [data-theme="night"] .btn--light { --bg: var(--offwhite); --fg: var(--rose-deep); }
 [data-theme="night"] .option.is-selected { background: var(--wine); border-color: var(--rose-night); color: #fff; }
 [data-theme="night"] .emailres__tick, [data-theme="night"] .cform-done__icon { background: var(--wine); color: #fff; }
