@@ -1,73 +1,52 @@
-// Resultados y mapeo respuesta → resultado. PLACEHOLDER: reemplazar con la tabla oficial.
-//
-// rules: lista de combinaciones alternativas (OR). En cada una, todas las preguntas listadas deben coincidir (AND).
-//        Un valor puede ser un id de opción o una lista de ids aceptados.
-// Gana la combinación más específica (más condiciones). Con empate, el primero de la lista.
-// fallback: true → se usa si nada coincide.
+// Los 4 perfiles de diseño. El id coincide con el `profile` de las opciones en quiz.questions.js (p1…p4).
+// PLACEHOLDER: títulos oficiales; las descripciones y los consejos son de ejemplo hasta que lleguen los textos de la clienta.
 export const results = [
   {
-    id: 'refugio-luz',
-    eyebrow: 'Tu recomendación',
-    title: 'Refugio de luz cálida',
-    summary: 'Tu espacio pide capas de luz suave y materiales acogedores.',
+    id: 'p1',
+    eyebrow: 'Tu perfil',
+    title: 'Refugio Intimista',
+    summary: 'Tu espacio pide calma, luz suave y materiales acogedores.',
     description:
-      'Texto de ejemplo. Tu espacio se beneficia de una iluminación pensada en capas: lámparas de ambiente, luz de acento y detalles decorativos que hacen que cada tarde se sienta especial.',
-    tips: ['Usa luz cálida (2700 K) en zonas de descanso', 'Combina 3 puntos de luz a distintas alturas', 'Añade una pieza escultórica como protagonista'],
+      'Texto de ejemplo. Tu espacio se beneficia de una iluminación pensada en capas, texturas suaves y colores cálidos que hacen de cada rincón un lugar para descansar.',
+    tips: ['Usa luz cálida (2700 K) en zonas de descanso', 'Combina 3 puntos de luz a distintas alturas', 'Prefiere textiles y materiales suaves al tacto'],
     art: 'lamp',
     image: 'assets/img/departamento-acogedor.webp',
     pos: '50% 45%',
-    service: 'iluminacion',
-    rules: [
-      { espacio: ['sala', 'dormitorio'], sensacion: 'calma' },
-      { estilo: 'calido', sensacion: 'calma' },
-    ],
   },
   {
-    id: 'pequeno-amplio',
-    eyebrow: 'Tu recomendación',
-    title: 'Pequeño, pero infinito',
-    summary: 'Ganar amplitud y orden es tu mejor inversión.',
+    id: 'p2',
+    eyebrow: 'Tu perfil',
+    title: 'Funcionalidad Activa',
+    summary: 'Tu espacio necesita orden, materiales resistentes y movimiento.',
     description:
-      'Texto de ejemplo. Con muebles multifunción, colores claros y almacenaje inteligente, tu espacio se verá más grande y se sentirá más ligero.',
-    tips: ['Elige muebles que cumplan dos funciones', 'Usa espejos frente a la luz natural', 'Mantén una paleta clara y continua'],
+      'Texto de ejemplo. Con almacenamiento inteligente, materiales duraderos y una distribución pensada para tu rutina, tu espacio se vuelve más práctico y energizante.',
+    tips: ['Elige muebles que cumplan dos funciones', 'Aprovecha la altura con almacenamiento vertical', 'Define zonas según cómo usas el espacio'],
     art: 'room',
     image: 'assets/img/salon-muebles-medida.webp',
     pos: '50% 50%',
-    service: 'jerarquizacion',
-    rules: [
-      { espacio: 'pequeno' },
-      { sensacion: 'amplitud', estilo: 'minimal' },
-    ],
   },
   {
-    id: 'oasis-verde',
-    eyebrow: 'Tu recomendación',
-    title: 'Tu oasis verde',
-    summary: 'La naturaleza es la protagonista de tu espacio ideal.',
+    id: 'p3',
+    eyebrow: 'Tu perfil',
+    title: 'Conexión Social',
+    summary: 'Tu espacio está hecho para compartir, con calidez y naturalidad.',
     description:
-      'Texto de ejemplo. Plantas, texturas naturales y rincones al aire libre crearán un ambiente fresco que invita a quedarse.',
-    tips: ['Agrupa plantas en alturas distintas', 'Mezcla macetas de cerámica y fibras naturales', 'Aprovecha balcones y ventanas'],
+      'Texto de ejemplo. Espacios abiertos, materiales naturales y una disposición que invita a conversar hacen que cada encuentro se sienta cercano.',
+    tips: ['Ubica los asientos mirándose entre sí', 'Suma luz indirecta y velas para las noches', 'Incorpora plantas y materiales naturales'],
     art: 'garden',
+    image: 'assets/img/terraza-jardin.webp',
+    pos: '50% 55%',
+  },
+  {
+    id: 'p4',
+    eyebrow: 'Tu perfil',
+    title: 'Transición Atemporal',
+    summary: 'Tu espacio busca claridad, concentración y un estilo que no pasa de moda.',
+    description:
+      'Texto de ejemplo. Líneas limpias, una paleta sobria y recorridos despejados crean accesos y tránsitos que se sienten elegantes y ordenados.',
+    tips: ['Mantén los pasillos y accesos despejados', 'Usa una paleta sobria y continua', 'Elige pocas piezas, pero de calidad'],
+    art: 'room',
     image: 'assets/img/jardin-urbano.webp',
     pos: '50% 55%',
-    service: 'biofilia',
-    rules: [
-      { espacio: 'exterior' },
-      { sensacion: 'naturaleza', estilo: 'organico' },
-    ],
-  },
-  {
-    id: 'general',
-    eyebrow: 'Tu recomendación',
-    title: 'Un espacio a tu medida',
-    summary: 'Tu perfil mezcla varias ideas: lo mejor es una asesoría personalizada.',
-    description: 'Texto de ejemplo. Combinaremos luz, color y proporción para crear un plan que se adapte a ti.',
-    tips: ['Cuéntanos tu rutina y tus gustos', 'Definimos prioridades y presupuesto', 'Recibe una propuesta visual'],
-    art: 'room',
-    image: 'assets/img/carpinteria-madera.webp',
-    pos: '50% 55%',
-    service: null,
-    fallback: true,
-    rules: [],
   },
 ];

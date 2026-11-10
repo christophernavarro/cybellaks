@@ -1,44 +1,44 @@
-// Lógica pura (sin DOM): respuestas → resultado.
+// Lógica pura (sin DOM): respuestas → perfil.
+//
+// Cada opción elegida suma 1 punto al perfil de su `profile` (ver quiz.questions.js). Gana el perfil con más puntos.
+// - Mayoría simple: el perfil con 2 o más puntos gana.
+// - Empate (por ejemplo 2-2, o 1-1-1-1): gana el perfil de la respuesta a la pregunta del principal problema
+//   (TIEBREAK_QUESTION), porque resolver el problema técnico es lo más urgente.
+import { TIEBREAK_QUESTION } from '../data/quiz.questions.js';
 
-const toList = (v) => (Array.isArray(v) ? v : [v]);
-
-// ¿La respuesta del usuario (string o array si es multi) cumple la condición?
-function matches(answer, accepted) {
-  if (answer == null) return false;
-  const given = toList(answer);
-  return toList(accepted).some((a) => given.includes(a));
-}
-
-// Devuelve cuántas condiciones tiene la combinación si se cumple completa; si no, 0.
-function ruleScore(rule, answers) {
-  const keys = Object.keys(rule);
-  if (!keys.length) return 0;
-  return keys.every((k) => matches(answers[k], rule[k])) ? keys.length : 0;
-}
-
-export function resolveResult(answers, results) {
-  let best = null;
-  let bestScore = 0;
-  for (const r of results) {
-    for (const rule of r.rules ?? []) {
-      const s = ruleScore(rule, answers);
-      if (s > bestScore) { best = r; bestScore = s; }  // empate: gana el primero
-    }
+// Puntos por perfil: { p1: 2, p2: 0, ... }
+export function scoreAnswers(answers, questions) {
+  const scores = {};
+  for (const q of questions) {
+    const opt = q.options.find((o) => o.id === answers[q.id]);
+    if (opt?.profile) scores[opt.profile] = (scores[opt.profile] ?? 0) + 1;
   }
-  return best ?? results.find((r) => r.fallback) ?? results[0];
+  return scores;
 }
 
-// Útil para validar la tabla: avisa de ids inexistentes en las reglas.
+export function resolveResult(answers, results, questions) {
+  const scores = scoreAnswers(answers, questions);
+  const top = Math.max(0, ...results.map((r) => scores[r.id] ?? 0));
+  const tied = results.filter((r) => (scores[r.id] ?? 0) === top);
+  if (tied.length > 1) {
+    const tq = questions.find((q) => q.id === TIEBREAK_QUESTION);
+    const pick = tq?.options.find((o) => o.id === answers[tq.id])?.profile;
+    const byProblem = tied.find((r) => r.id === pick);
+    if (byProblem) return byProblem;
+  }
+  return tied[0] ?? results[0];
+}
+
+// Valida la tabla: cada opción debe apuntar a un perfil que exista, y la pregunta de desempate debe existir.
 export function validate(questions, results) {
   const issues = [];
-  const qs = Object.fromEntries(questions.map((q) => [q.id, new Set(q.options.map((o) => o.id))]));
-  for (const r of results) {
-    for (const rule of r.rules ?? []) {
-      for (const [q, vals] of Object.entries(rule)) {
-        if (!qs[q]) { issues.push(`${r.id}: pregunta desconocida "${q}"`); continue; }
-        for (const v of toList(vals)) if (!qs[q].has(v)) issues.push(`${r.id}: opción "${v}" no existe en "${q}"`);
-      }
+  const ids = new Set(results.map((r) => r.id));
+  for (const q of questions) {
+    for (const o of q.options) {
+      if (!o.profile) issues.push(`${q.id}/${o.id}: la opción no tiene perfil`);
+      else if (!ids.has(o.profile)) issues.push(`${q.id}/${o.id}: el perfil "${o.profile}" no existe`);
     }
   }
+  if (!questions.some((q) => q.id === TIEBREAK_QUESTION)) issues.push(`falta la pregunta de desempate "${TIEBREAK_QUESTION}"`);
   return issues;
 }

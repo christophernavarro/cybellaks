@@ -1,5 +1,5 @@
 // Estado del quiz guardado en la sesión del navegador (sessionStorage).
-const KEY = 'cybella.quiz.v1';
+const KEY = 'cybella.quiz.v2';
 const fresh = () => ({ answers: {}, step: 0, started: false, done: false });
 
 export function loadState() {

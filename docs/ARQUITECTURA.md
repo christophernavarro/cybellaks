@@ -70,49 +70,32 @@ assets/                     Aquí van las fotos reales (ver "Imágenes")
 
 ```js
 {
-  id: 'espacio',                 // identificador único, estable (se usa en las reglas)
+  id: 'espacio',                 // identificador único y estable
   type: 'single',                // 'single' (avanza al elegir) | 'multi' (botón Continuar)
-  title: '¿Qué espacio quieres transformar?',
-  subtitle: 'Opcional',
+  title: '¿Qué tipo de espacio necesitas intervenir?',
   options: [
-    { id: 'sala', label: 'Sala', hint: 'Opcional', art: 'room' }
-    //  id    → valor que se guarda y que usan las reglas
-    //  label → texto exacto que ve el usuario
+    { id: 'a', profile: 'p1', label: 'Privado (Habitaciones)', art: 'room', image: 'assets/img/…webp' }
+    //  profile → perfil (p1…p4) al que suma 1 punto esta opción
+    //  label   → texto exacto que ve el usuario
   ]
 }
 ```
 
-## Esquema: resultados y mapeo (`quiz.results.js`)
+Las 4 preguntas siguen el orden de la matriz oficial: espacio, problema, sensación y estilo. Las opciones A, B, C y D de cada pregunta suman,
+en ese orden, a los perfiles 1, 2, 3 y 4.
 
-Cada resultado declara **las combinaciones de respuestas** que lo producen:
+## Esquema: perfiles y puntuación (`quiz.results.js` + `quiz/engine.js`)
+
+Hay 4 perfiles (`p1` Refugio Intimista, `p2` Funcionalidad Activa, `p3` Conexión Social, `p4` Transición Atemporal):
 
 ```js
-{
-  id: 'luz-calida',
-  title: 'Refugio de luz cálida',
-  eyebrow: 'Tu resultado',
-  summary: 'Frase corta',
-  description: 'Texto largo…',
-  tips: ['Consejo 1', 'Consejo 2'],
-  art: 'lamp',                   // ilustración de reserva
-  image: null,                   // ruta a foto real, ej. 'assets/resultado-luz.jpg'
-  service: 'iluminacion',        // card relacionada (opcional)
-
-  // rules = lista de combinaciones alternativas (OR).
-  // Dentro de cada combinación, TODAS las preguntas deben cumplirse (AND).
-  // Un valor puede ser una opción o una lista de opciones aceptadas.
-  rules: [
-    { espacio: 'sala', estilo: ['calido', 'clasico'] },
-    { espacio: 'dormitorio' }
-  ]
-}
+{ id: 'p1', eyebrow: 'Tu perfil', title: 'Refugio Intimista', summary: '…', description: '…', tips: ['…'], art: 'lamp', image: 'assets/img/…webp' }
 ```
 
-Un resultado con `fallback: true` se usa cuando ninguna regla coincide.
-
-**Regla de decisión** (`engine.js`): gana el resultado cuya combinación satisfecha tenga **más condiciones** (la más
-específica). Si hay empate, gana el que aparece primero en la lista. Si tu tabla es "combinación exacta → resultado",
-basta con escribir una regla completa por resultado; si es más flexible, usa reglas parciales.
+**Regla de decisión** (`engine.js`): cada respuesta suma 1 punto a su perfil y gana el perfil con más puntos.
+- **Mayoría simple:** el perfil con 2 o más puntos gana.
+- **Empate** (2-2, o 1-1-1-1): gana el perfil de la respuesta a la pregunta 2 (`problema`, constante `TIEBREAK_QUESTION` en `quiz.questions.js`),
+  porque resolver el problema técnico es lo más urgente.
 
 ## Botones del resultado (visita y quiz completo)
 
@@ -128,7 +111,7 @@ sin pagar; para protegerlo hace falta confirmar el pago en un servidor (webhook 
 
 ## Estado de la sesión
 
-`sessionStorage['cybella.quiz.v1'] = { answers: { espacio: 'sala', … }, step: 2, done: false }`.
+`sessionStorage['cybella.quiz.v2'] = { answers: { espacio: 'a', problema: 'd', … }, step: 2, done: false }`.
 Si la persona recarga la página durante la misma sesión, retoma donde estaba. "Repetir quiz" lo reinicia.
 
 ## Imágenes (fotos realistas)

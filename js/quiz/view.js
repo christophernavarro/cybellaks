@@ -119,7 +119,7 @@ export function mountQuiz({ questions, results, copy }) {
   }
 
   function renderResult() {
-    const r = resolveResult(state.answers, results);
+    const r = resolveResult(state.answers, results, questions);
     setProgress(questions.length, questions.length);
     updateAside();
     showBg(null);
@@ -192,7 +192,7 @@ export function mountQuiz({ questions, results, copy }) {
     if (act === 'start') { state.started = true; saveState(state); renderQuestion(1); }
     if (act === 'next') next();
     if (act === 'back' && state.step > 0) { state.step--; saveState(state); renderQuestion(-1); }
-    if (act === 'email') document.dispatchEvent(new CustomEvent('cybella:email-result', { detail: { result: resolveResult(state.answers, results), answers: state.answers } }));
+    if (act === 'email') document.dispatchEvent(new CustomEvent('cybella:email-result', { detail: { result: resolveResult(state.answers, results, questions), answers: state.answers } }));
     if (act === 'full') document.dispatchEvent(new CustomEvent('cybella:checkout'));
   });
 
